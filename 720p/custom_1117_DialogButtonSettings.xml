@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="buttonMenu" id="1117">
+		<defaultcontrol>84</defaultcontrol>
+	<include>dialogeffect</include>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<controls>
+			<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>720</height>
+			<texture>black-back.png</texture>
+		</control>
+				<control type="image">
+					<description>background top image</description>
+					<left>340</left>
+					<top>235</top>
+					<width>600</width>
+					<height>30</height>
+					<texture border="20,19,20,0">DialogContextTop.png</texture>
+				</control>
+				<control type="image">
+					<description>background top image</description>
+					<left>340</left>
+					<top>265</top>
+					<width>600</width>
+					<height>200</height>
+					<texture border="20,19,20,0">DialogContextMiddle.png</texture>
+				</control>
+				<control type="image">
+					<description>background top image</description>
+					<left>340</left>
+					<top>465</top>
+					<width>600</width>
+					<height>30</height>
+					<texture border="20,19,20,0">DialogContextBottom.png</texture>
+				</control>					
+	<control type="group">
+	<left>360</left>
+	<top>260</top>
+		<control type="list" id="84">
+					<onup>85</onup>
+					<ondown>85</ondown>
+					<onleft>84</onleft>
+					<onright>84</onright>
+					<onback>9001</onback>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1280</width>
+					<height>220</height>
+					<viewtype>list</viewtype>
+					<orientation>horizontal</orientation>
+					<itemlayout width="90">
+						<control type="group">
+							<control type="image">
+								<posx>10</posx>
+								<posy>5</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>DialogBack.png</texture>
+							</control>						
+							<control type="image">
+								<posx>10</posx>
+								<posy>10</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<colordiffuse>44c6c6c6</colordiffuse>
+							</control>
+							<control type="label">
+								<posx>55</posx>
+								<posy>70</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<textcolor>44c6c6c6</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="90">
+<control type="group">
+							<control type="image">
+								<posx>10</posx>
+								<posy>5</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>DialogBack.png</texture>
+							</control>								
+							<control type="image">
+								<posx>10</posx>
+								<posy>10</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>Control.HasFocus(84)</visible>
+							</control>
+							<control type="image">
+								<posx>10</posx>
+								<posy>10</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<colordiffuse>44c6c6c6</colordiffuse>								
+								<visible>!Control.HasFocus(84)</visible>
+							</control>							
+							<control type="label">
+								<posx>55</posx>
+								<posy>70</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<visible>Control.HasFocus(84)</visible>
+							</control>
+							<control type="label">
+								<posx>55</posx>
+								<posy>70</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<textcolor>44c6c6c6</textcolor>								
+								<visible>!Control.HasFocus(84)</visible>
+							</control>							
+						</control>						
+					</focusedlayout>
+					<content>
+		<item>
+			<description>appearance</description>
+			<label>Appearance</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>
+			<onclick>ActivateWindow(appearancesettings)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/appearance.png</property>
+		</item>
+		<item>
+			<description>Video</description>
+			<label>Video</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>
+			<onclick>ActivateWindow(videossettings)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/video.png</property>
+		</item>	
+		<item>
+			<description>Music</description>
+			<label>Music</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>
+			<onclick>ActivateWindow(musicsettings)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/music.png</property>
+		</item>	
+		<item>
+			<description>pictures</description>
+			<label>Pictures</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>
+			<onclick>ActivateWindow(picturessettings)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/pictures.png</property>
+		</item>		
+		<item>
+			<description>Weather</description>
+			<label>Weather</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>
+			<onclick>ActivateWindow(weathersettings)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/weather.png</property>
+		</item>		
+		<item>
+			<description>Add-ons</description>
+			<label>Add-ons</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>
+			<onclick>ActivateWindow(addonbrowser)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/addons.png</property>
+		</item>				
+					</content>
+				</control>
+				
+	<control type="list" id="85">
+					<onup>84</onup>
+					<ondown>84</ondown>
+					<onleft>85</onleft>
+					<onright>85</onright>
+					<onback>9001</onback>
+					<posx>0</posx>
+					<posy>95</posy>
+					<width>1280</width>
+					<height>220</height>
+					<viewtype>list</viewtype>
+					<orientation>horizontal</orientation>
+					<itemlayout width="90">
+						<control type="group">
+							<control type="image">
+								<posx>10</posx>
+								<posy>5</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>DialogBack.png</texture>
+							</control>						
+							<control type="image">
+								<posx>10</posx>
+								<posy>10</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<colordiffuse>44c6c6c6</colordiffuse>
+							</control>
+							<control type="label">
+								<posx>55</posx>
+								<posy>70</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<textcolor>44c6c6c6</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="90">
+						<control type="group">
+							<control type="image">
+								<posx>10</posx>
+								<posy>5</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>DialogBack.png</texture>
+							</control>								
+							<control type="image">
+								<posx>10</posx>
+								<posy>10</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>Control.HasFocus(85)</visible>
+							</control>
+							<control type="image">
+								<posx>10</posx>
+								<posy>10</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<colordiffuse>44c6c6c6</colordiffuse>								
+								<visible>!Control.HasFocus(85)</visible>
+							</control>							
+							<control type="label">
+								<posx>55</posx>
+								<posy>70</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<visible>Control.HasFocus(85)</visible>
+							</control>
+							<control type="label">
+								<posx>55</posx>
+								<posy>70</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<textcolor>44c6c6c6</textcolor>								
+								<visible>!Control.HasFocus(85)</visible>
+							</control>							
+						</control>
+					</focusedlayout>
+					<content>		
+		<item>
+			<description>services</description>
+			<label>Services</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>
+			<onclick>ActivateWindow(servicesettings)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/settings.png</property>
+		</item>		
+		<item>
+			<description>system</description>
+			<label>System</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>
+			<onclick>ActivateWindow(systemsettings)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/system.png</property>
+		</item>									
+		<item>
+			<description>Update Library</description>
+			<property name="Poster">Home/settings/icons/arrows.png</property>
+			<label>$LOCALIZE[24069]</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>			
+			<onclick condition="!Library.IsScanningVideo">UpdateLibrary(video)</onclick>
+			<visible>true</visible>
+		</item>
+		<item>
+			<description>Configure Home Screen</description>
+			<property name="Poster">Home/settings/icons/config.png</property>
+			<label>Skin Settings</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>			
+			<onclick>ActivateWindow(skinsettings)</onclick>
+			<visible>true</visible>
+		</item>
+		<item>
+			<description>File Manager</description>
+			<label>$LOCALIZE[7]</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>			
+			<onclick>ActivateWindow(filemanager)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/folder.png</property>                        
+		</item>	
+		<item>
+			<description>system info</description>
+			<label>System Info</label>
+			<onclick>SetFocus(525)</onclick>
+			<onclick>Close</onclick>			
+			<onclick>ActivateWindow(systeminfo)</onclick>
+			<visible>System.Loggedon</visible>
+			<property name="Poster">Home/settings/icons/info.png</property>                        
+		</item>				
+					</content>
+				</control>				
+</control>
+	</controls>
+</window>

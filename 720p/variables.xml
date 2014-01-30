@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <variable name="WidgetMoviesResolution">
+        <value condition="!IsEmpty(Container(8000).ListItem.Property(VideoResolution))">$INFO[Container(8000).ListItem.Property(VideoResolution),Home/Widgets/flags/resolution/,.png]</value>
+        <value>Home/Widgets/flags/resolution/defaultscreen.png</value>
+    </variable>
+
+    <variable name="WidgetMoviesStudio">
+        <value condition="!IsEmpty(Container(8000).ListItem.Property(Studio))">$INFO[Container(8000).ListItem.Property(Studio),Home/Widgets/flags/studios/,.png]</value>
+        <value>Home/Widgets/flags/studios/default-studio.png</value>
+    </variable>
+    <variable name="WidgetMoviesAspect">
+        <value condition="!IsEmpty(Container(8000).ListItem.Property(VideoAspect))">$INFO[Container(8000).ListItem.Property(VideoAspect),Home/Widgets/flags/aspectratio/,.png]</value>
+        <value>Home/Widgets/flags/aspectratio/defaultaspect.png</value>
+    </variable>
+    <variable name="WidgetMoviesVideoCodec">
+        <value condition="!IsEmpty(Container(8000).ListItem.Property(VideoCodec))">$INFO[Container(8000).ListItem.Property(VideoCodec),Home/Widgets/flags/source/,.png]</value>
+        <value>Home/Widgets/flags/source/default.png</value>
+    </variable>
+    <variable name="WidgetMoviesAudioCodec">
+        <value condition="!IsEmpty(Container(8000).ListItem.Property(AudioCodec))">$INFO[Container(8000).ListItem.Property(AudioCodec),Home/Widgets/flags/audio/,.png]</value>
+        <value>Home/Widgets/flags/audio/defaultsound.png</value>
+    </variable>    
+	
+	
+
+
+</includes>
