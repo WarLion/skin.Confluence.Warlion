@@ -445,11 +445,10 @@
 					</control>	
 					<control type="image">
 						<posx>644</posx>
-						<posy>250</posy>
-						<width>55</width>
-						<height>39</height>
-						<aspectratio>keep</aspectratio>
-						<texture fallback="Home/Widgets/flags/IMDB.png">Home/Widgets/flags/IMDB.png</texture>
+						<posy>260</posy>
+						<width>54</width>
+						<height>20</height>
+						<texture>Home/Widgets/flags/IMDB.png</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>			
 				<control type="label">
@@ -462,18 +461,26 @@
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<label>$INFO[Container(8000).ListItem.Property(Rating)]</label>
-					</control>											
-				<control type="label">
-						<posx>703</posx>
+					</control>	
+					<control type="image">
+						<posx>705</posx>
+						<posy>260</posy>
+						<width>62</width>
+						<height>20</height>
+						<texture>Home/Widgets/flags/time.png</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>																
+					<control type="label">
+						<posx>710</posx>
 						<posy>258</posy>
 						<width>70</width>
 						<font>font12_title</font>
 						<align>center</align>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<label>$INFO[Container(8000).ListItem.Property(RunningTime)]min</label>
+						<label>$INFO[Container(8000).ListItem.Property(RunningTime)]</label>
 					</control>																			
-				<control type="label">
+					<control type="label">
 						<posx>771</posx>
 						<posy>258</posy>
 						<width>55</width>
