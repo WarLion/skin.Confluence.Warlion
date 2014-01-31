@@ -65,7 +65,7 @@
 						<width>120</width>
 						<height>110</height>
 						<aspectratio>keep</aspectratio>
-						<texture>$INFO[Window.Property(36Hour.1.OutlookIcon)]</texture>
+						<texture>$INFO[Window.Property(36Hour.1.FanartCode),weather/small/,.png]</texture>
 					</control>
 					<control type="label">
 						<left>120</left>
@@ -130,7 +130,7 @@
 						<width>120</width>
 						<height>110</height>
 						<aspectratio>keep</aspectratio>
-						<texture>$INFO[Window.Property(36Hour.2.OutlookIcon)]</texture>
+						<texture>$INFO[Window.Property(36Hour.2.FanartCode),weather/small/,.png]</texture>
 					</control>
 					<control type="label">
 						<left>120</left>
@@ -195,7 +195,7 @@
 						<width>120</width>
 						<height>110</height>
 						<aspectratio>keep</aspectratio>
-						<texture>$INFO[Window.Property(36Hour.3.OutlookIcon)]</texture>
+						<texture>$INFO[Window.Property(36Hour.3.FanartCode),weather/small/,.png]</texture>
 					</control>
 					<control type="label">
 						<left>120</left>

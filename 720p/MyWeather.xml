@@ -178,7 +178,7 @@
 						<top>145</top>
 						<width>200</width>
 						<height>200</height>
-						<info>Window.Property(Current.ConditionIcon)</info>
+						<texture>$INFO[Window(Weather).Property(Current.FanartCode),weather/medium/,.png]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">

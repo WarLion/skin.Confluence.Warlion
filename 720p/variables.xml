@@ -11,7 +11,7 @@
     </variable>
     <variable name="WidgetMoviesAspect">
         <value condition="!IsEmpty(Container(8000).ListItem.Property(VideoAspect))">$INFO[Container(8000).ListItem.Property(VideoAspect),Home/Widgets/flags/aspectratio/,.png]</value>
-        <value>Home/Widgets/flags/aspectratio/defaultaspect.png</value>
+        <value></value>
     </variable>
     <variable name="WidgetMoviesVideoCodec">
         <value condition="!IsEmpty(Container(8000).ListItem.Property(VideoCodec))">$INFO[Container(8000).ListItem.Property(VideoCodec),Home/Widgets/flags/source/,.png]</value>

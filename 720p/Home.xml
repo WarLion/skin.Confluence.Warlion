@@ -133,9 +133,7 @@
 				<onright>9000</onright>
 				<ondown>9003</ondown>
 				<onup>9001</onup>
-				<pagecontrol>-</pagecontrol>
-				<scrolltime>300</scrolltime>
-				<focusposition>2</focusposition>
+				<focusposition>1</focusposition>
 				<movement>1</movement>
 				<orientation>Horizontal</orientation>
 			<animation type="WindowOpen" reversible="false">
@@ -287,7 +285,7 @@
 					<include>HomeAddonItemsVideos</include>
 				</content>
 			</control>
-			<control type="fixedlist" id="703">
+			<control type="list" id="703">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="StringCompare(Container(703).NumItems,2) | StringCompare(Container(703).NumItems,4)">conditional</animation>
 				<visible>Container(9000).HasFocus(3)</visible>
 				<onleft>703</onleft>
@@ -299,7 +297,7 @@
 					<include>HomeAddonItemsMusic</include>
 				</content>
 			</control>
-			<control type="fixedlist" id="704">
+			<control type="list" id="704">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="StringCompare(Container(704).NumItems,2) | StringCompare(Container(704).NumItems,4)">conditional</animation>
 				<visible>Container(9000).HasFocus(4)</visible>
 				<onleft>704</onleft>
@@ -311,7 +309,7 @@
 					<include>HomeAddonItemsPictures</include>
 				</content>
 			</control>
-			<control type="fixedlist" id="705">
+			<control type="list" id="705">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="StringCompare(Container(705).NumItems,2) | StringCompare(Container(705).NumItems,4)">conditional</animation>
 				<visible>Container(9000).HasFocus(1)</visible>
 				<onleft>705</onleft>
@@ -430,7 +428,7 @@
 		<control type="group">
 			<left>20</left>
 			<top>0</top>
-			<visible>Skin.HasSetting(homepageWeatherinfo) + !IsEmpty(Weather.Plugin)</visible>
+			<visible>Skin.HasSetting(homepageWeatherinfo) + !IsEmpty(Weather.Plugin) + !Container(9000).Hasfocus(7)</visible>
 			<include>Window_OpenClose_Animation</include>
 			<control type="image">
 				<description>Weather image</description>
@@ -439,7 +437,7 @@
 				<width>100</width>
 				<height>100</height>
 				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Weather.Conditions]</texture>
+				<texture>$INFO[Window(Weather).Property(Current.FanartCode),weather/medium/,.png]</texture>
 			</control>
 			<control type="label">
 				<description>Location label</description>
@@ -506,50 +504,59 @@
 			<control type="image">
 				<description>Cover image</description>
 				<left>-40</left>
-				<top>300</top>
-				<width>280</width>
-				<height>295</height>
+				<top>330</top>
+				<width>260</width>
+				<height>275</height>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
 				<bordertexture border="8">ThumbBorder.png</bordertexture>
 				<bordersize>5</bordersize>
 			</control>
+						<control type="image">
+				<description>Cover image</description>
+				<left>-35</left>
+				<top>335</top>
+				<width>250</width>
+				<height>265</height>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<texture>Home/widgets/nowplaying/audioshadow.png</texture>
+			</control>
 			<control type="label">
 				<description>Album Label</description>
-				<left>-850</left>
-				<top>515</top>
+				<left>-590</left>
+				<top>535</top>
 				<height>25</height>
 				<width>800</width>
 				<label>$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Album]$INFO[musicplayer.discnumber, - $LOCALIZE[427]:]</label>
 				<align>right</align>
 				<aligny>center</aligny>
-				<font>font12</font>
+				<font>font10</font>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="label">
 				<description>Title label</description>
-				<left>-850</left>
-				<top>535</top>
+				<left>-590</left>
+				<top>550</top>
 				<height>30</height>
 				<width>800</width>
 				<label>$INFO[Player.Title]</label>
 				<align>right</align>
 				<aligny>center</aligny>
-				<font>font13_title</font>
+				<font>font10</font>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="label">
 				<description>Time Label</description>
-				<left>-347</left>
-				<top>560</top>
+				<left>-88</left>
+				<top>570</top>
 				<height>30</height>
 				<width>300</width>
 				<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=blue] / [/COLOR]]</label>
 				<align>right</align>
 				<aligny>center</aligny>
-				<font>font12</font>
+				<font>font10</font>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
@@ -567,14 +574,14 @@
 				<visible>PVR.HasNonRecordingTimer</visible>
 				<control type="image">
 					<left>0</left>
-					<top>-5</top>
+					<top>515</top>
 					<width>490</width>
 					<height>90</height>
 					<texture>gradient.png</texture>
 				</control>
 				<control type="image">
 					<left>400</left>
-					<top>0</top>
+					<top>520</top>
 					<width>80</width>
 					<height>80</height>
 					<aspectratio>keep</aspectratio>
@@ -584,7 +591,7 @@
 				</control>
 				<control type="image">
 					<left>365</left>
-					<top>5</top>
+					<top>525</top>
 					<width>25</width>
 					<height>25</height>
 					<aspectratio>keep</aspectratio>
@@ -593,7 +600,7 @@
 				<control type="label">
 					<description>Next Timer Header label</description>
 					<left>-45</left>
-					<top>5</top>
+					<top>525</top>
 					<height>25</height>
 					<width>400</width>
 					<label>$LOCALIZE[19157]</label>
@@ -606,7 +613,7 @@
 				<control type="label">
 					<description>NextRecordingDateTime</description>
 					<left>-10</left>
-					<top>30</top>
+					<top>550</top>
 					<height>25</height>
 					<width>400</width>
 					<label>$INFO[PVR.NextRecordingDateTime,$LOCALIZE[19126] - ]</label>
@@ -619,7 +626,7 @@
 				<control type="label">
 					<description>NextRecordingTitle Channel</description>
 					<left>-410</left>
-					<top>50</top>
+					<top>570</top>
 					<height>25</height>
 					<width>800</width>
 					<label>$INFO[PVR.NextRecordingTitle][COLOR=grey]$INFO[PVR.NextRecordingChannel, - [COLOR=blue]([/COLOR],[COLOR=blue])[/COLOR]][/COLOR]</label>
@@ -634,14 +641,14 @@
 				<visible>PVR.IsRecording</visible>
 				<control type="image">
 					<left>0</left>
-					<top>-5</top>
+					<top>515</top>
 					<width>490</width>
 					<height>90</height>
 					<texture>gradient.png</texture>
 				</control>
 				<control type="image">
 					<left>400</left>
-					<top>0</top>
+					<top>520</top>
 					<width>80</width>
 					<height>80</height>
 					<aspectratio>keep</aspectratio>
@@ -651,7 +658,7 @@
 				</control>
 				<control type="image">
 					<left>360</left>
-					<top>5</top>
+					<top>525</top>
 					<width>30</width>
 					<height>25</height>
 					<aspectratio>keep</aspectratio>
@@ -660,7 +667,7 @@
 				<control type="label">
 					<description>Is Recording Header label</description>
 					<left>-50</left>
-					<top>5</top>
+					<top>525</top>
 					<height>25</height>
 					<width>400</width>
 					<label>$LOCALIZE[19158]</label>
@@ -673,7 +680,7 @@
 				<control type="label">
 					<description>NextRecordingDateTime</description>
 					<left>-10</left>
-					<top>30</top>
+					<top>550</top>
 					<height>25</height>
 					<width>400</width>
 					<label>$INFO[PVR.NowRecordingDateTime,$LOCALIZE[19126] - ]</label>
@@ -686,7 +693,7 @@
 				<control type="label">
 					<description>NextRecordingTitle Channel</description>
 					<left>-410</left>
-					<top>50</top>
+					<top>570</top>
 					<height>30</height>
 					<width>800</width>
 					<label>$INFO[PVR.NowRecordingTitle][COLOR=grey]$INFO[PVR.NowRecordingChannel, - [COLOR=blue]([/COLOR],[COLOR=blue])[/COLOR]][/COLOR]</label>
@@ -803,7 +810,7 @@
 				<control type="image">
 					<description>Cover image</description>
 					<left>120</left>
-					<top>40</top>
+					<top>60</top>
 					<width>180</width>
 					<height>300</height>
 					<aspectratio aligny="bottom">keep</aspectratio>
@@ -812,28 +819,15 @@
 					<bordersize>5</bordersize>
 				</control>
 				<control type="label">
-					<description>Title label</description>
-					<left>-690</left>
-					<top>250</top>
-					<height>30</height>
-					<width>800</width>
-					<label>$INFO[Player.Title]</label>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>font13_title</font>
-					<textcolor>white</textcolor>
-					<shadowcolor>black</shadowcolor>
-				</control>
-				<control type="label">
 					<description>Time Label</description>
-					<left>-190</left>
-					<top>280</top>
+					<left>-25</left>
+					<top>350</top>
 					<height>30</height>
 					<width>300</width>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=blue] / [/COLOR]]</label>
+					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=gray] / [/COLOR]]</label>
 					<align>right</align>
 					<aligny>center</aligny>
-					<font>font12</font>
+					<font>font10</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -844,7 +838,7 @@
 					<description>Cover image</description>
 					<left>45</left>
 					<top>-45</top>
-					<width>320</width>					
+					<width>300</width>					
 					<aspectratio align="center">keep</aspectratio>
 					<texture fallback="DefaultVideoCover.png">$INFO[Player.Art(thumb)]</texture>
 					<bordertexture border="8">ThumbBorder.png</bordertexture>
@@ -852,7 +846,7 @@
 				</control>
 				<control type="label">
 					<description>TV Show Season Ep Label</description>
-					<left>-650</left>
+					<left>-670</left>
 					<top>195</top>
 					<height>25</height>
 					<width>1000</width>
@@ -864,7 +858,7 @@
 				</control>
 				<control type="label">
 					<description>Title label</description>
-					<left>-650</left>
+					<left>-670</left>
 					<top>215</top>
 					<height>30</height>
 					<width>1000</width>
@@ -877,7 +871,7 @@
 				</control>
 				<control type="label">
 					<description>Time Label</description>
-					<left>50</left>
+					<left>30</left>
 					<top>235</top>
 					<height>30</height>
 					<width>300</width>

@@ -65,7 +65,7 @@
 						<width>130</width>
 						<height>160</height>
 						<aspectratio>keep</aspectratio>
-						<texture>$INFO[Window.Property(Weekend.1.OutlookIcon)]</texture>
+						<texture>$INFO[Window.Property(Weekend.1.FanartCode),weather/small/,.png]</texture>
 					</control>
 					<control type="label">
 						<left>140</left>
@@ -152,7 +152,7 @@
 						<width>130</width>
 						<height>160</height>
 						<aspectratio>keep</aspectratio>
-						<texture>$INFO[Window.Property(Weekend.2.OutlookIcon)]</texture>
+						<texture>$INFO[Window.Property(Weekend.2.FanartCode),weather/small/,.png]</texture>
 					</control>
 					<control type="label">
 						<left>140</left>

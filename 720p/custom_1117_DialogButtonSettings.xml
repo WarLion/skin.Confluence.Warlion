@@ -23,6 +23,23 @@
 					<height>30</height>
 					<texture border="20,19,20,0">DialogContextTop.png</texture>
 				</control>
+				<control type="button" id="20">
+					<description>Close Window button</description>
+					<left>875</left>
+					<top>250</top>
+					<width>50</width>
+					<height>23</height>
+					<label>-</label>
+					<font>-</font>
+					<onclick>PreviousMenu</onclick>
+					<texturefocus>DialogCloseButton-focus.png</texturefocus>
+					<texturenofocus>DialogCloseButton.png</texturenofocus>
+					<onleft>2</onleft>
+					<onright>13</onright>
+					<onup>13</onup>
+					<ondown>2</ondown>
+					<visible>system.getbool(input.enablemouse)</visible>
+				</control>
 				<control type="image">
 					<description>background top image</description>
 					<left>340</left>
@@ -41,7 +58,7 @@
 				</control>					
 	<control type="group">
 	<left>360</left>
-	<top>260</top>
+	<top>265</top>
 		<control type="list" id="84">
 					<onup>85</onup>
 					<ondown>85</ondown>

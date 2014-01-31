@@ -359,7 +359,7 @@
 				</control>	
 							
 				<control type="label">
-						<posx>80</posx>
+						<posx>100</posx>
 						<posy>350</posy>
 						<width>422</width>
 						<height>100</height>
@@ -396,8 +396,9 @@
 						<height>70</height>
 						<autoscroll delay="8000" time="3000" repeat="8000" />
 					</control>	
+				
 					<control type="image">
-						<posx>855</posx>
+						<posx>850</posx>
 						<posy>235</posy>
 						<width>100</width>
 						<height>68</height>
@@ -408,7 +409,7 @@
 					<control type="image">
 						<posx>400</posx>
 						<posy>250</posy>
-						<width>45</width>
+						<width>60</width>
 						<height>39</height>
 						<aspectratio>keep</aspectratio>
 						<texture fallback="Home/Widgets/flags/resolution/defaultscreen.png">$VAR[WidgetMoviesResolution]</texture>
@@ -416,34 +417,34 @@
 					</control>	
 
 					<control type="image">
-						<posx>450</posx>
+						<posx>465</posx>
 						<posy>250</posy>
-						<width>76</width>
+						<width>58</width>
 						<height>39</height>
 						<aspectratio>keep</aspectratio>
 						<texture fallback="Home/Widgets/flags/audio/defaultsound.png">$VAR[WidgetMoviesAudioCodec]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>					
 					<control type="image">
-						<posx>531</posx>
+						<posx>528</posx>
 						<posy>250</posy>
-						<width>45</width>
+						<width>58</width>
 						<height>39</height>
 						<aspectratio>keep</aspectratio>
-						<texture fallback="Home/Widgets/flags/aspectratio/defaultaspect.png">$VAR[WidgetMoviesAspect]</texture>
+						<texture fallback="black.png">$VAR[WidgetMoviesAspect]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>										
 					<control type="image">
 						<posx>581</posx>
 						<posy>250</posy>
-						<width>55</width>
+						<width>58</width>
 						<height>39</height>
 						<aspectratio>keep</aspectratio>
 						<texture fallback="Home/Widgets/flags/source/default.png">$VAR[WidgetMoviesVideoCodec]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>	
 					<control type="image">
-						<posx>641</posx>
+						<posx>644</posx>
 						<posy>250</posy>
 						<width>55</width>
 						<height>39</height>
@@ -452,8 +453,8 @@
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>			
 				<control type="label">
-						<posx>643</posx>
-						<posy>263</posy>
+						<posx>653</posx>
+						<posy>258</posy>
 						<width>55</width>
 						<height>100</height>
 						<font>font12_title</font>
@@ -462,38 +463,19 @@
 						<shadowcolor>black</shadowcolor>
 						<label>$INFO[Container(8000).ListItem.Property(Rating)]</label>
 					</control>											
-					<control type="image">
-						<posx>701</posx>
-						<posy>250</posy>
-						<width>55</width>
-						<height>39</height>
-						<aspectratio>keep</aspectratio>
-						<texture >Home/Widgets/flags/time.png</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
-					</control>	
 				<control type="label">
 						<posx>703</posx>
-						<posy>263</posy>
-						<width>55</width>
-						<height>100</height>
+						<posy>258</posy>
+						<width>70</width>
 						<font>font12_title</font>
 						<align>center</align>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<label>$INFO[Container(8000).ListItem.Property(RunningTime)]</label>
-					</control>						
-					<control type="image">
-						<posx>761</posx>
-						<posy>250</posy>
-						<width>55</width>
-						<height>39</height>
-						<aspectratio>keep</aspectratio>
-						<texture >Home/Widgets/flags/year.png</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
-					</control>														
+						<label>$INFO[Container(8000).ListItem.Property(RunningTime)]min</label>
+					</control>																			
 				<control type="label">
-						<posx>761</posx>
-						<posy>263</posy>
+						<posx>771</posx>
+						<posy>258</posy>
 						<width>55</width>
 						<height>100</height>
 						<font>font12_title</font>
@@ -707,7 +689,7 @@
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="image">
-							<posx>-390</posx>
+							<posx>-370</posx>
 							<posy>130</posy>
 							<width>300</width>
 							<height>422</height>
@@ -799,8 +781,8 @@
 					<top>0</top>
 					<width>870</width>
 					<height>240</height>
-					<onleft>8001</onleft>
-					<onright>8001</onright>
+					<onleft>8002</onleft>
+					<onright>8002</onright>
 					<onup>9000</onup>
 					<ondown>20</ondown>
 					<viewtype label="535">list</viewtype>
@@ -875,105 +857,114 @@
 					</focusedlayout>
 			<content>
 						<item>
-							<label>$INFO[Window.Property(RecentAlbum.1.Title)]</label>
+							<label>$INFO[Window.Property(RecentAlbum.1.Artist)]</label>
 							<label2>$INFO[Window.Property(RecentAlbum.1.Title)]$INFO[Window.Property(RecentAlbum.1.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(RecentAlbum.1.Path)]")</onclick>
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.1.Description)]</property>
+							<onclick>$INFO[Window.Property(RecentAlbum.1.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.1.Thumb)]</thumb>
 							<visible>!IsEmpty(Window.Property(RecentAlbum.1.Title))</visible>
 						<property name="Fanart">$INFO[Window.Property(RecentAlbum.1.Art(fanart))]</property>							
 						</item>
-
 						<item>
-							<label>$INFO[Window.Property(RecentAlbum.2.Title)]</label>
+							<label>$INFO[Window.Property(RecentAlbum.2.Artist)]</label>
 							<label2>$INFO[Window.Property(RecentAlbum.2.Title)]$INFO[Window.Property(RecentAlbum.2.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(RecentAlbum.2.Path)]")</onclick>
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.2.Description)]</property>
+							<onclick>$INFO[Window.Property(RecentAlbum.2.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.2.Thumb)]</thumb>
 							<visible>!IsEmpty(Window.Property(RecentAlbum.2.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.2.Art(fanart))]</property>	
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.2.Art(fanart))]</property>							
 						</item>
 						<item>
-							<label>$INFO[Window.Property(LatestAlbum.3.Title)]</label>
+							<label>$INFO[Window.Property(RecentAlbum.3.Artist)]</label>
 							<label2>$INFO[Window.Property(RecentAlbum.3.Title)]$INFO[Window.Property(RecentAlbum.3.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(LatestAlbum.3.Path)]")</onclick>
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.3.Description)]</property>
+							<onclick>$INFO[Window.Property(RecentAlbum.3.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.3.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(LatestAlbum.3.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.3.Art(fanart))]</property>	
+							<visible>!IsEmpty(Window.Property(RecentAlbum.3.Title))</visible>
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.3.Art(fanart))]</property>							
 						</item>
 						<item>
-							<label>$INFO[Window.Property(LatestAlbum.4.Title)]</label>
+							<label>$INFO[Window.Property(RecentAlbum.4.Artist)]</label>
 							<label2>$INFO[Window.Property(RecentAlbum.4.Title)]$INFO[Window.Property(RecentAlbum.4.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(LatestAlbum.4.Path)]")</onclick>
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.4.Description)]</property>
+							<onclick>$INFO[Window.Property(RecentAlbum.4.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.4.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(LatestAlbum.4.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.4.Art(fanart))]</property>	
+							<visible>!IsEmpty(Window.Property(RecentAlbum.4.Title))</visible>
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.4.Art(fanart))]</property>							
 						</item>
 						<item>
-							<label>$INFO[Window.Property(LatestAlbum.5.Title)]</label>
+							<label>$INFO[Window.Property(RecentAlbum.5.Artist)]</label>
 							<label2>$INFO[Window.Property(RecentAlbum.5.Title)]$INFO[Window.Property(RecentAlbum.5.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(LatestAlbum.5.Path)]")</onclick>
+							<onclick>$INFO[Window.Property(RecentAlbum.5.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.5.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(LatestAlbum.5.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.5.Art(fanart))]</property>	
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.5.Description)]</property>
+							<visible>!IsEmpty(Window.Property(RecentAlbum.5.Title))</visible>
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.5.Art(fanart))]</property>							
 						</item>
 						<item>
-							<label>$INFO[Window.Property(LatestAlbum.6.Title)]</label>
+							<label>$INFO[Window.Property(RecentAlbum.6.Artist)]</label>
 							<label2>$INFO[Window.Property(RecentAlbum.6.Title)]$INFO[Window.Property(RecentAlbum.6.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(LatestAlbum.6.Path)]")</onclick>
+							<onclick>$INFO[Window.Property(RecentAlbum.6.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.6.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(LatestAlbum.6.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.6.Art(fanart))]</property>	
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.6.Description)]</property>
+							<visible>!IsEmpty(Window.Property(RecentAlbum.6.Title))</visible>
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.6.Art(fanart))]</property>							
 						</item>
 						<item>
-							<label>$INFO[Window.Property(LatestAlbum.7.Title)]</label>
-							<label2>$INFO[Window.Property(LatestAlbum.7.Artist)]</label2>
+							<label>$INFO[Window.Property(RecentAlbum.7.Artist)]</label>
+							<label2>$INFO[Window.Property(RecentAlbum.7.Title)]$INFO[Window.Property(RecentAlbum.7.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(LatestAlbum.7.Path)]")</onclick>
+							<onclick>$INFO[Window.Property(RecentAlbum.7.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.7.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(LatestAlbum.7.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.7.Art(fanart))]</property>	
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.7.Description)]</property>
+							<visible>!IsEmpty(Window.Property(RecentAlbum.7.Title))</visible>
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.7.Art(fanart))]</property>							
 						</item>
 						<item>
-							<label>$INFO[Window.Property(LatestAlbum.8.Title)]</label>
-							<label2>$INFO[Window.Property(LatestAlbum.8.Artist)]</label2>
+							<label>$INFO[Window.Property(RecentAlbum.8.Artist)]</label>
+							<label2>$INFO[Window.Property(RecentAlbum.8.Title)]$INFO[Window.Property(RecentAlbum.8.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(LatestAlbum.8.Path)]")</onclick>
+							<onclick>$INFO[Window.Property(RecentAlbum.8.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.8.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(LatestAlbum.8.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.8.Art(fanart))]</property>	
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.8.Description)]</property>
+							<visible>!IsEmpty(Window.Property(RecentAlbum.8.Title))</visible>
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.8.Art(fanart))]</property>							
 						</item>
 						<item>
-							<label>$INFO[Window.Property(LatestAlbum.9.Title)]</label>
-							<label2>$INFO[Window.Property(LatestAlbum.9.Artist)]</label2>
+							<label>$INFO[Window.Property(RecentAlbum.9.Artist)]</label>
+							<label2>$INFO[Window.Property(RecentAlbum.9.Title)]$INFO[Window.Property(RecentAlbum.9.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(LatestAlbum.9.Path)]")</onclick>
+							<onclick>$INFO[Window.Property(RecentAlbum.9.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.9.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(LatestAlbum.9.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.9.Art(fanart))]</property>	
+							<visible>!IsEmpty(Window.Property(RecentAlbum.9.Title))</visible>
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.9.Description)]</property>
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.9.Art(fanart))]</property>							
 						</item>
 						<item>
-							<label>$INFO[Window.Property(LatestAlbum.10.Title)]</label>
-							<label2>$INFO[Window.Property(LatestAlbum.10.Artist)]</label2>
+							<label>$INFO[Window.Property(RecentAlbum.10.Artist)]</label>
+							<label2>$INFO[Window.Property(RecentAlbum.10.Title)]$INFO[Window.Property(RecentAlbum.10.Year), • ,]</label2>
 							<onclick>PlayList.Clear</onclick>
-							<onclick>PlayMedia("$INFO[Window.Property(LatestAlbum.10.Path)]")</onclick>
+							<onclick>$INFO[Window.Property(RecentAlbum.10.Play)]</onclick>
 							<icon>-</icon>
 							<thumb>$INFO[Window.Property(RecentAlbum.10.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(LatestAlbum.10.Title))</visible>
-							<property name="Fanart">$INFO[Window.Property(RecentAlbum.10.Art(fanart))]</property>	
+							<property name="Plot">$INFO[Window.Property(RecentAlbum.10.Description)]</property>
+							<visible>!IsEmpty(Window.Property(RecentAlbum.10.Title))</visible>
+						<property name="Fanart">$INFO[Window.Property(RecentAlbum.10.Art(fanart))]</property>							
 						</item>
 					</content>
 				</control>
@@ -990,7 +981,19 @@
 						</control>
 						<control type="label">
 							<posx>-60</posx>
-							<posy>160</posy>
+							<posy>150</posy>
+							<width>800</width>
+							<height>100</height>
+							<font>font12_title</font>
+							<align>ceter</align>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<label>$INFO[Container(8002).ListItem.Label]</label>
+						</control>
+
+						<control type="label">
+							<posx>-60</posx>
+							<posy>170</posy>
 							<width>800</width>
 							<height>100</height>
 							<font>font12_title</font>
@@ -1000,8 +1003,8 @@
 							<label>$INFO[Container(8002).ListItem.Label2]</label>
 						</control>
 						<control type="textbox">
-							<posx>-50</posx>
-							<posy>180</posy>
+							<posx>-60</posx>
+							<posy>195</posy>
 							<label>$INFO[Container(8002).ListItem.Property(Plot)]</label>
 							<align>justify</align>
 							<font>font10</font>
@@ -1061,8 +1064,8 @@
 					<top>0</top>
 					<width>1260</width>
 					<height>220</height>
-					<onleft>8000</onleft>
-					<onright>8000</onright>
+					<onleft>8003</onleft>
+					<onright>8003</onright>
 					<onup>9000</onup>
 					<ondown>20</ondown>
 					<viewtype label="535">list</viewtype>
@@ -1242,29 +1245,30 @@
 				</control>
 				<control type="label">
 						<posx>420</posx>
-						<posy>150</posy>
+						<posy>170</posy>
 						<width>422</width>
 						<height>100</height>
 						<font>font13_title</font>
 						<align>left</align>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<label>$INFO[Container(8003).ListItem.Label]</label>
+						<label>$INFO[Container(8003).ListItem.Label] - $INFO[Container(8003).ListItem.Property(RunningTime)] Min</label>
 					</control>	
 				<control type="label">
 						<posx>420</posx>
-						<posy>175</posy>
-						<width>422</width>
+						<posy>195</posy>
+						<width>420</width>
 						<height>100</height>
 						<font>font13_title</font>
 						<align>left</align>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<label>$INFO[Container(8003).ListItem.Label2]</label>
+						<scroll>true</scroll>
 					</control>										
 				<control type="image">
-					<posx>65</posx>
-					<posy>175</posy>
+					<posx>80</posx>
+					<posy>195</posy>
 					<width>300</width>
 					<height>422</height>
 					<aspectratio align="center">keep</aspectratio>
@@ -1273,7 +1277,7 @@
 				</control>								
 				<control type="image">
 					<posx>970</posx>
-					<posy>50</posy>
+					<posy>70</posy>
 					<width>300</width>
 					<height>422</height>
 					<aspectratio align="center">keep</aspectratio>
@@ -1287,7 +1291,7 @@
 					
 					<control type="textbox">
 						<posx>420</posx>
-						<posy>200</posy>
+						<posy>220</posy>
 						<label>$INFO[Container(8003).ListItem.Property(Plot)]</label>
 						<align>justify</align>
 						<font>font10</font>
@@ -1295,29 +1299,445 @@
 						<width>500</width>
 						<height>70</height>
 						<autoscroll delay="8000" time="3000" repeat="8000" />
-					</control>																																	
+					</control>																																													
+				</control>
+			</control>
+			
+			
+			
+			
+			
+			
+			<control type="group">
+				<left>-130</left>
+				<top>170</top>
+				<visible>Container(9000).Hasfocus(7) + !Skin.HasSetting(HomepageHideRecentlyAddedAlbums)</visible>
+				<include>VisibleFadeEffect2</include>
+				
+				<control type="group">
+					<posy>84</posy>
+					<posx>550</posx>
+					<control type="group">
+					<posx>-5</posx>
 					<control type="image">
-						<posx>423</posx>
-						<posy>260</posy>
-						<width>55</width>
-						<height>39</height>
-						<aspectratio>keep</aspectratio>
-						<texture>Home/Widgets/flags/time.png</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
-					</control>	
-				<control type="label">
-						<posx>425</posx>
-						<posy>273</posy>
-						<width>55</width>
-						<height>100</height>
-						<font>font12_title</font>
+						<posx>-5</posx>
+						<posy>-5</posy>
+						<width>250</width>
+						<height>130</height>
+						<texture border="35">ContentPanel.png</texture>
+						<colordiffuse>88eeeeee</colordiffuse>
+					</control>
+					<control type="image">
+						<posx>-5</posx>
+						<posy>-10</posy>
+						<width>120</width>
+						<height>120</height>
+						<texture>$INFO[Window(Weather).Property(Day1.FanartCode),weather/medium/,.png]</texture>
+						<aspectratio align="left">keep</aspectratio>
+					</control>
+					<control type="label">
+						<posx>100</posx>
+						<posy>15</posy>
+						<label>$INFO[Window(Weather).Property(Day1.Title)]</label>
 						<align>center</align>
+						<font>Font13</font>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<label>$INFO[Container(8003).ListItem.Property(RunningTime)]</label>
-						
-					</control>												
+						<width>149</width>
+						<scroll>false</scroll>
+					</control>
+					<control type="group">
+							<posy>-35</posy>
+							<posx>-50</posx>
+						<control type="label">
+							<posx>178</posx>
+							<posy>84</posy>
+							<height>40</height>
+							<width>165</width>
+							<font>Font10</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
+							<scroll>false</scroll>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<wrapmultiline>true</wrapmultiline>
+						</control>
+					<control type="grouplist">
+						<posx>160</posx>
+						<posy>114</posy>
+						<height>40</height>
+						<width>208</width>
+						<itemgap>0</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<orientation>horizontal</orientation>
+						<control type="image">
+							<posx>0</posx>
+							<posy>8</posy>
+							<width>12</width>
+							<height>24</height>
+							<texture>weather/temp-high-small.png</texture>
+						<colordiffuse>white</colordiffuse>
+					</control>
+					<control type="label">
+						<description>high temp</description>
+						<posx>4</posx>
+						<posy>0</posy>
+						<height>40</height>
+						<width min="0" max="80">auto</width>
+						<font>Font10</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="image">
+						<posx>15</posx>
+						<posy>8</posy>
+						<width>12</width>
+						<height>24</height>
+						<texture>weather/temp-low-small.png</texture>
+						<colordiffuse>white</colordiffuse>
+					</control>
+					<control type="label">
+						<description>low temp</description>
+						<posx>4</posx>
+						<posy>0</posy>
+						<height>40</height>
+						<width min="0" max="80">auto</width>
+						<font>Font10</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[Window(Weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</label>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+				</control>
 			</control>
+			</control>
+			<control type="group">
+				<posx>495</posx>
+				<control type="image">
+				<posx>-260</posx>
+				<posy>-5</posy>
+				<width>250</width>
+				<height>130</height>
+				<texture border="35">ContentPanel.png</texture>
+				<colordiffuse>88eeeeee</colordiffuse>
+			</control>
+			<control type="image">
+				<posx>-265</posx>
+				<posy>-10</posy>
+				<width>120</width>
+				<height>120</height>
+				<texture>$INFO[Window(Weather).Property(Day2.FanartCode),weather/medium/,.png]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<colordiffuse>white</colordiffuse>
+			</control>
+			<control type="label">
+				<posx>-170</posx>
+				<posy>15</posy>
+				<label>$INFO[Window(Weather).Property(Day2.Title)]</label>
+				<align>center</align>
+				<font>Font13</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<width>149</width>
+				<scroll>false</scroll>
+			</control>
+			<control type="group">
+				<posy>-16</posy>
+				<posx>-320</posx>
+				<control type="label">
+				<posx>178</posx>
+				<posy>64</posy>
+				<height>40</height>
+				<width>165</width>
+				<font>Font10</font>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
+				<scroll>false</scroll>
+				<wrapmultiline>true</wrapmultiline>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<control type="grouplist">
+				<posx>178</posx>
+				<posy>95</posy>
+				<height>40</height>
+				<width>208</width>
+				<itemgap>0</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<orientation>horizontal</orientation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>8</posy>
+						<width>12</width>
+						<height>24</height>
+						<texture>weather/temp-high-small.png</texture>
+						<colordiffuse>white</colordiffuse>
+					</control>
+					<control type="label">
+						<description>high temp</description>
+						<posx>4</posx>
+						<posy>0</posy>
+						<height>40</height>
+						<width min="0" max="80">auto</width>
+						<font>Font10</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="image">
+						<posx>15</posx>
+						<posy>8</posy>
+						<width>12</width>
+						<height>24</height>
+						<texture>weather/temp-low-small.png</texture>
+						<colordiffuse>white</colordiffuse>
+					</control>
+					<control type="label">
+						<description>low temp</description>
+						<posx>4</posx>
+						<posy>0</posy>
+						<height>40</height>
+						<width min="0" max="80">auto</width>
+						<font>Font10</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[Window(Weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</label>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+			</control>
+			</control>
+			</control>
+			<control type="group">
+				<posx>485</posx>
+				<control type="image">
+				<posx>-5</posx>
+				<posy>-5</posy>
+				<width>245</width>
+				<height>130</height>
+				<texture border="35">ContentPanel.png</texture>
+				<colordiffuse>88eeeeee</colordiffuse>
+			</control>
+			<control type="image">
+				<posx>-10</posx>
+				<posy>-10</posy>
+				<width>120</width>
+				<height>120</height>
+				<texture>$INFO[Window(Weather).Property(Day3.FanartCode),weather/medium/,.png]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<colordiffuse>white</colordiffuse>
+			</control>
+			<control type="label">
+				<posx>80</posx>
+				<posy>15</posy>
+				<label>$INFO[Window(Weather).Property(Day3.Title)]</label>
+				<align>center</align>
+				<font>Font13</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<width>149</width>
+				<scroll>false</scroll>
+			</control>
+			<control type="group">
+				<posy>-35</posy>
+				<posx>-70</posx>
+				<control type="label">
+				<posx>178</posx>
+				<posy>85</posy>
+				<height>40</height>
+				<width>165</width>
+				<font>Font10</font>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
+				<scroll>false</scroll>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="grouplist">
+				<posx>178</posx>
+				<posy>114</posy>
+				<height>40</height>
+				<width>208</width>
+				<itemgap>0</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>8</posy>
+					<width>12</width>
+					<height>24</height>
+					<texture>weather/temp-high-small.png</texture>
+					<colordiffuse>white</colordiffuse>
+				</control>
+			<control type="label">
+				<description>high temp</description>
+				<posx>4</posx>
+				<posy>0</posy>
+				<height>40</height>
+				<width min="0" max="80">auto</width>
+				<font>Font10</font>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<control type="image">
+				<posx>15</posx>
+				<posy>8</posy>
+				<width>12</width>
+				<height>24</height>
+				<texture>weather/temp-low-small.png</texture>
+				<colordiffuse>white</colordiffuse>
+			</control>
+			<control type="label">
+				<description>low temp</description>
+				<posx>4</posx>
+				<posy>0</posy>
+				<height>40</height>
+				<width min="0" max="80">auto</width>
+				<font>Font10</font>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Window(Weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</label>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			</control>
+			</control>
+			</control>
+			</control>
+			<control type="multiimage" id="19005">
+			<posx>10</posx>
+			<posy>10</posy>
+			<width>537</width>
+			<height>254</height>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>600</fadetime>
+			<loop>yes</loop>
+			<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+			<animation effect="fade" start="100" delay="500" end="0" time="10">Hidden</animation>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+			<colordiffuse>ff999999</colordiffuse>
+			</control>
+			
+			<control type="group">
+			<posx>200</posx>
+			<posy>130</posy>
+				<control type="image">
+					<posx>65</posx>
+					<posy>-180</posy>
+					<width>180</width>
+					<height>180</height>
+					<texture>$INFO[Window(Weather).Property(Current.FanartCode),weather/medium/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+			<control type="label">
+			<description>current temp value</description>
+			<posx>25</posx>
+			<posy>-20</posy>
+			<width>450</width>
+			<height>30</height>
+			<font>WeatherTemp</font>
+			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			</control>
+			<control type="label">
+			<description>current conditionslabel</description>
+			<posx>35</posx>
+			<posy>99</posy>
+			<width>450</width>
+			<height>30</height>
+			<font>Font13</font>
+			<label>$INFO[Window(Weather).Property(Current.Condition)]</label>
+			<textcolor>white</textcolor>
+			</control>
+			<control type="group">
+			<posx>300</posx>
+			<posy>-5</posy>
+			<control type="label">
+			<description>current feels like label</description>
+			<posx>0</posx>
+			<posy>20</posy>
+			<width>450</width>
+			<height>30</height>
+			<align>right</align>
+			<font>Font13</font>
+			<label>$LOCALIZE[402]</label>
+			<textcolor>80FFFFFF</textcolor>
+			</control>
+			<control type="label">
+			<description>current feels like value</description>
+			<posx>0</posx>
+			<posy>50</posy>
+			<width>450</width>
+			<height>30</height>
+			<align>right</align>
+			<font>Font13</font>
+			<label>$INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+			<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+			<description>current humidity label</description>
+			<posx>0</posx>
+			<posy>80</posy>
+			<width>450</width>
+			<height>30</height>
+			<align>right</align>
+			<font>Font13</font>
+			<label>$LOCALIZE[406]</label>
+			<textcolor>80FFFFFF</textcolor>
+			</control>
+			<control type="label">
+			<description>current humidity value</description>
+			<posx>0</posx>
+			<posy>110</posy>
+			<width>450</width>
+			<height>30</height>
+			<align>right</align>
+			<font>Font13</font>
+			<label>$INFO[Window(Weather).Property(Current.Humidity)]</label>
+			<textcolor>white</textcolor>
+			</control>
+			</control>
+			</control>						
+			<control type="grouplist">
+					<posx>180</posx>
+					<posy>280</posy>
+					<orientation>vertical</orientation>
+					<itemgap>20</itemgap>
+					<align>left</align>
+						<control type="label">
+							<label>[B]$INFO[Window(Weather).Property(Location)]  -  $INFO[System.Date(DDD d mmm yyyy)]:[/B]  $INFO[Window(Weather).Property(Day0.Outlook)] $INFO[Window(Weather).Property(Day0.LowTemp), (, - ]$INFO[Window(Weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits,,)]</label>
+							<align>left</align>
+							<font>Font10</font>
+							<textcolor>white</textcolor>
+							<width>1250</width>
+							<scroll>false</scroll>
+						</control>
+						<control type="label">
+							<label>[B]$LOCALIZE[401]:[/B] $INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]    [B]$LOCALIZE[402]:[/B] $INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]    [B]$LOCALIZE[406]:[/B] $INFO[Window(Weather).Property(Current.Humidity)]    [B]$LOCALIZE[405]:[/B] $INFO[Window(Weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]    [B]$LOCALIZE[403]:[/B] $INFO[Window(Weather).Property(Current.UVIndex)]    [B]$LOCALIZE[404]:[/B] $INFO[Window(Weather).Property(Current.Wind)]</label>
+							<align>left</align>
+							<font>Font10</font>
+							<textcolor>white</textcolor>
+							<width>1250</width>
+							<scroll>false</scroll>
+						</control>
+			</control>
+							
 			</control>
 			
 			
