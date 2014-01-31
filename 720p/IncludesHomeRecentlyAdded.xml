@@ -1644,76 +1644,76 @@
 					<texture>$INFO[Window(Weather).Property(Current.FanartCode),weather/medium/,.png]</texture>
 					<aspectratio align="center">keep</aspectratio>
 				</control>
-			<control type="label">
-			<description>current temp value</description>
-			<posx>25</posx>
-			<posy>-20</posy>
-			<width>450</width>
-			<height>30</height>
-			<font>WeatherTemp</font>
-			<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-			<textcolor>white</textcolor>
-			<shadowcolor>black</shadowcolor>
-			</control>
-			<control type="label">
-			<description>current conditionslabel</description>
-			<posx>35</posx>
-			<posy>99</posy>
-			<width>450</width>
-			<height>30</height>
-			<font>Font13</font>
-			<label>$INFO[Window(Weather).Property(Current.Condition)]</label>
-			<textcolor>white</textcolor>
-			</control>
+				<control type="label">
+					<description>current temp value</description>
+					<posx>25</posx>
+					<posy>-20</posy>
+					<width>450</width>
+					<height>30</height>
+					<font>WeatherTemp</font>
+					<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="label">
+					<description>current conditionslabel</description>
+					<posx>35</posx>
+					<posy>99</posy>
+					<width>450</width>
+					<height>30</height>
+					<font>Font13</font>
+					<label>$INFO[Window(Weather).Property(Current.Condition)]</label>
+					<textcolor>white</textcolor>
+				</control>
 			<control type="group">
-			<posx>300</posx>
-			<posy>-5</posy>
-			<control type="label">
-			<description>current feels like label</description>
-			<posx>0</posx>
-			<posy>20</posy>
-			<width>450</width>
-			<height>30</height>
-			<align>right</align>
-			<font>Font13</font>
-			<label>$LOCALIZE[402]</label>
-			<textcolor>80FFFFFF</textcolor>
-			</control>
-			<control type="label">
-			<description>current feels like value</description>
-			<posx>0</posx>
-			<posy>50</posy>
-			<width>450</width>
-			<height>30</height>
-			<align>right</align>
-			<font>Font13</font>
-			<label>$INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-			<textcolor>white</textcolor>
-			</control>
-			<control type="label">
-			<description>current humidity label</description>
-			<posx>0</posx>
-			<posy>80</posy>
-			<width>450</width>
-			<height>30</height>
-			<align>right</align>
-			<font>Font13</font>
-			<label>$LOCALIZE[406]</label>
-			<textcolor>80FFFFFF</textcolor>
-			</control>
-			<control type="label">
-			<description>current humidity value</description>
-			<posx>0</posx>
-			<posy>110</posy>
-			<width>450</width>
-			<height>30</height>
-			<align>right</align>
-			<font>Font13</font>
-			<label>$INFO[Window(Weather).Property(Current.Humidity)]</label>
-			<textcolor>white</textcolor>
-			</control>
-			</control>
-			</control>						
+				<posx>300</posx>
+				<posy>-5</posy>
+				<control type="label">
+					<description>current feels like label</description>
+					<posx>0</posx>
+					<posy>20</posy>
+					<width>450</width>
+					<height>30</height>
+					<align>right</align>
+					<font>Font13</font>
+					<label>$LOCALIZE[402]</label>
+					<textcolor>80FFFFFF</textcolor>
+				</control>
+					<control type="label">
+						<description>current feels like value</description>
+						<posx>0</posx>
+						<posy>50</posy>
+						<width>450</width>
+						<height>30</height>
+						<align>right</align>
+						<font>Font13</font>
+						<label>$INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+						<textcolor>white</textcolor>
+					</control>
+					<control type="label">
+						<description>current humidity label</description>
+						<posx>0</posx>
+						<posy>80</posy>
+						<width>450</width>
+						<height>30</height>
+						<align>right</align>
+						<font>Font13</font>
+						<label>$LOCALIZE[406]</label>
+						<textcolor>80FFFFFF</textcolor>
+					</control>
+					<control type="label">
+						<description>current humidity value</description>
+						<posx>0</posx>
+						<posy>110</posy>
+						<width>450</width>
+						<height>30</height>
+						<align>right</align>
+						<font>Font13</font>
+						<label>$INFO[Window(Weather).Property(Current.Humidity)]</label>
+						<textcolor>white</textcolor>
+					</control>
+				</control>
+				</control>						
 			<control type="grouplist">
 					<posx>180</posx>
 					<posy>280</posy>
@@ -1737,11 +1737,7 @@
 							<scroll>false</scroll>
 						</control>
 			</control>
-							
 			</control>
-			
-			
-			
 		</control>
 	</include>
 </includes>
