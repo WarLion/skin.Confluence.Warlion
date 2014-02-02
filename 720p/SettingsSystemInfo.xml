@@ -6,7 +6,7 @@
 		<include>CommonBackground</include>
 		<control type="image">
 			<left>0</left>
-			<top>100r</top>
+			<top>60r</top>
 			<width>1280</width>
 			<height>100</height>
 			<texture>floor.png</texture>

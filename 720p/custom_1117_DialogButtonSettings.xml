@@ -17,18 +17,34 @@
 		</control>
 				<control type="image">
 					<description>background top image</description>
-					<left>340</left>
-					<top>235</top>
-					<width>600</width>
+					<left>405</left>
+					<top>175</top>
+					<width>450</width>
 					<height>30</height>
 					<texture border="20,19,20,0">DialogContextTop.png</texture>
-				</control>
+				</control>	
+				<control type="image">
+					<description>background top image</description>
+					<left>405</left>
+					<top>205</top>
+					<width>450</width>
+					<height>315</height>
+					<texture border="20,19,20,0">DialogContextMiddle.png</texture>
+				</control>		
+				<control type="image">
+					<description>background top image</description>
+					<left>405</left>
+					<top>520</top>
+					<width>450</width>
+					<height>30</height>
+					<texture border="20,19,20,0">DialogContextBottom.png</texture>
+				</control>							
 				<control type="button" id="20">
 					<description>Close Window button</description>
-					<left>875</left>
-					<top>250</top>
-					<width>50</width>
-					<height>23</height>
+					<left>780</left>
+					<top>190</top>
+					<width>64</width>
+					<height>32</height>
 					<label>-</label>
 					<font>-</font>
 					<onclick>PreviousMenu</onclick>
@@ -39,39 +55,24 @@
 					<onup>13</onup>
 					<ondown>2</ondown>
 					<visible>system.getbool(input.enablemouse)</visible>
-				</control>
-				<control type="image">
-					<description>background top image</description>
-					<left>340</left>
-					<top>265</top>
-					<width>600</width>
-					<height>200</height>
-					<texture border="20,19,20,0">DialogContextMiddle.png</texture>
-				</control>
-				<control type="image">
-					<description>background top image</description>
-					<left>340</left>
-					<top>465</top>
-					<width>600</width>
-					<height>30</height>
-					<texture border="20,19,20,0">DialogContextBottom.png</texture>
-				</control>					
+				</control>											
 	<control type="group">
-	<left>360</left>
-	<top>265</top>
-		<control type="list" id="84">
-					<onup>85</onup>
-					<ondown>85</ondown>
+	<left>440</left>
+	<top>215</top>
+		<control type="panel" id="84">
+					<onup>84</onup>
+					<ondown>84</ondown>
 					<onleft>84</onleft>
 					<onright>84</onright>
-					<onback>9001</onback>
 					<posx>0</posx>
 					<posy>0</posy>
-					<width>1280</width>
-					<height>220</height>
+					<width>400</width>
+					<height>300</height>
 					<viewtype>list</viewtype>
-					<orientation>horizontal</orientation>
-					<itemlayout width="90">
+					 <aspectratio>scale</aspectratio>
+					<orientation>Vertical</orientation>
+					 <scrolltime tween="cubic" easing="out">500</scrolltime>
+					<itemlayout width="90" height="95">
 						<control type="group">
 							<control type="image">
 								<posx>10</posx>
@@ -101,7 +102,37 @@
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout width="90">
+					<itemlayout width="90">
+						<control type="group">
+							<control type="image">
+								<posx>10</posx>
+								<posy>95</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>DialogBack.png</texture>
+							</control>						
+							<control type="image">
+								<posx>10</posx>
+								<posy>100</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<colordiffuse>44c6c6c6</colordiffuse>
+							</control>
+							<control type="label">
+								<posx>55</posx>
+								<posy>160</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<textcolor>44c6c6c6</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="90" height="95">
 <control type="group">
 							<control type="image">
 								<posx>10</posx>
@@ -152,6 +183,57 @@
 							</control>							
 						</control>						
 					</focusedlayout>
+<focusedlayout width="90">
+<control type="group">
+							<control type="image">
+								<posx>10</posx>
+								<posy>95</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>DialogBack.png</texture>
+							</control>								
+							<control type="image">
+								<posx>10</posx>
+								<posy>100</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>Control.HasFocus(84)</visible>
+							</control>
+							<control type="image">
+								<posx>10</posx>
+								<posy>100</posy>
+								<width>90</width>
+								<height>90</height>
+								<texture>$INFO[ListItem.Property(poster)]</texture>
+								<aspectratio>keep</aspectratio>
+								<colordiffuse>44c6c6c6</colordiffuse>								
+								<visible>!Control.HasFocus(84)</visible>
+							</control>							
+							<control type="label">
+								<posx>55</posx>
+								<posy>160</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<visible>Control.HasFocus(84)</visible>
+							</control>
+							<control type="label">
+								<posx>55</posx>
+								<posy>160</posy>
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<font>Font8</font>
+								<width>160</width>
+								<scroll>false</scroll>
+								<textcolor>44c6c6c6</textcolor>								
+								<visible>!Control.HasFocus(84)</visible>
+							</control>							
+						</control>						
+					</focusedlayout>					
 					<content>
 		<item>
 			<description>appearance</description>
@@ -206,104 +288,7 @@
 			<onclick>ActivateWindow(addonbrowser)</onclick>
 			<visible>System.Loggedon</visible>
 			<property name="Poster">Home/settings/icons/addons.png</property>
-		</item>				
-					</content>
-				</control>
-				
-	<control type="list" id="85">
-					<onup>84</onup>
-					<ondown>84</ondown>
-					<onleft>85</onleft>
-					<onright>85</onright>
-					<onback>9001</onback>
-					<posx>0</posx>
-					<posy>95</posy>
-					<width>1280</width>
-					<height>220</height>
-					<viewtype>list</viewtype>
-					<orientation>horizontal</orientation>
-					<itemlayout width="90">
-						<control type="group">
-							<control type="image">
-								<posx>10</posx>
-								<posy>5</posy>
-								<width>90</width>
-								<height>90</height>
-								<texture>DialogBack.png</texture>
-							</control>						
-							<control type="image">
-								<posx>10</posx>
-								<posy>10</posy>
-								<width>90</width>
-								<height>90</height>
-								<texture>$INFO[ListItem.Property(poster)]</texture>
-								<aspectratio>keep</aspectratio>
-								<colordiffuse>44c6c6c6</colordiffuse>
-							</control>
-							<control type="label">
-								<posx>55</posx>
-								<posy>70</posy>
-								<label>$INFO[ListItem.Label]</label>
-								<align>center</align>
-								<font>Font8</font>
-								<width>160</width>
-								<scroll>false</scroll>
-								<textcolor>44c6c6c6</textcolor>
-							</control>
-						</control>
-					</itemlayout>
-					<focusedlayout width="90">
-						<control type="group">
-							<control type="image">
-								<posx>10</posx>
-								<posy>5</posy>
-								<width>90</width>
-								<height>90</height>
-								<texture>DialogBack.png</texture>
-							</control>								
-							<control type="image">
-								<posx>10</posx>
-								<posy>10</posy>
-								<width>90</width>
-								<height>90</height>
-								<texture>$INFO[ListItem.Property(poster)]</texture>
-								<aspectratio>keep</aspectratio>
-								<visible>Control.HasFocus(85)</visible>
-							</control>
-							<control type="image">
-								<posx>10</posx>
-								<posy>10</posy>
-								<width>90</width>
-								<height>90</height>
-								<texture>$INFO[ListItem.Property(poster)]</texture>
-								<aspectratio>keep</aspectratio>
-								<colordiffuse>44c6c6c6</colordiffuse>								
-								<visible>!Control.HasFocus(85)</visible>
-							</control>							
-							<control type="label">
-								<posx>55</posx>
-								<posy>70</posy>
-								<label>$INFO[ListItem.Label]</label>
-								<align>center</align>
-								<font>Font8</font>
-								<width>160</width>
-								<scroll>false</scroll>
-								<visible>Control.HasFocus(85)</visible>
-							</control>
-							<control type="label">
-								<posx>55</posx>
-								<posy>70</posy>
-								<label>$INFO[ListItem.Label]</label>
-								<align>center</align>
-								<font>Font8</font>
-								<width>160</width>
-								<scroll>false</scroll>
-								<textcolor>44c6c6c6</textcolor>								
-								<visible>!Control.HasFocus(85)</visible>
-							</control>							
-						</control>
-					</focusedlayout>
-					<content>		
+		</item>	
 		<item>
 			<description>services</description>
 			<label>Services</label>
@@ -357,9 +342,10 @@
 			<onclick>ActivateWindow(systeminfo)</onclick>
 			<visible>System.Loggedon</visible>
 			<property name="Poster">Home/settings/icons/info.png</property>                        
-		</item>				
+		</item>						
 					</content>
-				</control>				
+				</control>
+			
 </control>
 	</controls>
 </window>

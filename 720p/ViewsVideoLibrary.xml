@@ -275,6 +275,11 @@
 			</control>
 		</control>
 	</include>
+	
+	
+	
+	
+	
 	<include name="PosterWrapView2_Fanart">
 		<control type="group">
 			<left>0</left>
@@ -307,14 +312,14 @@
 			<visible>Control.IsVisible(508)</visible>
 			<include>VisibleFadeEffect</include>
 			<left>0</left>
-			<top>460</top>
+			<top>80</top>
 			<control type="fixedlist" id="508">
 				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Sets)</visible>
 				<hitrect x="0" y="-10" w="1280" h="190"/>
-				<left>-20</left>
+				<left>-30</left>
 				<top>0</top>
-				<width>1320</width>
-				<height>250</height>
+				<width>1350</width>
+				<height>285</height>
 				<onleft>508</onleft>
 				<onright>508</onright>
 				<onup>2</onup>
@@ -326,7 +331,7 @@
 				<movement>3</movement>
 				<orientation>horizontal</orientation>
 				<preloaditems>4</preloaditems>
-				<itemlayout height="200" width="120">
+				<itemlayout height="180" width="120">
 					<control type="image">
 						<left>2</left>
 						<top>20</top>
@@ -370,8 +375,8 @@
 						<bordersize>8</bordersize>
 						<fadetime>200</fadetime>
 						<texture background="true">$VAR[PosterThumb]</texture>
-						<animation reversible="false" effect="zoom" start="-2,16,128,168" end="-12,-10,148,198" time="200">focus</animation>
-						<animation reversible="false" effect="zoom" end="-2,16,128,168" start="-12,-10,148,198" time="200">unfocus</animation>
+						<animation reversible="false" effect="zoom" start="-2,16,128,168" end="-20,-10,180,240" time="200">focus</animation>
+						<animation reversible="false" effect="zoom" end="-2,16,128,168" start="-20,-10,180,240" time="200">unfocus</animation>
 					</control>
 					<control type="image">
 						<left>2</left>
@@ -382,7 +387,9 @@
 						<bordertexture border="5" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
 						<bordersize>4</bordersize>
 						<fadetime>200</fadetime>
-						<texture background="true" flipy="true" diffuse="diffuse_mirror2.png">$VAR[PosterThumb]</texture>
+						<texture background="true" flipy="true" diffuse="diffuse_mirror2.png">$VAR[PosterThumb]</texture><!--diffuse="diffuse_mirror2.png"-->
+						<animation reversible="false" effect="zoom" start="-2,16,128,168" end="-15,-25,169,240" time="200">focus</animation>
+						<animation reversible="false" effect="zoom" end="-2,16,128,168" start="-15,-25,169,240" time="200">unfocus</animation>
 					</control>
 					<control type="image">
 						<left>90</left>
@@ -403,9 +410,9 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>310</left>
-				<top>185</top>
-				<width>660</width>
+				<left>40</left>
+				<top>200</top>
+				<width>1200</width>
 				<height>25</height>
 				<texturesliderbackground border="14,0,14,0">ScrollBarH.png</texturesliderbackground>
 				<texturesliderbar border="14,0,14,0">ScrollBarH_bar.png</texturesliderbar>
@@ -413,26 +420,50 @@
 				<textureslidernib>ScrollBarNib.png</textureslidernib>
 				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
 				<onup>508</onup>
-				<ondown>2</ondown>
 				<showonepage>false</showonepage>
 				<orientation>horizontal</orientation>
 				<visible>Control.IsVisible(508)</visible>
 			</control>
 		</control>
 		<control type="group">
-			<left>180</left>
-			<top>40</top>
+			<left>50</left>
+			<top>300</top>
 			<visible>Control.IsVisible(508) + ![ListItem.IsFolder + Container.Content(Movies)] + !Skin.HasSetting(View508HideInfo) + !Container.Content(Sets)</visible>
-			<include>VisibleFadeEffect</include>
+			<fadetime>IconCrossfadeTime</fadetime>
+					<control type="image">
+						<left>0</left>
+						<top>16</top>
+						<width>210</width>
+						<height>280</height>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="8">ThumbBorder.png</bordertexture>
+						<bordersize>8</bordersize>
+						<fadetime>200</fadetime>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>
+			<control type="image" id="99959">
+				<left>450r</left>
+				<top>-300</top>
+				<width>300</width>
+				<height>116</height>
+				<aspectratio align="left">keep</aspectratio>
+				<texture background="true">$VAR[LogoThumb]</texture>
+				<fadetime>IconCrossfadeTime</fadetime>
+		</control>
+		</control>
+		<control type="group">
+			<left>300</left>
+			<top>310</top>
+			<visible>Control.IsVisible(508) + ![ListItem.IsFolder + Container.Content(Movies)] + !Skin.HasSetting(View508HideInfo) + !Container.Content(Sets)</visible>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
-				<width>920</width>
-				<height>410</height>
+				<width>700</width>
+				<height>290</height>
 				<texture border="20">ContentPanel.png</texture>
 			</control>
 			<control type="label">
-				<left>40</left>
+				<left>0</left>
 				<top>20</top>
 				<width>840</width>
 				<height>20</height>
@@ -443,6 +474,7 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>StringCompare(Control.GetLabel(99959),)</visible>
 			</control>
 			<control type="group">
 				<left>40</left>
@@ -755,6 +787,12 @@
 			</control>
 		</control>
 	</include>
+	
+	
+	
+	
+	
+	
 	<include name="MediaListView3">
 		<control type="group">
 			<visible>Control.IsVisible(503)</visible>

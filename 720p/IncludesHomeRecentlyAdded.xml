@@ -490,7 +490,8 @@
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<label>$INFO[Container(8000).ListItem.Property(Year)]</label>
-					</control>							
+					</control>		
+										
 			</control>
 			</control>
 			<control type="group">
