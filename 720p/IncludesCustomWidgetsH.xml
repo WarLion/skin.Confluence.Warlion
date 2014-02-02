@@ -1,0 +1,2396 @@
+<includes>
+	<include name="CustomWidgetsH">
+		<control type="group" id="9003">
+			<onup>20</onup>
+			<ondown condition="!System.HasSetting(EnableWidgets)">9004</ondown>
+			<ondown>603</ondown>
+			<visible>!Window.IsVisible(Favourites) + [Skin.HasSetting(CustomWidget1) | Skin.HasSetting(CustomWidget2) | Skin.HasSetting(CustomWidget3)]</visible>
+			<include>VisibleFadeEffect</include>
+			<animation effect="fade" time="300" delay="1000">WindowOpen</animation>
+			<animation effect="fade" time="200">WindowClose</animation>
+			<control type="group">
+				<description>Menu 1 Recent Movies</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(91) + Skin.HasSetting(CustomWidget1) + !IsEmpty(Window(home).Property(CustomWidget1Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget1Recent.Type),Movie) + [Skin.HasSetting(SkinWidgetRecent) | IsEmpty(Window(Home).Property(CustomWidget1Recommended.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelPoster</include>
+					<label>31328</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget1Recommended.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8008">
+					<animation effect="slide" start="0,0" end="485,0" time="0" condition="StringCompare(Container(8008).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="387,0" time="0" condition="StringCompare(Container(8008).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="290,0" time="0" condition="StringCompare(Container(8008).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="192,0" time="0" condition="StringCompare(Container(8008).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="96,0" time="0" condition="StringCompare(Container(8008).NumItems,5)">conditional</animation>
+					<posx>58</posx>
+					<posy>0</posy>
+					<width>1170</width>
+					<height>320</height>
+					<onleft>8008</onleft>
+					<onright>8008</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8008)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8008)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+			
+					</focusedlayout>
+					
+					<include>WidgetNextAired</include>
+
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterLeft</include>
+					<onclick>Control.Move(8008,-1)</onclick>
+					<visible>Control.HasFocus(8008) + Container(8008).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterRight</include>
+					<onclick>Control.Move(8008,1)</onclick>
+					<visible>Control.HasFocus(8008) + Container(8008).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 1 Recommended Movies</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(91) + Skin.HasSetting(CustomWidget1) + !IsEmpty(Window(home).Property(CustomWidget1Recommended.1.Title)) + Stringcompare(Window(home).Property(CustomWidget1Recommended.Type),Movie) + [Skin.HasSetting(SkinWidgetRecommended) | IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelPoster</include>
+					<label>90013</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget1Recommended.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget1Recommended.1.Title))</visible>
+				</control>
+				<control type="list" id="8009">
+					<animation effect="slide" start="0,0" end="485,0" time="0" condition="StringCompare(Container(8009).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="387,0" time="0" condition="StringCompare(Container(8009).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="290,0" time="0" condition="StringCompare(Container(8009).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="192,0" time="0" condition="StringCompare(Container(8009).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="96,0" time="0" condition="StringCompare(Container(8009).NumItems,5)">conditional</animation>
+					<posx>58</posx>
+					<posy>0</posy>
+					<width>1170</width>
+					<height>320</height>
+					<onleft>8009</onleft>
+					<onright>8009</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8009)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8009)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+		
+					</focusedlayout>
+					
+					<include>CustomWidget1RecommendedMovies</include>
+
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterLeft</include>
+					<onclick>Control.Move(8009,-1)</onclick>
+					<visible>Control.HasFocus(8009) + Container(8009).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterRight</include>
+					<onclick>Control.Move(8009,1)</onclick>
+					<visible>Control.HasFocus(8009) + Container(8009).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 1 Recent Episodes</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(91) + Skin.HasSetting(CustomWidget1) + !IsEmpty(Window(home).Property(CustomWidget1Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget1Recent.Type),Episode) + [Skin.HasSetting(SkinWidgetRecent) | IsEmpty(Window(Home).Property(CustomWidget1Recommended.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelThumb</include>
+					<label>31328</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget1Recommended.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8010">
+					<animation effect="slide" start="0,0" end="450,0" time="0" condition="StringCompare(Container(8010).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="300,0" time="0" condition="StringCompare(Container(8010).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="150,0" time="0" condition="StringCompare(Container(8010).NumItems,3)">conditional</animation>
+					<posx>40</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>340</height>
+					<onleft>8010</onleft>
+					<onright>8010</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>1</focusposition>
+					<movement>2</movement>
+					<itemlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8010)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Control.HasFocus(8010) + Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8010)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>!Control.HasFocus(8010) + Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8010)</visible>
+						</control>
+					</focusedlayout>
+
+					<include>CustomWidget1RecentTV</include>
+					
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbLeft</include>
+					<onclick>Control.Move(8010,-1)</onclick>
+					<visible>Control.HasFocus(8010) + Container(8010).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbRight</include>
+					<onclick>Control.Move(8010,1)</onclick>
+					<visible>Control.HasFocus(8010) + Container(8010).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 1 Recommended Episodes</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(91) + Skin.HasSetting(CustomWidget1) + !IsEmpty(Window(home).Property(CustomWidget1Recommended.1.Title)) + Stringcompare(Window(home).Property(CustomWidget1Recommended.Type),Episode) + [Skin.HasSetting(SkinWidgetRecommended) | IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelThumb</include>
+					<label>90013</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget1Recommended.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget1Recommended.1.Title))</visible>
+				</control>
+				<control type="list" id="8011">
+					<animation effect="slide" start="0,0" end="450,0" time="0" condition="StringCompare(Container(8011).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="300,0" time="0" condition="StringCompare(Container(8011).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="150,0" time="0" condition="StringCompare(Container(8011).NumItems,3)">conditional</animation>
+					<posx>40</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>340</height>
+					<onleft>8011</onleft>
+					<onright>8011</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>1</focusposition>
+					<movement>2</movement>
+					<itemlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8011)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Control.HasFocus(8011)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8011)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>!Control.HasFocus(8011)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8011)</visible>
+						</control>
+					</focusedlayout>
+
+					<include>CustomWidget1RecommendedTV</include>
+					
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbLeft</include>
+					<onclick>Control.Move(8011,-1)</onclick>
+					<visible>Control.HasFocus(8011) + Container(8011).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbRight</include>
+					<onclick>Control.Move(8011,1)</onclick>
+					<visible>Control.HasFocus(8011) + Container(8011).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 2 Recent Movies</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(92) + Skin.HasSetting(CustomWidget2) + !IsEmpty(Window(home).Property(CustomWidget2Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget2Recent.Type),Movie) + [Skin.HasSetting(SkinWidgetRecent) | IsEmpty(Window(Home).Property(CustomWidget2Recommended.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelPoster</include>
+					<label>31328</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget2Recommended.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8012">
+					<animation effect="slide" start="0,0" end="485,0" time="0" condition="StringCompare(Container(8012).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="387,0" time="0" condition="StringCompare(Container(8012).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="290,0" time="0" condition="StringCompare(Container(8012).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="192,0" time="0" condition="StringCompare(Container(8012).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="96,0" time="0" condition="StringCompare(Container(8012).NumItems,5)">conditional</animation>
+					<posx>58</posx>
+					<posy>0</posy>
+					<width>1170</width>
+					<height>320</height>
+					<onleft>8012</onleft>
+					<onright>8012</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8012)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8012)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+				
+					</focusedlayout>
+					
+					<include>CustomWidget2RecentMovies</include>
+						
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterLeft</include>
+					<onclick>Control.Move(8012,-1)</onclick>
+					<visible>Control.HasFocus(8012) + Container(8012).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterRight</include>
+					<onclick>Control.Move(8012,1)</onclick>
+					<visible>Control.HasFocus(8012) + Container(8012).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 2 Recommended Movies</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(92) + Skin.HasSetting(CustomWidget2) + !IsEmpty(Window(home).Property(CustomWidget2Recommended.1.Title)) + Stringcompare(Window(home).Property(CustomWidget2Recommended.Type),Movie) + [Skin.HasSetting(SkinWidgetRecommended) | IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelPoster</include>
+					<label>90013</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget2Recommended.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget2Recommended.1.Title))</visible>
+				</control>
+				<control type="list" id="8013">
+					<animation effect="slide" start="0,0" end="485,0" time="0" condition="StringCompare(Container(8013).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="387,0" time="0" condition="StringCompare(Container(8013).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="290,0" time="0" condition="StringCompare(Container(8013).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="192,0" time="0" condition="StringCompare(Container(8013).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="96,0" time="0" condition="StringCompare(Container(8013).NumItems,5)">conditional</animation>
+					<posx>58</posx>
+					<posy>0</posy>
+					<width>1170</width>
+					<height>320</height>
+					<onleft>8013</onleft>
+					<onright>8013</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8013)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8013)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						
+					</focusedlayout>
+
+					<include>CustomWidget2RecommendedMovies</include>
+					
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterLeft</include>
+					<onclick>Control.Move(8013,-1)</onclick>
+					<visible>Control.HasFocus(8013) + Container(8013).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterRight</include>
+					<onclick>Control.Move(8013,1)</onclick>
+					<visible>Control.HasFocus(8013) + Container(8013).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 2 Recent Episodes</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(92) + Skin.HasSetting(CustomWidget2) + !IsEmpty(Window(home).Property(CustomWidget2Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget2Recent.Type),Episode) + [Skin.HasSetting(SkinWidgetRecent) | IsEmpty(Window(Home).Property(CustomWidget2Recommended.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelThumb</include>
+					<label>31328</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget2Recommended.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8014">
+					<animation effect="slide" start="0,0" end="450,0" time="0" condition="StringCompare(Container(8014).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="300,0" time="0" condition="StringCompare(Container(8014).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="150,0" time="0" condition="StringCompare(Container(8014).NumItems,3)">conditional</animation>
+					<posx>40</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>340</height>
+					<onleft>8014</onleft>
+					<onright>8014</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>1</focusposition>
+					<movement>2</movement>
+					<itemlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8014)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Control.HasFocus(8014) + Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8014)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>!Control.HasFocus(8014) + Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8014)</visible>
+						</control>
+					</focusedlayout>
+
+					<include>CustomWidget2RecentTV</include>
+					
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbLeft</include>
+					<onclick>Control.Move(8014,-1)</onclick>
+					<visible>Control.HasFocus(8014) + Container(8014).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbRight</include>
+					<onclick>Control.Move(8014,1)</onclick>
+					<visible>Control.HasFocus(8014) + Container(8014).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 2 Recommended Episodes</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(92) + Skin.HasSetting(CustomWidget2) + !IsEmpty(Window(home).Property(CustomWidget2Recommended.1.Title)) + Stringcompare(Window(home).Property(CustomWidget2Recommended.Type),Episode) + [Skin.HasSetting(SkinWidgetRecommended) | IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelThumb</include>
+					<label>90013</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget2Recommended.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget2Recommended.1.Title))</visible>
+				</control>
+				<control type="list" id="8015">
+					<animation effect="slide" start="0,0" end="450,0" time="0" condition="StringCompare(Container(8015).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="300,0" time="0" condition="StringCompare(Container(8015).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="150,0" time="0" condition="StringCompare(Container(8015).NumItems,3)">conditional</animation>
+					<posx>40</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>340</height>
+					<onleft>8015</onleft>
+					<onright>8015</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>1</focusposition>
+					<movement>2</movement>
+					<itemlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8015)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Control.HasFocus(8015)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8015)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>!Control.HasFocus(8015)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8015)</visible>
+						</control>
+					</focusedlayout>
+
+					<include>CustomWidget2RecommendedTV</include>
+					
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbLeft</include>
+					<onclick>Control.Move(8015,-1)</onclick>
+					<visible>Control.HasFocus(8015) + Container(8015).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbRight</include>
+					<onclick>Control.Move(8015,1)</onclick>
+					<visible>Control.HasFocus(8015) + Container(8015).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 3 Recent Movies</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(93) + Skin.HasSetting(CustomWidget3) + !IsEmpty(Window(home).Property(CustomWidget3Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget3Recent.Type),Movie) + [Skin.HasSetting(SkinWidgetRecent) | IsEmpty(Window(Home).Property(CustomWidget3Recommended.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelPoster</include>
+					<label>31328</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget3Recommended.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8016">
+					<animation effect="slide" start="0,0" end="485,0" time="0" condition="StringCompare(Container(8016).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="387,0" time="0" condition="StringCompare(Container(8016).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="290,0" time="0" condition="StringCompare(Container(8016).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="192,0" time="0" condition="StringCompare(Container(8016).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="96,0" time="0" condition="StringCompare(Container(8016).NumItems,5)">conditional</animation>
+					<posx>58</posx>
+					<posy>0</posy>
+					<width>1170</width>
+					<height>320</height>
+					<onleft>8016</onleft>
+					<onright>8016</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8016)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8016)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+			
+					</focusedlayout>
+
+					<include>CustomWidget3RecentMovies</include>
+					
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterLeft</include>
+					<onclick>Control.Move(8016,-1)</onclick>
+					<visible>Control.HasFocus(8016) + Container(8016).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterRight</include>
+					<onclick>Control.Move(8016,1)</onclick>
+					<visible>Control.HasFocus(8016) + Container(8016).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 3 Recommended Movies</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(93) + Skin.HasSetting(CustomWidget3) + !IsEmpty(Window(home).Property(CustomWidget3Recommended.1.Title)) + Stringcompare(Window(home).Property(CustomWidget3Recommended.Type),Movie) + [Skin.HasSetting(SkinWidgetRecommended) | IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelPoster</include>
+					<label>90013</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget3Recommended.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget3Recommended.1.Title))</visible>
+				</control>
+				<control type="list" id="8017">
+					<animation effect="slide" start="0,0" end="485,0" time="0" condition="StringCompare(Container(8017).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="387,0" time="0" condition="StringCompare(Container(8017).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="290,0" time="0" condition="StringCompare(Container(8017).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="192,0" time="0" condition="StringCompare(Container(8017).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="96,0" time="0" condition="StringCompare(Container(8017).NumItems,5)">conditional</animation>
+					<posx>58</posx>
+					<posy>0</posy>
+					<width>1170</width>
+					<height>320</height>
+					<onleft>8017</onleft>
+					<onright>8017</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="195">
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8017)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>176</width>
+							<height>268</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8017)</visible>
+						</control>
+						<control type="image">
+							<posx>9</posx>
+							<posy>8</posy>
+							<width>140</width>
+							<height>180</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						
+					</focusedlayout>
+					
+					<include>CustomWidget3RecommendedMovies</include>
+
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterLeft</include>
+					<onclick>Control.Move(8017,-1)</onclick>
+					<visible>Control.HasFocus(8017) + Container(8017).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowPosterRight</include>
+					<onclick>Control.Move(8017,1)</onclick>
+					<visible>Control.HasFocus(8017) + Container(8017).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 3 Recent Episodes</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(93) + Skin.HasSetting(CustomWidget3) + !IsEmpty(Window(home).Property(CustomWidget3Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget3Recent.Type),Episode) + [Skin.HasSetting(SkinWidgetRecent) | IsEmpty(Window(Home).Property(CustomWidget3Recommended.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelThumb</include>
+					<label>31328</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget3Recommended.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8018">
+					<animation effect="slide" start="0,0" end="450,0" time="0" condition="StringCompare(Container(8018).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="300,0" time="0" condition="StringCompare(Container(8018).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="150,0" time="0" condition="StringCompare(Container(8018).NumItems,3)">conditional</animation>
+					<posx>40</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>340</height>
+					<onleft>8018</onleft>
+					<onright>8018</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>1</focusposition>
+					<movement>2</movement>
+					<itemlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8018)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Control.HasFocus(8018) + Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8018)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>!Control.HasFocus(8018) + Skin.HasSetting(ClearLogo)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8018)</visible>
+						</control>
+					</focusedlayout>
+					
+					<include>CustomWidget3RecentTV</include>
+
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbLeft</include>
+					<onclick>Control.Move(8018,-1)</onclick>
+					<visible>Control.HasFocus(8018) + Container(8018).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbRight</include>
+					<onclick>Control.Move(8018,1)</onclick>
+					<visible>Control.HasFocus(8018) + Container(8018).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 3 Recommended Episodes</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(93) + Skin.HasSetting(CustomWidget3) + !IsEmpty(Window(home).Property(CustomWidget3Recommended.1.Title)) + Stringcompare(Window(home).Property(CustomWidget3Recommended.Type),Episode) + [Skin.HasSetting(SkinWidgetRecommended) | IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelThumb</include>
+					<label>90013</label>
+					<visible>[Skin.HasSetting(NoSubmenuSlide) | IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))] + !IsEmpty(Window(Home).Property(CustomWidget3Recommended.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget3Recommended.1.Title))</visible>
+				</control>
+				<control type="list" id="8019">
+					<animation effect="slide" start="0,0" end="450,0" time="0" condition="StringCompare(Container(8019).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="300,0" time="0" condition="StringCompare(Container(8019).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="150,0" time="0" condition="StringCompare(Container(8019).NumItems,3)">conditional</animation>
+					<posx>40</posx>
+					<posy>0</posy>
+					<width>1200</width>
+					<height>340</height>
+					<onleft>8019</onleft>
+					<onright>8019</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>1</focusposition>
+					<movement>2</movement>
+					<itemlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="300">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8019)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>Control.HasFocus(8019)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8019)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>280</width>
+							<height>215</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Logo)]</texture>
+							<visible>!Control.HasFocus(8019)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>230</width>
+							<height>150</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>230</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>145</posx>
+							<posy>250</posy>
+							<width>200</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8019)</visible>
+						</control>
+					</focusedlayout>
+					
+					<include>CustomWidget3RecommendedTV</include>
+
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbLeft</include>
+					<onclick>Control.Move(8019,-1)</onclick>
+					<visible>Control.HasFocus(8019) + Container(8019).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowThumbRight</include>
+					<onclick>Control.Move(8019,1)</onclick>
+					<visible>Control.HasFocus(8019) + Container(8019).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 1 Recent Albums</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(91) + Skin.HasSetting(CustomWidget1) + !IsEmpty(Window(home).Property(CustomWidget1Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget1Recent.Type),Music)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelAlbum</include>
+					<label>31328</label>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget1Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8020">
+					<animation effect="slide" start="0,0" end="488,0" time="0" condition="StringCompare(Container(8020).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="366,0" time="0" condition="StringCompare(Container(8020).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="244,0" time="0" condition="StringCompare(Container(8020).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="122,0" time="0" condition="StringCompare(Container(8020).NumItems,4)">conditional</animation>
+					<posx>28</posx>
+					<posy>0</posy>
+					<width>1220</width>
+					<height>285</height>
+					<onleft>8020</onleft>
+					<onright>8020</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="245">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>235</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="245">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8020)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8020)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>235</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8020)</visible>
+						</control>
+					</focusedlayout>
+					
+					<include>CustomWidget1RecentAlbums</include>
+
+				</control>
+				<control type="button">
+					<include>WidgetArrowAlbumLeft</include>
+					<onclick>Control.Move(8020,-1)</onclick>
+					<visible>Control.HasFocus(8020) + Container(8020).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowAlbumRight</include>
+					<onclick>Control.Move(8020,1)</onclick>
+					<visible>Control.HasFocus(8020) + Container(8020).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 2 Recent Albums</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(92) + Skin.HasSetting(CustomWidget2) + !IsEmpty(Window(home).Property(CustomWidget2Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget2Recent.Type),Music)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelAlbum</include>
+					<label>31328</label>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget2Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8021">
+					<animation effect="slide" start="0,0" end="488,0" time="0" condition="StringCompare(Container(8021).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="366,0" time="0" condition="StringCompare(Container(8021).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="244,0" time="0" condition="StringCompare(Container(8021).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="122,0" time="0" condition="StringCompare(Container(8021).NumItems,4)">conditional</animation>
+					<posx>28</posx>
+					<posy>0</posy>
+					<width>1220</width>
+					<height>285</height>
+					<onleft>8021</onleft>
+					<onright>8021</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="245">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>235</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="245">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8021)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8021)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>235</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8021)</visible>
+						</control>
+					</focusedlayout>
+					
+					<include>CustomWidget2RecentAlbums</include>
+
+				</control>
+				<control type="button">
+					<include>WidgetArrowAlbumLeft</include>
+					<onclick>Control.Move(8021,-1)</onclick>
+					<visible>Control.HasFocus(8021) + Container(8021).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowAlbumRight</include>
+					<onclick>Control.Move(8021,1)</onclick>
+					<visible>Control.HasFocus(8021) + Container(8021).HasNext</visible>
+				</control>
+			</control>
+
+			<control type="group">
+				<description>Menu 3 Recent Albums</description>
+				<posx>0</posx>
+				<posy>75</posy>
+				<visible>Container(9000).Hasfocus(93) + Skin.HasSetting(CustomWidget3) + !IsEmpty(Window(home).Property(CustomWidget3Recent.1.Title)) + Stringcompare(Window(home).Property(CustomWidget3Recent.Type),Music)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<include>WidgetLabelAlbum</include>
+					<label>31328</label>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))</visible>
+				</control>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-5</posy>
+					<width>1320</width>
+					<height>295</height>
+					<texture border="5">contentpanel.png</texture>
+					<visible>!IsEmpty(Window(Home).Property(CustomWidget3Recent.1.Title))</visible>
+				</control>
+				<control type="list" id="8022">
+					<animation effect="slide" start="0,0" end="488,0" time="0" condition="StringCompare(Container(8022).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="366,0" time="0" condition="StringCompare(Container(8022).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="244,0" time="0" condition="StringCompare(Container(8022).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="122,0" time="0" condition="StringCompare(Container(8022).NumItems,4)">conditional</animation>
+					<posx>28</posx>
+					<posy>0</posy>
+					<width>1220</width>
+					<height>285</height>
+					<onleft>8022</onleft>
+					<onright>8022</onright>
+					<onup>700</onup>
+					<ondown condition="Player.HasMedia">603</ondown>
+					<ondown condition="Control.IsVisible(9019)">9019</ondown>
+					<ondown condition="System.HasAddon(script.globalsearch)">608</ondown>
+					<ondown>609</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="245">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>235</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="245">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8022)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>225</width>
+							<height>225</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8022)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>235</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>120</posx>
+							<posy>253</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>blue</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8022)</visible>
+						</control>
+					</focusedlayout>
+					
+					<include>CustomWidget3RecentAlbums</include>
+
+				</control>
+				<control type="button">
+					<include>WidgetArrowAlbumLeft</include>
+					<onclick>Control.Move(8022,-1)</onclick>
+					<visible>Control.HasFocus(8022) + Container(8022).HasPrevious</visible>
+				</control>
+				<control type="button">
+					<include>WidgetArrowAlbumRight</include>
+					<onclick>Control.Move(8022,1)</onclick>
+					<visible>Control.HasFocus(8022) + Container(8022).HasNext</visible>
+				</control>
+			</control>
+
+		</control>
+
+	</include>
+</includes>

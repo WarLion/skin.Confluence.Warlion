@@ -1,0 +1,1657 @@
+<includes>
+	<include name="CoverflowPoster">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<visible>Control.IsVisible(570)</visible>
+			<texture>black-back.png</texture>
+			<include>Window_OpenClose_Animation</include>
+		</control>
+		<control type="image" id="1">
+			<posx>0</posx>
+			<posy>600</posy>
+			<width>1280</width>
+			<height>256</height>
+			<texture>HomeNowPlayingBack.png</texture>
+		</control>
+		<control type="group" id="7001">
+			<include>Window_OpenClose_Animation</include>
+			<posy>150</posy>
+			<visible>Control.IsVisible(570) + Container.OnNext</visible>
+            <animation effect="slide" end="-100,0" time="250" reversible="false">Hidden</animation>
+			<control type="group">
+				<posx>80</posx>
+				<visible>Container.OnNext</visible>
+				<animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-4).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-4).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>280</posx>
+				<animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>1000</posx>
+				<visible>!Container.OnNext</visible>
+				<animation effect="fade" start="0" end="100" delay="0" time="250" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(1).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(1).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.OnNext</visible>
+				<animation effect="slide" end="-110,0" time="250" reversible="false">Hidden</animation>
+				<control type="group">
+					<posx>700</posx>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="1020" start="0" end="-60" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+					<animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>300</width>
+						<height>440</height>
+						<info>Container(570).ListItem(0).Icon</info>
+						<bordertexture border="4">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>440</posy>
+						<width>300</width>
+						<height>440</height>
+						<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+						<info>Container(570).ListItem(0).Icon</info>
+						<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+				</control>
+				<control type="group">
+					<posx>490</posx>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="470" start="0" end="-60" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>300</width>
+						<height>440</height>
+						<info>Container(570).ListItem(-1).Icon</info>
+						<bordertexture border="4">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>440</posy>
+						<width>300</width>
+						<height>440</height>
+						<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+						<info>Container(570).ListItem(-1).Icon</info>
+						<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+				</control>
+			</control>
+		</control>
+
+		<control type="group" id="7002">
+			<include>Window_OpenClose_Animation</include>
+			<posy>150</posy>
+			<visible>Control.IsVisible(570) + Container.OnPrevious</visible>
+			<animation effect="slide" end="100,0" time="250" reversible="false">Hidden</animation>
+			<control type="group">
+				<posx>900</posx>
+				<visible>Container.OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(4).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(4).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>-20</posx>
+				<visible>!Container.OnPrevious</visible>
+				<animation effect="fade" start="0" end="100" time="250" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>80</posx>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-1).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-1).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.OnPrevious</visible>
+				<animation effect="slide" end="110,0" time="250" reversible="false">Hidden</animation>
+				<control type="group">
+					<posx>280</posx>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="260" start="0" end="60" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+					<animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>300</width>
+						<height>440</height>
+						<info>Container(570).ListItem(0).Icon</info>
+						<bordertexture border="4">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>440</posy>
+						<width>300</width>
+						<height>440</height>
+						<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+						<info>Container(570).ListItem(0).Icon</info>
+						<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+				</control>
+				<control type="group">
+					<posx>490</posx>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="810" start="0" end="60" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>300</width>
+						<height>440</height>
+						<info>Container(570).ListItem(1).Icon</info>
+						<bordertexture border="4">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>440</posy>
+						<width>300</width>
+						<height>440</height>
+						<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+						<info>Container(570).ListItem(1).Icon</info>
+						<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+				</control>
+			</control>
+		</control>
+
+		<control type="group" id="7000">
+			<include>Window_OpenClose_Animation</include>
+			<posy>150</posy>
+			<visible>Control.IsVisible(570) + !Control.IsVisible(7001)  + !Control.IsVisible(7002)</visible>
+			<control type="group">
+				<posx>80</posx>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>280</posx>
+				<animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(-1).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(-1).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(1).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(1).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>490</posx>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(0).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>Control.HasFocus(570)</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(0).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>Control.HasFocus(570)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<posx>490</posx>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>Container(570).ListItem(0).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>!Control.HasFocus(570)</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>440</posy>
+					<width>300</width>
+					<height>440</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(570).ListItem(0).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>!Control.HasFocus(570)</visible>
+				</control>
+			</control>
+		</control>
+		<control type="wraplist" id="570">
+			<include>Window_OpenClose_Animation</include>
+			<description>Fake list to control coverflow movement</description>
+			<visible>Container.Content(Movies) | SubString(Container.FolderPath,videodb://1/7,left) | Container.Content(tvshows) | Container.Content(Seasons) | Container.Content(Musicvideos)</visible>
+			<posx>490</posx>
+			<posy>150</posy>
+			<width>306</width>
+			<height>440</height>
+			<onleft>57</onleft>
+			<onright>57</onright>
+			<onup>9000</onup>
+			<ondown>61</ondown>
+			<viewtype label="90045">list</viewtype>
+			<pagecontrol>61</pagecontrol>
+			<orientation>horizontal</orientation>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<focusedposition>3</focusedposition>
+			<itemlayout height="1" width="1">
+			</itemlayout>
+			<focusedlayout height="440" width="300">
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>300</width>
+					<height>440</height>
+					<info>ListItem.Icon</info>
+					<aspectratio>stretch</aspectratio>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>!Control.IsVisible(7001) + !Control.IsVisible(7002)</visible>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<include>Window_OpenClose_Animation</include>
+			<visible>Control.IsVisible(570)</visible>
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Container.Content(Movies) + !Control.HasFocus(61) + [!Skin.HasSetting(ClearLogo) | IsEmpty(Control.GetLabel(99999))]</visible>
+				<control type="label">
+					<description>Movie label</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>1220</width>
+					<height>35</height>
+					<font>font28_title</font>
+					<textcolor>blue</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>	
+				</control>
+				<control type="label">
+					<description>Movie year label</description>
+					<posx>0</posx>
+					<posy>635</posy>
+					<width>1280</width>
+					<height>35</height>
+					<font>font14</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>[B]$INFO[ListItem.Year][/B]</label>
+				</control>
+				<control type="label">
+					<description>Movie duration</description>
+					<posx>0</posx>
+					<posy>680</posy>
+					<width>1280</width>
+					<height>20</height>
+					<font>font12</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Duration,$LOCALIZE[2050] , $LOCALIZE[12391]]</label>
+				</control>
+			</control>
+
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>SubString(Container.FolderPath,videodb://1/7,left) + !Control.HasFocus(61)</visible>
+				<control type="label">
+					<description>Movie set label</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>1220</width>
+					<height>35</height>
+					<font>font28_title</font>
+					<textcolor>blue</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>	
+				</control>
+			</control>
+
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Container.Content(tvshows) + !Control.HasFocus(61)</visible>
+				<control type="label">
+					<description>TV show label</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>1220</width>
+					<height>35</height>
+					<font>font28_title</font>
+					<textcolor>blue</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>[!Skin.HasSetting(ClearLogo) | IsEmpty(Control.GetLabel(99998))]</visible>
+				</control>
+				<control type="label">
+					<description>TV show genre</description>
+					<posx>0</posx>
+					<posy>635</posy>
+					<width>1280</width>
+					<height>35</height>
+					<font>font14</font>
+					<textcolor>white</textcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>[B]$INFO[ListItem.Genre][/B]</label>
+					<visible>[!Skin.HasSetting(ClearLogo) | IsEmpty(Control.GetLabel(99998))]</visible>
+				</control>
+				<control type="label">
+					<description>Episode counts</description>
+					<posx>0</posx>
+					<posy>680</posy>
+					<width>1280</width>
+					<height>35</height>
+					<font>font12</font>
+					<textcolor>white</textcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Episode,, $LOCALIZE[20453]] ($INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101]])</label>
+				</control>
+
+			</control>
+
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Container.Content(Seasons) + !Control.HasFocus(61)</visible>
+				<control type="label">
+					<description>Season label</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>1220</width>
+					<height>35</height>
+					<font>font28_title</font>
+					<textcolor>blue</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>[!Skin.HasSetting(ClearLogo) | IsEmpty(Control.GetLabel(99997))]</visible>		
+				</control>
+				<control type="label">
+					<description>TV show title in seasons</description>
+					<posx>0</posx>
+					<posy>630</posy>
+					<width>1280</width>
+					<height>35</height>
+					<font>font12</font>
+					<textcolor>white</textcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>[B]$INFO[ListItem.TVShowTitle][/B]</label>
+					<visible>[!Skin.HasSetting(ClearLogo) | IsEmpty(Control.GetLabel(99997))]</visible>		
+				</control>
+				<control type="label">
+					<description>Episode counts</description>
+					<posx>0</posx>
+					<posy>680</posy>
+					<width>1280</width>
+					<height>35</height>
+					<font>font12</font>
+					<textcolor>white</textcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Episode,, $LOCALIZE[20453]] ($INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101]])</label>
+				</control>
+			</control>
+
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Container.Content(Musicvideos) + !Control.HasFocus(61)</visible>
+				<control type="label">
+					<description>Music video label</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>1220</width>
+					<height>35</height>
+					<font>font28_title</font>
+					<textcolor>blue</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>	
+				</control>
+				<control type="label">
+					<description>Music video year label</description>
+					<posx>0</posx>
+					<posy>635</posy>
+					<width>1280</width>
+					<height>35</height>
+					<font>font14</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>[B]$INFO[ListItem.Year][/B]</label>
+				</control>
+				<control type="label">
+					<description>Music video duration</description>
+					<posx>0</posx>
+					<posy>680</posy>
+					<width>1280</width>
+					<height>20</height>
+					<font>font12</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Duration,$LOCALIZE[2050] , $LOCALIZE[12391]]</label>
+				</control>
+			</control>
+
+			<control type="image" id="99999">
+				<description>Movie logo</description>
+				<include>VisibleFadeEffect</include>
+				<posx>533</posx>
+				<posy>600</posy>
+				<alignx>left</alignx>
+				<width>205</width>
+				<height>79</height>
+				<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				<fadetime>100</fadetime>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<visible>Container.Content(Movies) + Skin.HasSetting(ClearLogo) + !Control.HasFocus(61)</visible>
+			</control>
+			<control type="image" id="99998">
+				<description>TV show logo</description>
+				<include>VisibleFadeEffect</include>
+				<posx>533</posx>
+				<posy>600</posy>
+				<alignx>left</alignx>
+				<width>205</width>
+				<height>79</height>
+				<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				<fadetime>100</fadetime>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<visible>Container.Content(tvshows) + Skin.HasSetting(ClearLogo) + !Control.HasFocus(61)</visible>
+			</control>
+			<control type="image" id="99997">
+				<description>Season logo</description>
+				<include>VisibleFadeEffect</include>
+				<posx>533</posx>
+				<posy>600</posy>
+				<alignx>left</alignx>
+				<width>205</width>
+				<height>79</height>
+				<texture background="true">$INFO[ListItem.Art(tvshow.clearlogo)]</texture>
+				<fadetime>100</fadetime>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<visible>Container.Content(seasons) + Skin.HasSetting(ClearLogo) + !Control.HasFocus(61)</visible>
+			</control>
+
+			<control type="scrollbar" id="61">
+				<animation effect="fade" start="0" end="100" time="200" condition="Control.HasFocus(61)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="200" condition="!Control.HasFocus(61)">Conditional</animation>
+				<posx>200</posx>
+				<posy>630</posy>
+				<width>880</width>
+				<height>25</height>
+				<texturesliderbackground border="14,0,14,0">ScrollBarH.png</texturesliderbackground>
+				<texturesliderbar border="14,0,14,0">ScrollBarH_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="14,0,14,0">ScrollBarH_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib>ScrollBarNib.png</textureslidernib>
+				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<onup>50</onup>
+				<ondown>9000</ondown>
+				<showonepage>false</showonepage>
+				<orientation>horizontal</orientation>
+			</control>
+			<control type="grouplist">
+				<description>Media Codec Flagging Images</description>
+				<posx>20</posx>
+				<posy>680</posy>
+				<width>1280</width>
+				<align>left</align>
+				<itemgap>2</itemgap>
+				<orientation>horizontal</orientation>
+				<include>VideoCodecFlaggingConditions</include>
+				<include>AudioCodecFlaggingConditions</include>
+				<include>AudioChannelsFlaggingConditions</include>
+				<include>AspectCodecFlaggingConditions</include>
+				<include>VideoTypeHackFlaggingConditions</include>
+				<include condition="!Skin.HasSetting(HideLanguageFlags)">SubtitleFlaggingConditions</include>
+				<visible>[Container.Content(Movies) | Container.Content(Episodes) | Container.Content(Musicvideos)] + !Player.HasMedia</visible>
+			</control>
+		</control>
+	</include>
+
+	<include name="CoverflowSquare">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<visible>Control.IsVisible(571)</visible>
+			<texture>black-back.png</texture>
+			<include>Window_OpenClose_Animation</include>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>460</posy>
+			<width>1280</width>
+			<height>200</height>
+			<visible>Control.IsVisible(571)</visible>
+			<texture>white-reflect.png</texture>
+			<include>Window_OpenClose_Animation</include>
+		</control>
+
+		<control type="group" id="7001">
+			<include>Window_OpenClose_Animation</include>
+			<posy>175</posy>
+			<visible>Control.IsVisible(571) + Container.OnNext</visible>
+            <animation effect="slide" end="-100,0" time="250" reversible="false">Hidden</animation>
+			<control type="group">
+				<posx>20</posx>
+				<visible>Container.OnNext</visible>
+				<animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
+				<animation effect="rotatey" center="0" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-4).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-4).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>120</posx>
+				<animation effect="rotatey" center="100" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>220</posx>
+				<animation effect="rotatey" center="200" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>1000</posx>
+				<visible>!Container.OnNext</visible>
+				<animation effect="fade" start="0" end="100" delay="0" time="250" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="1380" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<animation effect="rotatey" center="1280" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>
+				<animation effect="rotatey" center="1180" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(1).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(1).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.OnNext</visible>
+				<animation effect="slide" end="-120,0" time="250" reversible="false">Hidden</animation>
+				<control type="group">
+					<posx>700</posx>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="1080" start="0" end="-65" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+					<animation effect="rotatey" center="1080" start="65" end="65" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>360</width>
+						<height>350</height>
+						<info>Container(571).ListItem(0).Icon</info>
+						<bordertexture border="4">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>350</posy>
+						<width>360</width>
+						<height>350</height>
+						<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+						<info>Container(571).ListItem(0).Icon</info>
+						<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+				</control>
+				<control type="group">
+					<posx>460</posx>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="450" start="0" end="-65" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>360</width>
+						<height>350</height>
+						<info>Container(571).ListItem(-1).Icon</info>
+						<bordertexture border="4">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>350</posy>
+						<width>360</width>
+						<height>350</height>
+						<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+						<info>Container(571).ListItem(-1).Icon</info>
+						<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+				</control>
+			</control>
+		</control>
+
+		<control type="group" id="7002">
+			<include>Window_OpenClose_Animation</include>
+			<posy>175</posy>
+			<visible>Control.IsVisible(571) + Container.OnPrevious</visible>
+			<animation effect="slide" end="100,0" time="250" reversible="false">Hidden</animation>
+			<control type="group">
+				<posx>900</posx>
+				<visible>Container.OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
+				<animation effect="rotatey" center="1280" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(4).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(4).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>
+				<animation effect="rotatey" center="1180" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1080" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>-80</posx>
+				<visible>!Container.OnPrevious</visible>
+				<animation effect="fade" start="0" end="100" time="250" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="-100" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>20</posx>
+				<animation effect="rotatey" center="0" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>120</posx>
+				<animation effect="rotatey" center="100" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-1).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-1).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.OnPrevious</visible>
+				<animation effect="slide" end="120,0" time="250" reversible="false">Hidden</animation>
+				<control type="group">
+					<posx>220</posx>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="200" start="0" end="65" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+					<animation effect="rotatey" center="200" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>360</width>
+						<height>350</height>
+						<info>Container(571).ListItem(0).Icon</info>
+						<bordertexture border="4">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>350</posy>
+						<width>360</width>
+						<height>350</height>
+						<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+						<info>Container(571).ListItem(0).Icon</info>
+						<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+				</control>
+				<control type="group">
+					<posx>460</posx>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="840" start="0" end="65" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>360</width>
+						<height>350</height>
+						<info>Container(571).ListItem(1).Icon</info>
+						<bordertexture border="4">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>350</posy>
+						<width>360</width>
+						<height>350</height>
+						<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+						<info>Container(571).ListItem(1).Icon</info>
+						<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+					</control>
+				</control>
+			</control>
+		</control>
+
+		<control type="group" id="7000">
+			<include>Window_OpenClose_Animation</include>
+			<posy>175</posy>
+			<visible>Control.IsVisible(571) + !Control.IsVisible(7001)  + !Control.IsVisible(7002)</visible>
+			<control type="group">
+				<posx>20</posx>
+				<animation effect="rotatey" center="0" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>120</posx>
+				<animation effect="rotatey" center="100" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>220</posx>
+				<animation effect="rotatey" center="200" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(-1).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(-1).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<animation effect="rotatey" center="1280" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(3).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(3).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>
+				<animation effect="rotatey" center="1180" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(2).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(2).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1080" start="65" end="65" time="0" condition="true">Conditional</animation>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(1).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(1).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>460</posx>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(0).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>Control.HasFocus(571)</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(0).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>Control.HasFocus(571)</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>Container(571).ListItem(0).Icon</info>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>!Control.HasFocus(571)</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>350</posy>
+					<width>360</width>
+					<height>350</height>
+					<texture flipy="true" diffuse="diffuse_mirror2.png" /> 
+					<info>Container(571).ListItem(0).Icon</info>
+					<bordertexture border="4" flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>!Control.HasFocus(571)</visible>
+				</control>
+			</control>
+		</control>
+
+		<control type="wraplist" id="571">
+			<include>Window_OpenClose_Animation</include>
+			<description>Fake list to control coverflow movement</description>
+			<visible>Window.IsVisible(Musiclibrary) | Window.IsVisible(Musicfiles) | Window.IsVisible(Programs)</visible>
+			<posx>460</posx>
+			<posy>175</posy>
+			<width>366</width>
+			<height>350</height>
+			<onleft>57</onleft>
+			<onright>57</onright>
+			<onup>9000</onup>
+			<ondown>61</ondown>
+			<viewtype label="90045">list</viewtype>
+			<pagecontrol>61</pagecontrol>
+			<orientation>horizontal</orientation>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<focusedposition>3</focusedposition>
+			<itemlayout height="1" width="1">
+			</itemlayout>
+			<focusedlayout height="350" width="360">
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>360</width>
+					<height>350</height>
+					<info>ListItem.Icon</info>
+					<aspectratio>stretch</aspectratio>
+					<bordertexture border="4">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<visible>!Control.IsVisible(7001) + !Control.IsVisible(7002)</visible>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<include>Window_OpenClose_Animation</include>
+			<visible>Control.IsVisible(571)</visible>
+			<control type="label">
+				<description>General title label</description>
+				<posx>40</posx>
+				<posy>545</posy>
+				<width>1200</width>
+				<height>35</height>
+				<font>font28_title</font>
+				<textcolor>blue</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			</control>
+			<control type="label">
+				<description>Artist label</description>
+				<posx>40</posx>
+				<posy>580</posy>
+				<width>1200</width>
+				<height>35</height>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[B]$INFO[ListItem.Label2][/B]</label>
+				<visible>Container.Content(Albums)</visible>
+			</control>
+			<control type="label">
+				<description>Artist label</description>
+				<posx>40</posx>
+				<posy>580</posy>
+				<width>1200</width>
+				<height>35</height>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[B]$INFO[ListItem.Album][/B]</label>
+				<visible>Container.Content(Songs)</visible>
+			</control>
+			<control type="label">
+				<description>Album year label</description>
+				<posx>0</posx>
+				<posy>615</posy>
+				<width>1280</width>
+				<height>35</height>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Year]</label>
+				<visible>Container.Content(Albums) | Container.Content(Songs)</visible>
+			</control>
+			<control type="scrollbar" id="61">
+				<animation effect="fade" start="100" end="0" time="200" condition="Skin.HasSetting(PassiveScrollbars) + !Control.HasFocus(61)">Conditional</animation>
+				<posx>200</posx>
+				<posy>630</posy>
+				<width>880</width>
+				<height>25</height>
+				<texturesliderbackground border="14,0,14,0">ScrollBarH.png</texturesliderbackground>
+				<texturesliderbar border="14,0,14,0">ScrollBarH_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="14,0,14,0">ScrollBarH_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib>ScrollBarNib.png</textureslidernib>
+				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<onup>50</onup>
+				<ondown>9000</ondown>
+				<showonepage>false</showonepage>
+				<orientation>horizontal</orientation>
+			</control>
+		</control>
+	</include>
+</includes>

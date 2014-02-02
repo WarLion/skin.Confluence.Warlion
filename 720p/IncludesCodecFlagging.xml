@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<variable name="typehackflagging">
 		<value condition="[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]">bluray</value>
@@ -23,8 +22,9 @@
 			<description>Video rez Image</description>
 			<width>55</width>
 			<height>35</height>
-			<aspectratio align="right">keep</aspectratio>
+			<aspectratio align="left">keep</aspectratio>
 			<texture>$INFO[ListItem.VideoResolution,flagging/video/,.png]</texture>
+			<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 		</control>
 		<control type="image">
 			<description>Codec Image</description>
@@ -32,16 +32,7 @@
 			<height>35</height>
 			<aspectratio align="left">keep</aspectratio>
 			<texture>$VAR[videocodec,flagging/video/,.png]</texture>
-		</control>
-	</include>
-	<include name="VideoStereoscopicsFlaggingConditions">
-		<control type="image">
-			<description>Video stereoscopics flagging image</description>
-			<width>55</width>
-			<height>35</height>
-			<aspectratio align="right">keep</aspectratio>
-			<texture>flagging/video/3D.png</texture>
-			<visible>ListItem.IsStereoscopic</visible>
+			<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 		</control>
 	</include>
 	<include name="VideoTypeHackFlaggingConditions">
@@ -51,7 +42,7 @@
 			<height>35</height>
 			<aspectratio align="left">keep</aspectratio>
 			<texture>$VAR[typehackflagging,flagging/video/,.png]</texture>
-			<visible>!Skin.HasSetting(HideFilenameFlagging)</visible>
+			<visible>!Skin.HasSetting(HideFilenameFlagging) + !IsEmpty(typehackflagging)</visible>
 		</control>
 	</include>
 	<include name="VideoMPAAFlaggingConditions">
@@ -68,17 +59,19 @@
 			<description>Audio Codec Image</description>
 			<width>80</width>
 			<height>35</height>
-			<aspectratio align="right">keep</aspectratio>
+			<aspectratio align="left">keep</aspectratio>
 			<texture>$INFO[ListItem.AudioCodec,flagging/audio/,.png]</texture>
+			<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 		</control>
 	</include>
 	<include name="AudioChannelsFlaggingConditions">
 		<control type="image">
-			<description>Audio Codec Image</description>
+			<description>Audio Channels Image</description>
 			<width>55</width>
 			<height>35</height>
 			<aspectratio align="left">keep</aspectratio>
 			<texture>$INFO[ListItem.AudioChannels,flagging/audio/,.png]</texture>
+			<visible>!IsEmpty(ListItem.AudioChannels)</visible>
 		</control>
 	</include>
 	<include name="AspectCodecFlaggingConditions">
@@ -86,8 +79,18 @@
 			<description>Aspectratio Image</description>
 			<width>55</width>
 			<height>35</height>
-			<aspectratio align="right">keep</aspectratio>
+			<aspectratio align="left">keep</aspectratio>
 			<texture>$INFO[ListItem.VideoAspect,flagging/aspectratio/,.png]</texture>
+			<visible>!IsEmpty(ListItem.VideoAspect)</visible>
 		</control>
+	</include>
+	<include name="SubtitleFlaggingConditions">
+		<control type="image">
+			<width>55</width>
+			<height>35</height>
+			<aspectratio align="left">keep</aspectratio>
+			<texture>flagging/cc.png</texture>
+			<visible>!Container.Content(Musicvideos) + [!IsEmpty(ListItem.SubtitleLanguage) | !IsEmpty(Window.Property(SubtitleLanguage.1))]</visible>
+    	</control>
 	</include>
 </includes>

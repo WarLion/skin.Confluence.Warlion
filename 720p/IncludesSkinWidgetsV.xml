@@ -1,0 +1,1685 @@
+<includes>
+	<include name="SkinWidgetsV">
+		<control type="group" id="9003">
+			<visible>!Window.IsVisible(favourites)</visible>
+			<include>VisibleFadeEffect</include>
+			<animation effect="fade" time="300" delay="1000">WindowOpen</animation>
+			<animation effect="fade" time="200">WindowClose</animation>
+			<control type="image">
+				<posx>382</posx>
+				<posy>180</posy>
+      			<width>1000</width>
+      			<height>360</height>
+      			<texture>contentpanel.png</texture>
+				<visible>Skin.HasSetting(VerticalHome) + [Container(9000).Hasfocus(10) + [Control.IsVisible(8000) | Control.IsVisible(8001) | Control.IsVisible(8002)]] | [Container(9000).Hasfocus(11) + [Control.IsVisible(8003) | Control.IsVisible(8004) | Control.IsVisible(8005)]] | [Container(9000).Hasfocus(3) + [Control.IsVisible(8006) | Control.IsVisible(8007) | Control.IsVisible(8008)]] | [Container(9000).Hasfocus(90) + [Control.IsVisible(8009) | Control.IsVisible(8010) | Control.IsVisible(8011)]] | [Container(9000).Hasfocus(94) + Control.IsVisible(8050)] | [Container(9000).Hasfocus(1) + Skin.HasSetting(AddonWidget) + IntegerGreaterThan(Container(8051).NumItems,0) + Control.IsVisible(8051)]</visible>
+    		</control>
+      		<control type="group">
+        		<description>Recent movies</description>
+        		<visible>[Skin.HasSetting(MovieWidget) + Container(9000).Hasfocus(10) + SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + !IsEmpty(Window.Property(RecentMovie.1.Title))]</visible>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[31328][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RecentMovie.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>-71</posx>
+					<posy>30</posy>
+					<width>274</width>
+					<height>161</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8000).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="list" id="8000">
+					<visible>SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + !IsEmpty(Window(Home).Property(RecentMovie.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>9000</onleft>
+    				<onright>8001</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8000)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8000)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8000)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8000)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8000)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RecentMovieContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+        		<description>Recommended movies</description>
+        		<visible>Skin.HasSetting(MovieWidget) + Container(9000).Hasfocus(10) + SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + !IsEmpty(Window.Property(RecommendedMovie.1.Title))</visible>
+        		<animation effect="slide" start="0,0" end="250,0" time="0" condition="SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8000)">Conditional</animation>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[90013][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>-71</posx>
+					<posy>30</posy>
+					<width>274</width>
+					<height>161</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8001).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="progress">
+					<posx>17</posx>
+					<posy>175</posy>
+					<width>98</width>
+					<height>8</height>
+					<info>Container(8001).ListItem.Property(Progress)</info>
+					<visible>IntegerGreaterThan(Container(8001).ListItem.Property(Progress),0)</visible>
+				</control>
+				<control type="list" id="8001">
+					<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + !IsEmpty(Window(Home).Property(RecommendedMovie.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>8000</onleft>
+    				<onright>8002</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8001)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8001)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8001)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8001)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8001)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RecommendedMovieContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+        		<description>Random movies</description>
+        		<visible>Skin.HasSetting(MovieWidget) + Container(9000).Hasfocus(10) + SubString(Window(Home).Property(SkinWidgets_RandomItems),t,left) + !IsEmpty(Window.Property(RandomMovie.1.Title))</visible>
+        		<animation effect="slide" start="0,0" end="250,0" time="0" condition="[SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8000)] | [SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + Control.IsVisible(8001)]">Conditional</animation>
+				<animation effect="slide" start="0,0" end="250,0" time="0" condition="[SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8000) + SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + Control.IsVisible(8001)]">Conditional</animation>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[590][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RandomMovie.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>-71</posx>
+					<posy>30</posy>
+					<width>274</width>
+					<height>161</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8002).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="list" id="8002">
+					<visible>SubString(Window(Home).Property(SkinWidgets_RandomItems),t,left) + !IsEmpty(Window(Home).Property(RandomMovie.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>8001</onleft>
+    				<onright>9000</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8002)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8002)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8002)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8002)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8002)</visible>
+			            </control>
+
+			    	</focusedlayout>
+
+			    	<include>RandomMovieContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+        		<description>Recent episodes</description>
+        		<visible>Skin.HasSetting(TVWidget) + Container(9000).Hasfocus(11) + SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + !IsEmpty(Window.Property(RecentEpisode.1.Title))</visible>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[31328][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RecentEpisode.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>35</posy>
+					<width>230</width>
+					<height>148</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture background="true">$INFO[Container(8003).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="list" id="8003">
+					<visible>SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + !IsEmpty(Window(Home).Property(RecentEpisode.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>9000</onleft>
+    				<onright>8004</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8003)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8003)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8003)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8003)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8003)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RecentEpisodeContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+        		<description>Recommended episodes</description>
+        		<visible>Skin.HasSetting(TVWidget) + Container(9000).Hasfocus(11) + SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + !IsEmpty(Window.Property(RecommendedEpisode.1.Title))</visible>
+        		<animation effect="slide" start="0,0" end="250,0" time="0" condition="SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8003)">Conditional</animation>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[90013][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RecommendedEpisode.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>35</posy>
+					<width>230</width>
+					<height>148</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture background="true">$INFO[Container(8004).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="progress">
+					<posx>17</posx>
+					<posy>170</posy>
+					<width>240</width>
+					<height>8</height>
+					<info>Container(8004).ListItem.Property(Progress)</info>
+					<visible>IntegerGreaterThan(Container(8004).ListItem.Property(Progress),0)</visible>
+				</control>
+				<control type="list" id="8004">
+					<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + !IsEmpty(Window(Home).Property(RecommendedEpisode.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>8003</onleft>
+    				<onright>8005</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8004)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8004)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8004)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8004)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8004)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RecommendedEpisodeContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+        		<description>Random episodes</description>
+        		<visible>Skin.HasSetting(TVWidget) + Container(9000).Hasfocus(11) + SubString(Window(Home).Property(SkinWidgets_RandomItems),t,left) + !IsEmpty(Window.Property(RandomEpisode.1.Title))</visible>
+        		<animation effect="slide" start="0,0" end="250,0" time="0" condition="[SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8003)] | [SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + Control.IsVisible(8004)]">Conditional</animation>
+				<animation effect="slide" start="0,0" end="250,0" time="0" condition="[SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8003) + SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + Control.IsVisible(8004)]">Conditional</animation>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[590][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RandomEpisode.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>35</posy>
+					<width>230</width>
+					<height>148</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture background="true">$INFO[Container(8005).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="progress">
+					<posx>17</posx>
+					<posy>170</posy>
+					<width>240</width>
+					<height>8</height>
+					<info>Container(8005).ListItem.Property(Progress)</info>
+					<visible>IntegerGreaterThan(Container(8005).ListItem.Property(Progress),0)</visible>
+				</control>
+				<control type="list" id="8005">
+					<visible>SubString(Window(Home).Property(SkinWidgets_RandomItems),t,left) + !IsEmpty(Window(Home).Property(RandomEpisode.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>8004</onleft>
+    				<onright>9000</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8005)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8005)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8005)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8005)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8005)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RandomEpisodeContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+        		<description>Recent albums</description>
+        		<visible>Skin.HasSetting(MusicWidget) + Container(9000).Hasfocus(3) + SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + !IsEmpty(Window.Property(RecentAlbum.1.Title))</visible>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[31328][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RecentAlbum.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>35</posy>
+					<width>148</width>
+					<height>148</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8006).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="list" id="8006">
+					<visible>SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + !IsEmpty(Window(Home).Property(RecentAlbum.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>9000</onleft>
+    				<onright>8007</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8006)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8006)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8006)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8006)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8006)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RecentAlbumContent</include>
+
+				</control>
+
+    		</control>
+			
+			<control type="group">
+        		<description>Recommended albums</description>
+        		<visible>Skin.HasSetting(MusicWidget) + Container(9000).Hasfocus(3) + SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + !IsEmpty(Window.Property(RecommendedAlbum.1.Title))</visible>
+				<animation effect="slide" start="0,0" end="250,0" time="0" condition="SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8006)">Conditional</animation>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[90013][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RecommendedAlbum.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>35</posy>
+					<width>148</width>
+					<height>148</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8007).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="list" id="8007">
+					<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + !IsEmpty(Window(Home).Property(RecommendedAlbum.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>8006</onleft>
+    				<onright>8008</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8007)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8007)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8007)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8007)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8007)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RecommendedAlbumContent</include>
+
+				</control>
+
+    		</control>
+			
+			<control type="group">
+        		<description>Random albums</description>
+        		<visible>Skin.HasSetting(MusicWidget) + Container(9000).Hasfocus(3) + SubString(Window(Home).Property(SkinWidgets_RandomItems),t,left) + !IsEmpty(Window.Property(RandomAlbum.1.Title))</visible>
+				<animation effect="slide" start="0,0" end="250,0" time="0" condition="[SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8006)] | [SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + Control.IsVisible(8007)]">Conditional</animation>
+				<animation effect="slide" start="0,0" end="250,0" time="0" condition="[SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8006) + SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + Control.IsVisible(8007)]">Conditional</animation>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[590][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RandomAlbum.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>12</posx>
+					<posy>35</posy>
+					<width>148</width>
+					<height>148</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8008).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="list" id="8008">
+					<visible>SubString(Window(Home).Property(SkinWidgets_RandomItems),t,left) + !IsEmpty(Window(Home).Property(RandomAlbum.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>8007</onleft>
+    				<onright>9000</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8008)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8008)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8008)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8008)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8008)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RandomAlbumContent</include>
+
+				</control>
+
+    		</control>
+			
+			<control type="group">
+        		<description>Recent music videos</description>
+        		<visible>Skin.HasSetting(MusicvideoWidget) + Container(9000).Hasfocus(90) + SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + !IsEmpty(Window.Property(RecentMusicVideo.1.Title))</visible>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[31328][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RecentMusicVideo.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>-71</posx>
+					<posy>30</posy>
+					<width>274</width>
+					<height>161</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8009).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="list" id="8009">
+					<visible>SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + !IsEmpty(Window(Home).Property(RecentMusicVideo.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>9000</onleft>
+    				<onright>8010</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8009)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8009)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8009)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8009)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8009)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RecentMusicVideoContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+        		<description>Recommended music videos</description>
+        		<visible>Skin.HasSetting(MusicvideoWidget) + Container(9000).Hasfocus(90) + SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + !IsEmpty(Window.Property(RecommendedMusicVideo.1.Title))</visible>
+        		<animation effect="slide" start="0,0" end="250,0" time="0" condition="SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8009)">Conditional</animation>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[90013][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RecommendedMusicVideo.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>-71</posx>
+					<posy>30</posy>
+					<width>274</width>
+					<height>161</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8010).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="progress">
+					<posx>17</posx>
+					<posy>175</posy>
+					<width>98</width>
+					<height>8</height>
+					<info>Container(8010).ListItem.Property(Progress)</info>
+					<visible>IntegerGreaterThan(Container(8010).ListItem.Property(Progress),0)</visible>
+				</control>
+				<control type="list" id="8010">
+					<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + !IsEmpty(Window(Home).Property(RecommendedMusicVideo.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>8009</onleft>
+    				<onright>8011</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8010)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8010)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8010)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8010)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8010)</visible>
+			            </control>
+			    	</focusedlayout>
+
+			    	<include>RecommendedMusicVideoContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+        		<description>Random music videos</description>
+        		<visible>Skin.HasSetting(MusicvideoWidget) + Container(9000).Hasfocus(90) + SubString(Window(Home).Property(SkinWidgets_RandomItems),t,left) + !IsEmpty(Window.Property(RandomMusicVideo.1.Title))</visible>
+        		<animation effect="slide" start="0,0" end="250,0" time="0" condition="[SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8009)] | [SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + Control.IsVisible(8010)]">Conditional</animation>
+				<animation effect="slide" start="0,0" end="250,0" time="0" condition="[SubString(Window(Home).Property(SkinWidgets_RecentItems),t,left) + Control.IsVisible(8009) + SubString(Window(Home).Property(SkinWidgets_Recommended),t,left) + Control.IsVisible(8010)]">Conditional</animation>
+    			<posx>410</posx>
+				<posy>180</posy>
+				<include>VisibleFadeEffect</include>
+    			<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[590][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(RandomMusicVideo.1.Title))</visible>
+				</control>
+				<control type="image">
+					<posx>-71</posx>
+					<posy>30</posy>
+					<width>274</width>
+					<height>161</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[Container(8011).ListItem.Icon]</texture>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="list" id="8011">
+					<visible>SubString(Window(Home).Property(SkinWidgets_RandomItems),t,left) + !IsEmpty(Window(Home).Property(RandomMusicVideo.1.Title))</visible>
+					<posx>15</posx>
+    				<posy>195</posy>
+    				<width>236</width>
+    				<height>155</height>
+    				<onleft>8010</onleft>
+    				<onright>9000</onright>
+    				<itemlayout width="236" height="38">
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			            </control>
+			    	</itemlayout>
+			    	<focusedlayout width="236" height="38">
+			    		<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>236</width>
+							<height>46</height>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+							<visible>Control.HasFocus(8011)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+			    		<control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8011)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font12</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>white</textcolor>
+			              	<visible>Control.HasFocus(8011)</visible>
+			            </control>
+			            <control type="label">
+			            	<posx>0</posx>
+			            	<posy>0</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8011)</visible>
+			            </control>
+			            <control type="label">
+			              	<posx>0</posx>
+			              	<posy>17</posy>
+			              	<width>228</width>
+			              	<font>font10</font>
+			              	<info>ListItem.Label2</info>
+			              	<textcolor>grey</textcolor>
+			              	<visible>!Control.HasFocus(8011)</visible>
+			            </control>
+
+			    	</focusedlayout>
+
+			    	<include>RandomMusicVideoContent</include>
+
+				</control>
+
+    		</control>
+
+    		<control type="group">
+				<description>Favourites widget</description>
+				<posx>410</posx>
+				<posy>180</posy>
+				<visible>!Window.IsVisible(favourites)</visible>
+				<visible>Skin.HasSetting(FavouriteWidget) + Container(9000).Hasfocus(94) + !IsEmpty(Window(Home).Property(favourite.1.path))</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[1036][/UPPERCASE]</label>
+					<visible>!IsEmpty(Window(Home).Property(favourite.1.path))</visible>
+				</control>
+				<control type="fixedlist" id="8050">
+					<visible>Skin.HasSetting(FavouriteWidget) + Container(9000).Hasfocus(94) + !IsEmpty(Window(Home).Property(favourite.1.path))</visible>
+					<posx>0</posx>
+					<posy>50</posy>
+					<width>1220</width>
+					<height>285</height>
+					<onleft>9000</onleft>
+					<onright>8050</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<onback>9000</onback>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="200">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>180</width>
+							<height>180</height>
+							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>100</posx>
+							<posy>210</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="200">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>180</width>
+							<height>180</height>
+							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8050)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>180</width>
+							<height>180</height>
+							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8050)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>100</posx>
+							<posy>210</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!Control.HasFocus(8050)</visible>
+						</control>
+						<control type="label">
+							<posx>100</posx>
+							<posy>210</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8050)</visible>
+						</control>
+					</focusedlayout>
+					
+					<include>FavouriteContent</include>
+
+				</control>
+				
+			</control>
+
+			<control type="group">
+				<description>Add-ons widget</description>
+				<posx>410</posx>
+				<posy>180</posy>
+				<visible>Skin.HasSetting(AddonWidget) + Container(9000).Hasfocus(1) + IntegerGreaterThan(Container(8051).NumItems,0)</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+    				<posx>15</posx>
+					<posy>10</posy>
+    				<width>290</width>
+    				<height>20</height>
+    				<align>left</align>
+					<aligny>center</aligny>
+					<font>font10</font>
+					<textcolor>selected</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[UPPERCASE]$LOCALIZE[24001][/UPPERCASE]</label>
+					<visible>IntegerGreaterThan(Container(8051).NumItems,0)</visible>
+				</control>
+				<control type="fixedlist" id="8051">
+					<visible>Skin.HasSetting(AddonWidget) + Container(9000).Hasfocus(1) + IntegerGreaterThan(Container(8051).NumItems,0)</visible>
+					<posx>0</posx>
+					<posy>50</posy>
+					<width>1220</width>
+					<height>285</height>
+					<onleft>9000</onleft>
+					<onright>8051</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<onback>9000</onback>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="285" width="200">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>180</width>
+							<height>180</height>
+							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>100</posx>
+							<posy>210</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>100</posx>
+							<posy>235</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(Type)]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="285" width="200">
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>180</width>
+							<height>180</height>
+							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">folder-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8051)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>180</width>
+							<height>180</height>
+							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8051)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>170</width>
+							<height>140</height>
+							<aspectratio>stretch</aspectratio>
+							<texture>GlassOverlay.png</texture>
+						</control>
+						<control type="label">
+							<posx>100</posx>
+							<posy>210</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!Control.HasFocus(8051)</visible>
+						</control>
+						<control type="label">
+							<posx>100</posx>
+							<posy>210</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font12</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8051)</visible>
+						</control>
+						<control type="label">
+							<posx>100</posx>
+							<posy>235</posy>
+							<width>180</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(Type)]</label>
+						</control>
+					</focusedlayout>
+
+					<content>
+
+						<include>HomeAddonItemsVideos</include>
+						<include>HomeAddonItemsLiveTV</include>
+						<include>HomeAddonItemsMusic</include>
+						<include>HomeAddonItemsPictures</include>
+						<include>HomeAddonItemsPrograms</include>
+
+					</content>
+
+				</control>
+				
+			</control>
+
+		</control>
+
+	</include>
+	
+</includes>
