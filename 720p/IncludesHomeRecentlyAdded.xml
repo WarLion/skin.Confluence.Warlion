@@ -36,8 +36,23 @@
 							<texture background="true" fallback="Home/widgets/defaultposter.png">$INFO[ListItem.Icon]</texture>
 							<bordertexture border="3">button-nofocus.png</bordertexture>
 							<bordersize>3</bordersize>
-							<colordiffuse>55FFFFFF</colordiffuse>
 						</control>
+						<control type="image">
+							<left>10</left>
+							<top>122</top>
+							<width>80</width>
+							<height>170</height>
+							<texture background="true" flipy="true" diffuse="Home/widgets/diffuseposter.png" fallback="Home/widgets/defaultposter.png">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="3">button-nofocus.png</bordertexture>
+							<bordersize>3</bordersize>
+						</control>						
+						<control type="image">
+							<left>14</left>
+							<top>40</top>
+							<width>72</width>
+							<height>110</height>
+							<texture>Home/widgets/postershadow.png</texture>
+						</control>						
 					</itemlayout>
 					<focusedlayout height="220" width="80">
 						<control type="image">
@@ -52,6 +67,15 @@
 						</control>
 						<control type="image">
 							<left>10</left>
+							<top>122</top>
+							<width>80</width>
+							<height>170</height>
+							<texture background="true" flipy="true" diffuse="Home/widgets/diffuseposter.png" fallback="Home/widgets/defaultposter.png">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="3">button-nofocus.png</bordertexture>
+							<bordersize>3</bordersize>
+						</control>							
+						<control type="image">
+							<left>10</left>
 							<top>10</top>
 							<width>80</width>
 							<height>170</height>
@@ -61,442 +85,189 @@
 							<visible>!Control.HasFocus(8000)</visible>
 						</control>
 					</focusedlayout>
-					<content>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.1.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.1.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.1.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.1.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.1.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.1.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.1.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.1.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.1.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.1.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.1.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.1.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.1.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.1.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.1.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.1.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.1.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.1.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.1.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.1.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.1.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.1.mpaa)]</property>
-							<label>$INFO[Window.Property(RecentMovie.1.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.1.Year),  ]$INFO[Window.Property(RecentMovie.1.RunTime), - ,]$INFO[Window.Property(RecentMovie.1.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.1.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.2.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.2.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.2.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.2.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.2.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.2.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.2.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.2.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.2.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.2.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.2.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.2.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.2.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.2.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.2.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.2.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.2.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.2.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.2.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.2.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.2.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.2.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.2.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.2.Year),  ]$INFO[Window.Property(RecentMovie.2.RunTime), - ,]$INFO[Window.Property(RecentMovie.2.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.2.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.3.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.3.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.3.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.3.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.3.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.3.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.3.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.3.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.3.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.3.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.3.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.3.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.3.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.3.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.3.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.3.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.3.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.3.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.3.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.3.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.3.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.3.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.3.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.3.Year),  ]$INFO[Window.Property(RecentMovie.3.RunTime), - ,]$INFO[Window.Property(RecentMovie.3.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.3.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.4.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.4.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.4.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.4.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.4.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.4.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.4.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.4.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.4.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.4.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.4.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.4.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.4.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.4.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.4.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.4.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.4.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.4.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.4.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.4.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.4.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.4.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.4.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.4.Year),  ]$INFO[Window.Property(RecentMovie.4.RunTime), - ,]$INFO[Window.Property(RecentMovie.4.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.4.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.5.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.5.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.5.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.5.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.5.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.5.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.5.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.5.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.5.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.5.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.5.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.5.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.5.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.5.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.5.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.5.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.5.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.5.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.5.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.5.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.5.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.5.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.5.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.5.Year),  ]$INFO[Window.Property(RecentMovie.5.RunTime), - ,]$INFO[Window.Property(RecentMovie.5.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.5.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.6.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.6.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.6.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.6.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.6.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.6.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.6.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.6.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.6.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.6.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.6.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.6.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.6.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.6.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.6.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.6.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.6.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.6.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.6.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.6.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.6.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.6.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.6.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.6.Year),  ]$INFO[Window.Property(RecentMovie.6.RunTime), - ,]$INFO[Window.Property(RecentMovie.6.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.6.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.7.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.7.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.7.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.7.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.7.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.7.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.7.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.7.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.7.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.7.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.7.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.7.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.7.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.7.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.7.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.7.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.7.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.7.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.7.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.7.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.7.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.7.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.7.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.7.Year),  ]$INFO[Window.Property(RecentMovie.7.RunTime), - ,]$INFO[Window.Property(RecentMovie.7.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.7.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.8.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.8.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.8.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.8.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.8.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.8.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.8.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.8.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.8.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.8.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.8.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.8.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.8.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.8.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.8.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.8.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.8.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.8.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.8.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.8.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.8.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.8.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.8.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.8.Year),  ]$INFO[Window.Property(RecentMovie.8.RunTime), - ,]$INFO[Window.Property(RecentMovie.8.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.8.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.9.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.9.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.9.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.9.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.9.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.9.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.9.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.9.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.9.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.9.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.9.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.9.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.9.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.9.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.9.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.9.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.9.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.9.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.9.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.9.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.9.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.9.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.9.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.9.Year),  ]$INFO[Window.Property(RecentMovie.9.RunTime), - ,]$INFO[Window.Property(RecentMovie.9.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.9.Title))</visible>					
-						</item>
-						<item>
-							<onclick>PlayMedia($ESCINFO[Window.Property(RecentMovie.10.File)])</onclick>
-							<icon>$INFO[Window.Property(RecentMovie.10.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(RecentMovie.10.Art(poster))]</property>
-							<property name="Overlay">$INFO[Window.Property(RecentMovie.10.Watched)]</property>
-							<property name="Rating">$INFO[Window.Property(RecentMovie.10.Rating)]</property>
-							<property name="Plot">$INFO[Window.Property(RecentMovie.10.Plot)]</property>
-							<property name="Logo">$INFO[Window.Property(RecentMovie.10.Art(clearlogo))]</property>
-							<property name="disart">$INFO[Window.Property(RecentMovie.10.Art(discart))]</property>
-							<property name="Year">$INFO[Window(Home).Property(RecentMovie.10.Year)]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(RecentMovie.10.RunTime)]</property>
-							<property name="Trailer">$INFO[Window(Home).Property(RecentMovie.10.Trailer)]</property>
-							<property name="Tagline">$INFO[Window(Home).Property(RecentMovie.10.Tagline)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(RecentMovie.10.Art(FanArt))]</property>
-							<property name="Discart">$INFO[Window(Home).Property(RecentMovie.10.Art(discart))]</property>
-							<property name="Studio">$INFO[Window(Home).Property(RecentMovie.10.Studio)]</property>
-							<property name="VideoCodec">$INFO[Window(Home).Property(RecentMovie.10.VideoCodec)]</property>
-							<property name="VideoResolution">$INFO[Window(Home).Property(RecentMovie.10.VideoResolution)]</property>
-							<property name="VideoAspect">$INFO[Window(Home).Property(RecentMovie.10.VideoAspect)]</property>
-							<property name="AudioCodec">$INFO[Window(Home).Property(RecentMovie.10.AudioCodec)]</property>
-							<property name="AudioChannels">$INFO[Window(Home).Property(RecentMovie.10.AudioChannels)]</property>
-							<property name="Country">$INFO[Window(Home).Property(RecentMovie.10.Country)]</property>
-							<property name="Mpaa">$INFO[Window(Home).Property(RecentMovie.10.mpaa)]</property>			
-							<label>$INFO[Window.Property(RecentMovie.10.Title)]</label>
-							<property name="Data">$INFO[Window.Property(RecentMovie.10.Year),  ]$INFO[Window.Property(RecentMovie.10.RunTime), - ,]$INFO[Window.Property(RecentMovie.10.Rating), - ,]</property>
-							<visible>!IsEmpty(Window.Property(RecentMovie.10.Title))</visible>					
-						</item>
-					</content>
+						<content>
+							<include>WidgetContentMovies</include>
+						</content>							
 				</control>
 				
-				<control type="group">
+				<control type="group">	
+				<top>15</top>				
 				<include>VisibleFadeEffect</include>
 				<control type="image">
-					<posx>-50</posx>
-					<posy>-90</posy>
-					<width>422</width>
-					<height>422</height>
-					<aspectratio align="right">keep</aspectratio>
+					<left>-3</left>
+					<top>-140</top>
+					<width>466</width>
+					<height>480</height>
+					<texture background="true">Home/widgets/shadow-focus.png</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>				
+				<control type="image">
+					<left>80</left>
+					<top>-160</top>
+					<width>300</width>
+					<aspectratio>keep</aspectratio>
 					<texture background="true" fallback="Home/widgets/defaultposter.png">$INFO[Container(8000).ListItem.Icon]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="5">button-nofocus.png</bordertexture>
-							<bordersize>3</bordersize>
-				</control>
+					<bordersize>3</bordersize>
+				</control>				
 				<control type="image" id="99959">
-					<posx>75</posx>
-					<posy>175</posy>
+					<left>80</left>
+					<top>-735</top>
 					<width>300</width>
-					<height>422</height>
-					<aspectratio align="center">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
 					<texture background="true">$INFO[Container(8000).ListItem.Property(Logo)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>	
 							
 				<control type="label">
-						<posx>100</posx>
-						<posy>350</posy>
-						<width>422</width>
+						<left>410</left>
+						<top>150</top>
+						<width>600</width>
 						<height>100</height>
-						<font>font28_title</font>
+						<font>font26_title</font>
 						<align>left</align>
-						<textcolor>white</textcolor>
-						<shadowcolor>black</shadowcolor>
+						<textcolor>black</textcolor>
 						<label>$INFO[Container(8000).ListItem.Label]</label>
 						<visible>StringCompare(Control.GetLabel(99959),)</visible>
 					</control>	
 				<control type="image">
-					<posx>950</posx>
-					<posy>50</posy>
-					<width>300</width>
-					<height>422</height>
-					<aspectratio align="center">keep</aspectratio>
+					<left>940</left>
+					<top>195</top>
+					<width>280</width>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">Home/widgets/shadow.png</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>						
+				<control type="image">
+					<left>950</left>
+					<top>50</top>
+					<width>260</width>
+					<aspectratio>keep</aspectratio>
 					<texture background="true">$INFO[Container(8000).ListItem.Property(Fanart)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="5">button-nofocus.png</bordertexture>
 					<bordersize>3</bordersize>
-					<visible>![Player.HasVideo | Player.HasAudio]</visible>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>					
-					
-					
-					<control type="textbox">
-						<posx>400</posx>
-						<posy>170</posy>
-						<label>$INFO[Container(8000).ListItem.Property(Plot)]</label>
-						<align>justify</align>
-						<font>font10</font>
-						<textcolor>white</textcolor>
-						<width>500</width>
-						<height>70</height>
-						<autoscroll delay="8000" time="3000" repeat="8000" />
-					</control>	
-				
+				</control>									
+				<control type="textbox">
+					<left>410</left>
+					<top>175</top>
+					<label>$INFO[Container(8000).ListItem.Property(Plot)]</label>
+					<align>justify</align>
+					<font>font10</font>
+					<textcolor>black</textcolor>
+					<width>500</width>
+					<height>70</height>
+					<autoscroll delay="8000" time="3000" repeat="8000" />
+				</control>	
+
+				<control type="group">
+					<left>390</left>
+					<top>255</top>
+					<include>Window_OpenClose_widgets</include>												
 					<control type="image">
-						<posx>850</posx>
-						<posy>235</posy>
-						<width>100</width>
-						<height>68</height>
-						<aspectratio>keep</aspectratio>
-						<texture fallback="Home/Widgets/flags/studios/default-studio.png">$VAR[WidgetMoviesStudio]</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
-					</control>												
-					<control type="image">
-						<posx>400</posx>
-						<posy>250</posy>
+						<left>10</left>
+						<top>0</top>
 						<width>60</width>
 						<height>39</height>
 						<aspectratio>keep</aspectratio>
 						<texture fallback="Home/Widgets/flags/resolution/defaultscreen.png">$VAR[WidgetMoviesResolution]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
+						<colordiffuse>ffe7e7e7</colordiffuse>
 					</control>	
-
 					<control type="image">
-						<posx>465</posx>
-						<posy>250</posy>
+						<left>65</left>
+						<top>0</top>
 						<width>58</width>
 						<height>39</height>
 						<aspectratio>keep</aspectratio>
 						<texture fallback="Home/Widgets/flags/audio/defaultsound.png">$VAR[WidgetMoviesAudioCodec]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
+						<colordiffuse>ffe7e7e7</colordiffuse>
 					</control>					
 					<control type="image">
-						<posx>528</posx>
-						<posy>250</posy>
+						<left>123</left>
+						<top>0</top>
 						<width>58</width>
 						<height>39</height>
 						<aspectratio>keep</aspectratio>
 						<texture fallback="black.png">$VAR[WidgetMoviesAspect]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
+						<colordiffuse>ffe7e7e7</colordiffuse>
 					</control>										
 					<control type="image">
-						<posx>581</posx>
-						<posy>250</posy>
+						<left>181</left>
+						<top>0</top>
 						<width>58</width>
 						<height>39</height>
 						<aspectratio>keep</aspectratio>
 						<texture fallback="Home/Widgets/flags/source/default.png">$VAR[WidgetMoviesVideoCodec]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
+						<colordiffuse>ffe7e7e7</colordiffuse>
 					</control>	
 					<control type="image">
-						<posx>644</posx>
-						<posy>260</posy>
+						<left>239</left>
+						<top>10</top>
 						<width>54</width>
 						<height>20</height>
 						<texture>Home/Widgets/flags/IMDB.png</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
+						<colordiffuse>ffe7e7e7</colordiffuse>
 					</control>			
 				<control type="label">
-						<posx>653</posx>
-						<posy>258</posy>
+						<left>247</left>
+						<top>8</top>
 						<width>55</width>
 						<height>100</height>
 						<font>font12_title</font>
 						<align>center</align>
-						<textcolor>white</textcolor>
-						<shadowcolor>black</shadowcolor>
+						<textcolor>ffe7e7e7</textcolor>
 						<label>$INFO[Container(8000).ListItem.Property(Rating)]</label>
 					</control>	
 					<control type="image">
-						<posx>705</posx>
-						<posy>260</posy>
+						<left>303</left>
+						<top>10</top>
 						<width>62</width>
 						<height>20</height>
 						<texture>Home/Widgets/flags/time.png</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
+						<colordiffuse>ffe7e7e7</colordiffuse>
 					</control>																
 					<control type="label">
-						<posx>710</posx>
-						<posy>258</posy>
+						<left>308</left>
+						<top>8</top>
 						<width>70</width>
 						<font>font12_title</font>
 						<align>center</align>
-						<textcolor>white</textcolor>
-						<shadowcolor>black</shadowcolor>
+						<textcolor>ffe7e7e7</textcolor>
 						<label>$INFO[Container(8000).ListItem.Property(RunningTime)]</label>
 					</control>																			
 					<control type="label">
-						<posx>771</posx>
-						<posy>258</posy>
-						<width>55</width>
-						<height>100</height>
+						<left>370</left>
+						<top>8</top>
+						<width>40</width>
 						<font>font12_title</font>
 						<align>center</align>
-						<textcolor>white</textcolor>
-						<shadowcolor>black</shadowcolor>
+						<textcolor>ffe7e7e7</textcolor>
 						<label>$INFO[Container(8000).ListItem.Property(Year)]</label>
-					</control>		
+					</control>	
+					<control type="image">
+						<left>450</left>
+						<top>-15</top>
+						<width>100</width>
+						<height>68</height>
+						<aspectratio>keep</aspectratio>
+						<texture fallback="Home/Widgets/flags/studios/default-studio.png">$VAR[WidgetMoviesStudio]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<colordiffuse>ffe7e7e7</colordiffuse>
+					</control>					
+				</control>	
 										
 			</control>
 			</control>
 			<control type="group">
-				<left>450</left>
-				<top>250</top>
+				<left>0</left>
+				<top>210</top>
 				<visible>Library.HasContent(TVShows)</visible>
 				<visible>Container(9000).Hasfocus(11) + !Skin.HasSetting(HomepageHideRecentlyAddedVideo)</visible>
 				<include>VisibleFadeEffect2</include>
@@ -504,7 +275,7 @@
 					<animation effect="slide" start="0,0" end="120,0" time="0" condition="StringCompare(Container(8001).NumItems,3)">conditional</animation>
 					<animation effect="slide" start="0,0" end="240,0" time="0" condition="StringCompare(Container(8001).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="StringCompare(Container(8001).NumItems,1)">conditional</animation>
-					<left>-70</left>
+					<left>400</left>
 					<top>0</top>
 					<width>870</width>
 					<height>240</height>
@@ -522,7 +293,7 @@
 						<control type="image">
 							<description>background</description>
 							<left>0</left>
-							<top>0</top>
+							<top>30</top>
 							<width>150</width>
 							<height>112</height>
 							<texture border="15">RecentAddedBack.png</texture>
@@ -530,7 +301,7 @@
 						</control>
 						<control type="image">
 							<left>10</left>
-							<top>10</top>
+							<top>40</top>
 							<width>130</width>
 							<height>92</height>
 							<aspectratio>scale</aspectratio>
@@ -544,7 +315,7 @@
 						<control type="image">
 							<description>background</description>
 							<left>0</left>
-							<top>0</top>
+							<top>30</top>
 							<width>150</width>
 							<height>112</height>
 							<texture border="15">RecentAddedBack.png</texture>
@@ -553,7 +324,7 @@
 						<control type="image">
 							<description>background</description>
 							<left>0</left>
-							<top>0</top>
+							<top>30</top>
 							<width>150</width>
 							<height>112</height>
 							<texture border="15">RecentAddedBack.png</texture>
@@ -561,7 +332,7 @@
 						</control>						
 						<control type="image">
 							<left>10</left>
-							<top>10</top>
+							<top>40</top>
 							<width>130</width>
 							<height>92</height>
 							<aspectratio>scale</aspectratio>
@@ -572,7 +343,7 @@
 						</control>
 						<control type="image">
 							<left>10</left>
-							<top>10</top>
+							<top>40</top>
 							<width>130</width>
 							<height>92</height>
 							<aspectratio>scale</aspectratio>
@@ -583,197 +354,154 @@
 						</control>
 					</focusedlayout>
 			<content>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.1.Title),, • ]$INFO[Window.Property(RecentEpisode.1.Season),S,]$INFO[Window.Property(RecentEpisode.1.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.1.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.1.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.1.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.1.Plot)]</property>	
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.1.Art(tvshow.fanart))]</property>							
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.1.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.1.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.2.Title),, • ]$INFO[Window.Property(RecentEpisode.2.Season),S,]$INFO[Window.Property(RecentEpisode.2.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.2.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.2.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.2.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.2.Plot)]</property>
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.2.Art(tvshow.fanart))]</property>							
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.2.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.2.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.3.Title),, • ]$INFO[Window.Property(RecentEpisode.3.Season),S,]$INFO[Window.Property(RecentEpisode.3.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.3.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.3.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.3.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.3.Plot)]</property>
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.3.Art(tvshow.fanart))]</property>							
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.3.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.3.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.4.Title),, • ]$INFO[Window.Property(RecentEpisode.4.Season),S,]$INFO[Window.Property(RecentEpisode.4.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.4.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.4.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.4.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.4.Plot)]</property>	
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.4.Art(tvshow.fanart))]</property>						
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.4.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.4.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.5.Title),, • ]$INFO[Window.Property(RecentEpisode.5.Season),S,]$INFO[Window.Property(RecentEpisode.5.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.5.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.5.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.5.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.5.Plot)]</property>
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.5.Art(tvshow.fanart))]</property>							
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.5.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.5.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.6.Title),, • ]$INFO[Window.Property(RecentEpisode.6.Season),S,]$INFO[Window.Property(RecentEpisode.6.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.6.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.6.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.6.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.6.Plot)]</property>
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.6.Art(tvshow.fanart))]</property>							
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.6.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.6.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.7.Title),, • ]$INFO[Window.Property(RecentEpisode.7.Season),S,]$INFO[Window.Property(RecentEpisode.7.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.7.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.7.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.7.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.7.Plot)]</property>
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.7.Art(tvshow.fanart))]</property>							
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.7.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.7.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.8.Title),, • ]$INFO[Window.Property(RecentEpisode.8.Season),S,]$INFO[Window.Property(RecentEpisode.8.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.8.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.8.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.8.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.8.Plot)]</property>	
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.8.Art(tvshow.fanart))]</property>						
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.8.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.8.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.9.Title),, • ]$INFO[Window.Property(RecentEpisode.9.Season),S,]$INFO[Window.Property(RecentEpisode.9.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.9.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.9.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.9.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.9.Plot)]</property>	
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.9.Art(tvshow.fanart))]</property>						
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.9.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.9.Art(thumb))]</icon>
-				</item>
-				<item>
-					<label>$INFO[Window.Property(RecentEpisode.10.Title),, • ]$INFO[Window.Property(RecentEpisode.10.Season),S,]$INFO[Window.Property(RecentEpisode.10.Episode),E,]</label>
-					<property name="Tilte">$INFO[Window.Property(RecentEpisode.10.TVshowTitle)]</property>
-					<property name="Poster">$INFO[Window.Property(RecentEpisode.10.Art(tvshow.poster))]</property>
-					<property name="Logo">$INFO[Window.Property(RecentEpisode.10.Art(tvshow.clearlogo))]</property>
-					<property name="Plot">$INFO[Window.Property(RecentEpisode.10.Plot)]</property>	
-					<property name="Fanart">$INFO[Window.Property(RecentEpisode.10.Art(tvshow.fanart))]</property>						
-					<onclick>PlayMedia($ESCINFO[Window.Property(RecentEpisode.10.File)])</onclick>
-					<icon>$INFO[Window.Property(RecentEpisode.10.Art(thumb))]</icon>
-				</item>
+				<include>WidgetContentEpisodes</include>
 			</content>
 				</control>
+				<control type="group">	
+						<top>15</top>				
+						<include>VisibleFadeEffect</include>
 						<control type="image">
-							<posx>-500</posx>
-							<posy>-130</posy>
-							<width>422</width>
-							<height>422</height>
-							<aspectratio align="right">keep</aspectratio>
+							<left>80</left>
+							<top>-160</top>
+							<width>300</width>
+							<aspectratio>keep</aspectratio>
 							<texture background="true" fallback="Home/widgets/defaultposter.png">$INFO[Container(8001).ListItem.Property(Poster)]</texture>
 							<bordertexture border="3">button-nofocus.png</bordertexture>
 							<bordersize>3</bordersize>
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="image">
-							<posx>-370</posx>
-							<posy>130</posy>
+							<left>80</left>
+							<top>-665</top>
 							<width>300</width>
-							<height>422</height>
-							<aspectratio align="center">keep</aspectratio>
+							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[Container(8001).ListItem.Property(Logo)]</texture>
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>	
 						<control type="label">
-							<posx>-50</posx>
-							<posy>115</posy>
-							<width>422</width>
-							<height>100</height>
-							<font>font13_title</font>
+						<left>410</left>
+						<top>130</top>
+						<width>600</width>
+						<height>100</height>
+						<font>font13_title</font>
 							<align>left</align>
 							<textcolor>white</textcolor>
 							<shadowcolor>black</shadowcolor>
 							<label>$INFO[Container(8001).ListItem.Property(Tilte)]</label>
 						</control>						
 						<control type="label">
-							<posx>-50</posx>
-							<posy>140</posy>
+							<left>410</left>
+							<top>155</top>
 							<width>422</width>
 							<height>100</height>
-							<font>font13_title</font>
+							<font>font26_title</font>
 							<align>left</align>
 							<textcolor>white</textcolor>
 							<shadowcolor>black</shadowcolor>
 							<label>$INFO[Container(8001).ListItem.Label]</label>
 						</control>
 						<control type="textbox">
-							<posx>-50</posx>
-							<posy>170</posy>
+							<left>410</left>
+							<top>190</top>
 							<label>$INFO[Container(8001).ListItem.Property(Plot)]</label>
 							<align>justify</align>
 							<font>font10</font>
 							<textcolor>white</textcolor>
-							<width>500</width>
+							<width>580</width>
 							<height>70</height>
 							<autoscroll delay="8000" time="3000" repeat="8000" />
 						</control>
 						<control type="image">
-							<left>500</left>
-							<top>145</top>
-							<width>300</width>
-							<height>219</height>
-							<aspectratio>scale</aspectratio>
+							<left>1010</left>
+							<top>140</top>
+							<width>260</width>
+							<height>150</height>
+							<aspectratio>Scale</aspectratio>
 							<texture background="true">$INFO[Container(8001).ListItem.Icon]</texture>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
-							<visible>![Player.HasVideo | Player.HasAudio]</visible>
 							<fadetime>IconCrossfadeTime</fadetime>
-						</control>															
-				<control type="button">
-					<description>left Arrow</description>
-					<left>-75</left>
-					<top>35</top>
-					<width>10</width>
-					<height>40</height>
-					<texturefocus>arrow-big-left.png</texturefocus>
-					<texturenofocus>arrow-big-left.png</texturenofocus>
-					<onclick>Control.Move(8001,-1)</onclick>
-					<visible>Control.HasFocus(8001) + Container(8001).HasPrevious</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="button">
-					<description>right Arrow</description>
-					<left>800</left>
-					<top>35</top>
-					<width>10</width>
-					<height>40</height>
-					<texturefocus>arrow-big-right.png</texturefocus>
-					<texturenofocus>arrow-big-right.png</texturenofocus>
-					<onclick>Control.Move(8001,1)</onclick>
-					<visible>Control.HasFocus(8001) + Container(8001).HasNext</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
+						</control>
+				<control type="group">
+					<left>340</left>
+					<top>270</top>
+					<include>Window_OpenClose_widgets</include>												
+					<control type="image">
+						<left>65</left>
+						<top>0</top>
+						<width>60</width>
+						<height>39</height>
+						<aspectratio>keep</aspectratio>
+						<texture fallback="Home/Widgets/flags/resolution/defaultscreen.png">$INFO[Container(8001).ListItem.Property(VideoResolution),Home/Widgets/flags/resolution/,.png]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>						
+					<control type="image">
+						<left>123</left>
+						<top>0</top>
+						<width>58</width>
+						<height>39</height>
+						<aspectratio>keep</aspectratio>
+						<texture fallback="black.png">$INFO[Container(8001).ListItem.Property(VideoAspect),Home/Widgets/flags/aspectratio/,.png]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>										
+					<control type="image">
+						<left>181</left>
+						<top>0</top>
+						<width>58</width>
+						<height>39</height>
+						<aspectratio>keep</aspectratio>
+						<texture fallback="Home/Widgets/flags/source/default.png">$INFO[Container(8001).ListItem.Property(VideoCodec),Home/Widgets/flags/source/,.png]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>	
+					<control type="image">
+						<left>239</left>
+						<top>10</top>
+						<width>54</width>
+						<height>20</height>
+						<texture>Home/Widgets/flags/IMDB.png</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>			
+				<control type="label">
+						<left>247</left>
+						<top>8</top>
+						<width>55</width>
+						<height>100</height>
+						<font>font12_title</font>
+						<align>center</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Container(8001).ListItem.Property(Rating)]</label>
+					</control>	
+					<control type="image">
+						<left>303</left>
+						<top>10</top>
+						<width>62</width>
+						<height>20</height>
+						<texture>Home/Widgets/flags/time.png</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>																
+					<control type="label">
+						<left>308</left>
+						<top>8</top>
+						<width>70</width>
+						<font>font12_title</font>
+						<align>center</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Container(8001).ListItem.Property(Runtime)]</label>
+					</control>																			
+					<control type="label">
+						<left>370</left>
+						<top>8</top>
+						<width>40</width>
+						<font>font12_title</font>
+						<align>center</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Container(8001).ListItem.Property(Year)]</label>
+					</control>						
+				</control>					
+					</control>															
 			</control>
 			<control type="group">
 				<left>450</left>
@@ -864,121 +592,12 @@
 						</control>
 					</focusedlayout>
 			<content>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.1.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.1.Title)]$INFO[Window.Property(RecentAlbum.1.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.1.Description)]</property>
-							<onclick>$INFO[Window.Property(RecentAlbum.1.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.1.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.1.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.1.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.2.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.2.Title)]$INFO[Window.Property(RecentAlbum.2.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.2.Description)]</property>
-							<onclick>$INFO[Window.Property(RecentAlbum.2.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.2.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.2.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.2.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.3.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.3.Title)]$INFO[Window.Property(RecentAlbum.3.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.3.Description)]</property>
-							<onclick>$INFO[Window.Property(RecentAlbum.3.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.3.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.3.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.3.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.4.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.4.Title)]$INFO[Window.Property(RecentAlbum.4.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.4.Description)]</property>
-							<onclick>$INFO[Window.Property(RecentAlbum.4.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.4.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.4.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.4.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.5.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.5.Title)]$INFO[Window.Property(RecentAlbum.5.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<onclick>$INFO[Window.Property(RecentAlbum.5.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.5.Thumb)]</thumb>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.5.Description)]</property>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.5.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.5.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.6.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.6.Title)]$INFO[Window.Property(RecentAlbum.6.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<onclick>$INFO[Window.Property(RecentAlbum.6.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.6.Thumb)]</thumb>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.6.Description)]</property>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.6.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.6.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.7.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.7.Title)]$INFO[Window.Property(RecentAlbum.7.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<onclick>$INFO[Window.Property(RecentAlbum.7.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.7.Thumb)]</thumb>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.7.Description)]</property>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.7.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.7.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.8.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.8.Title)]$INFO[Window.Property(RecentAlbum.8.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<onclick>$INFO[Window.Property(RecentAlbum.8.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.8.Thumb)]</thumb>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.8.Description)]</property>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.8.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.8.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.9.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.9.Title)]$INFO[Window.Property(RecentAlbum.9.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<onclick>$INFO[Window.Property(RecentAlbum.9.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.9.Thumb)]</thumb>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.9.Title))</visible>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.9.Description)]</property>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.9.Art(fanart))]</property>							
-						</item>
-						<item>
-							<label>$INFO[Window.Property(RecentAlbum.10.Artist)]</label>
-							<label2>$INFO[Window.Property(RecentAlbum.10.Title)]$INFO[Window.Property(RecentAlbum.10.Year), • ,]</label2>
-							<onclick>PlayList.Clear</onclick>
-							<onclick>$INFO[Window.Property(RecentAlbum.10.Play)]</onclick>
-							<icon>-</icon>
-							<thumb>$INFO[Window.Property(RecentAlbum.10.Thumb)]</thumb>
-							<property name="Plot">$INFO[Window.Property(RecentAlbum.10.Description)]</property>
-							<visible>!IsEmpty(Window.Property(RecentAlbum.10.Title))</visible>
-						<property name="Fanart">$INFO[Window.Property(RecentAlbum.10.Art(fanart))]</property>							
-						</item>
+						<include>WidgetContentAlbum</include>
 					</content>
 				</control>
 				<control type="image">
-							<posx>-378</posx>
-							<posy>-90</posy>
+							<left>-378</left>
+							<top>-90</top>
 							<width>300</width>
 							<height>300</height>
 							<aspectratio align="right">keep</aspectratio>
@@ -988,8 +607,8 @@
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
-							<posx>-60</posx>
-							<posy>150</posy>
+							<left>-60</left>
+							<top>150</top>
 							<width>800</width>
 							<height>100</height>
 							<font>font12_title</font>
@@ -1000,8 +619,8 @@
 						</control>
 
 						<control type="label">
-							<posx>-60</posx>
-							<posy>170</posy>
+							<left>-60</left>
+							<top>170</top>
 							<width>800</width>
 							<height>100</height>
 							<font>font12_title</font>
@@ -1011,8 +630,8 @@
 							<label>$INFO[Container(8002).ListItem.Label2]</label>
 						</control>
 						<control type="textbox">
-							<posx>-60</posx>
-							<posy>195</posy>
+							<left>-60</left>
+							<top>195</top>
 							<label>$INFO[Container(8002).ListItem.Property(Plot)]</label>
 							<align>justify</align>
 							<font>font10</font>
@@ -1115,199 +734,66 @@
 						</control>
 					</focusedlayout>
 					<content>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.1.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.1.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.1.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.1.AirTime)]$INFO[Window.Property(NextAired.1.Network), -  ,]$INFO[Window.Property(NextAired.1.Status),[CR],]$INFO[Window.Property(NextAired.1.Classification), - ,]$INFO[Window.Property(NextAired.1.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.1.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.1.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.1.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.1.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.1.NextNumber),,]$INFO[Window.Property(NextAired.1.NextTitle), ,]$INFO[Window.Property(NextAired.1.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.1.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.2.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.2.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.2.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.2.AirTime)]$INFO[Window.Property(NextAired.2.Network), -  ,]$INFO[Window.Property(NextAired.2.Status),[CR],]$INFO[Window.Property(NextAired.2.Classification), - ,]$INFO[Window.Property(NextAired.2.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.2.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.2.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.2.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.2.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.2.NextNumber),,]$INFO[Window.Property(NextAired.2.NextTitle), ,]$INFO[Window.Property(NextAired.2.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.2.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.3.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.3.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.3.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.3.AirTime)]$INFO[Window.Property(NextAired.3.Network), -  ,]$INFO[Window.Property(NextAired.3.Status),[CR],]$INFO[Window.Property(NextAired.3.Classification), - ,]$INFO[Window.Property(NextAired.3.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.3.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.3.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.3.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.3.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.3.NextNumber),,]$INFO[Window.Property(NextAired.3.NextTitle), ,]$INFO[Window.Property(NextAired.3.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.3.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.4.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.4.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.4.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.4.AirTime)]$INFO[Window.Property(NextAired.4.Network), -  ,]$INFO[Window.Property(NextAired.4.Status),[CR],]$INFO[Window.Property(NextAired.4.Classification), - ,]$INFO[Window.Property(NextAired.4.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.4.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.4.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.4.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.4.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.4.NextNumber),,]$INFO[Window.Property(NextAired.4.NextTitle), ,]$INFO[Window.Property(NextAired.4.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.4.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.5.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.5.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.5.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.5.AirTime)]$INFO[Window.Property(NextAired.5.Network), -  ,]$INFO[Window.Property(NextAired.5.Status),[CR],]$INFO[Window.Property(NextAired.5.Classification), - ,]$INFO[Window.Property(NextAired.5.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.5.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.5.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.5.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.5.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.5.NextNumber),,]$INFO[Window.Property(NextAired.5.NextTitle), ,]$INFO[Window.Property(NextAired.5.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.5.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.6.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.6.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.6.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.6.AirTime)]$INFO[Window.Property(NextAired.6.Network), -  ,]$INFO[Window.Property(NextAired.6.Status),[CR],]$INFO[Window.Property(NextAired.6.Classification), - ,]$INFO[Window.Property(NextAired.6.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.6.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.6.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.6.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.6.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.6.NextNumber),,]$INFO[Window.Property(NextAired.6.NextTitle), ,]$INFO[Window.Property(NextAired.6.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.6.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.7.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.7.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.7.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.7.AirTime)]$INFO[Window.Property(NextAired.7.Network), -  ,]$INFO[Window.Property(NextAired.7.Status),[CR],]$INFO[Window.Property(NextAired.7.Classification), - ,]$INFO[Window.Property(NextAired.7.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.7.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.7.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.7.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.7.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.7.NextNumber),,]$INFO[Window.Property(NextAired.7.NextTitle), ,]$INFO[Window.Property(NextAired.7.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.7.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.8.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.8.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.8.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.8.AirTime)]$INFO[Window.Property(NextAired.8.Network), -  ,]$INFO[Window.Property(NextAired.8.Status),[CR],]$INFO[Window.Property(NextAired.8.Classification), - ,]$INFO[Window.Property(NextAired.8.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.8.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.8.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.8.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.8.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.8.NextNumber),,]$INFO[Window.Property(NextAired.8.NextTitle), ,]$INFO[Window.Property(NextAired.8.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.8.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.9.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.9.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.9.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.9.AirTime)]$INFO[Window.Property(NextAired.9.Network), -  ,]$INFO[Window.Property(NextAired.9.Status),[CR],]$INFO[Window.Property(NextAired.9.Classification), - ,]$INFO[Window.Property(NextAired.9.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.9.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.9.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.9.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.9.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.9.NextNumber),,]$INFO[Window.Property(NextAired.9.NextTitle), ,]$INFO[Window.Property(NextAired.9.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.9.Label))</visible>					
-						</item>
-						<item>
-							<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.10.Library)],return)</onclick>
-							<icon>$INFO[Window.Property(NextAired.10.Art(poster))]</icon>
-							<property name="Poster">$INFO[Window.Property(NextAired.10.Art(poster))]</property>
-							<property name="Plot">$INFO[Window.Property(NextAired.10.AirTime)]$INFO[Window.Property(NextAired.10.Network), -  ,]$INFO[Window.Property(NextAired.10.Status),[CR],]$INFO[Window.Property(NextAired.10.Classification), - ,]$INFO[Window.Property(NextAired.10.Genre),[CR],]</property>
-							<property name="Logo">$INFO[Window.Property(NextAired.10.Art(clearlogo))]</property>
-							<property name="RunningTime">$INFO[Window(Home).Property(NextAired.10.RunTime)]</property>
-							<property name="Fanart">$INFO[Window(Home).Property(NextAired.10.Art(FanArt))]</property>
-							<label>$INFO[Window.Property(NextAired.10.Label)]</label>
-							<label2>$INFO[Window.Property(NextAired.10.NextNumber),,]$INFO[Window.Property(NextAired.10.NextTitle), ,]$INFO[Window.Property(NextAired.10.NextDate), • ,]</label2>
-							<visible>!IsEmpty(Window.Property(NextAired.10.Label))</visible>					
-						</item>
+						<include>WidgetContentNextAired</include>
 					</content>
 				</control>
 				
-				<control type="group">
+				<control type="group">	
+				<top>15</top>				
 				<include>VisibleFadeEffect</include>
 				<control type="image">
-					<posx>-50</posx>
-					<posy>-90</posy>
-					<width>422</width>
-					<height>422</height>
-					<aspectratio align="right">keep</aspectratio>
+					<left>80</left>
+					<top>-160</top>
+					<width>300</width>
+					<aspectratio>keep</aspectratio>
 					<texture background="true" fallback="Home/widgets/defaultposter.png">$INFO[Container(8003).ListItem.Icon]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="5">button-nofocus.png</bordertexture>
-							<bordersize>3</bordersize>
+					<bordersize>3</bordersize>
+					
 				</control>
-				<control type="label">
-						<posx>420</posx>
-						<posy>170</posy>
-						<width>422</width>
-						<height>100</height>
-						<font>font13_title</font>
-						<align>left</align>
-						<textcolor>white</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<label>$INFO[Container(8003).ListItem.Label] - $INFO[Container(8003).ListItem.Property(RunningTime)] Min</label>
-					</control>	
-				<control type="label">
-						<posx>420</posx>
-						<posy>195</posy>
-						<width>420</width>
-						<height>100</height>
-						<font>font13_title</font>
-						<align>left</align>
-						<textcolor>white</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<label>$INFO[Container(8003).ListItem.Label2]</label>
-						<scroll>true</scroll>
-					</control>										
 				<control type="image">
-					<posx>80</posx>
-					<posy>195</posy>
+					<left>80</left>
+					<top>-715</top>
 					<width>300</width>
-					<height>422</height>
-					<aspectratio align="center">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
 					<texture background="true">$INFO[Container(8003).ListItem.Property(Logo)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
-				</control>								
+				</control>	
+							
+				<control type="label">
+						<left>410</left>
+						<top>150</top>
+						<width>600</width>
+						<height>100</height>
+						<font>font26_title</font>
+						<align>left</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Container(8003).ListItem.Label]</label>
+					</control>	
 				<control type="image">
-					<posx>970</posx>
-					<posy>70</posy>
-					<width>300</width>
-					<height>422</height>
-					<aspectratio align="center">keep</aspectratio>
+					<left>950</left>
+					<top>50</top>
+					<width>260</width>
+					<aspectratio>keep</aspectratio>
 					<texture background="true">$INFO[Container(8003).ListItem.Property(Fanart)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<bordertexture border="5">button-nofocus.png</bordertexture>
 					<bordersize>3</bordersize>
-					<visible>![Player.HasVideo | Player.HasAudio]</visible>
+					<fadetime>IconCrossfadeTime</fadetime>
 				</control>					
-					
-					
-					<control type="textbox">
-						<posx>420</posx>
-						<posy>220</posy>
-						<label>$INFO[Container(8003).ListItem.Property(Plot)]</label>
-						<align>justify</align>
-						<font>font10</font>
-						<textcolor>white</textcolor>
-						<width>500</width>
-						<height>70</height>
-						<autoscroll delay="8000" time="3000" repeat="8000" />
-					</control>																																													
+				<control type="textbox">
+					<left>410</left>
+					<top>175</top>
+					<label>$INFO[Container(8003).ListItem.Property(Plot)]</label>
+					<align>justify</align>
+					<font>font10</font>
+					<textcolor>white</textcolor>
+					<width>500</width>
+					<height>70</height>
+					<autoscroll delay="8000" time="3000" repeat="8000" />
+				</control>	
 				</control>
 			</control>
 			
@@ -1323,29 +809,29 @@
 				<include>VisibleFadeEffect2</include>
 				
 				<control type="group">
-					<posy>84</posy>
-					<posx>550</posx>
+					<top>84</top>
+					<left>550</left>
 					<control type="group">
-					<posx>-5</posx>
+					<left>-5</left>
 					<control type="image">
-						<posx>-5</posx>
-						<posy>-5</posy>
+						<left>-5</left>
+						<top>-5</top>
 						<width>250</width>
 						<height>130</height>
 						<texture border="35">ContentPanel.png</texture>
 						<colordiffuse>88eeeeee</colordiffuse>
 					</control>
 					<control type="image">
-						<posx>-5</posx>
-						<posy>-10</posy>
+						<left>-5</left>
+						<top>-10</top>
 						<width>120</width>
 						<height>120</height>
 						<texture>$INFO[Window(Weather).Property(Day1.FanartCode),weather/medium/,.png]</texture>
 						<aspectratio align="left">keep</aspectratio>
 					</control>
 					<control type="label">
-						<posx>100</posx>
-						<posy>15</posy>
+						<left>100</left>
+						<top>15</top>
 						<label>$INFO[Window(Weather).Property(Day1.Title)]</label>
 						<align>center</align>
 						<font>Font13</font>
@@ -1355,11 +841,11 @@
 						<scroll>false</scroll>
 					</control>
 					<control type="group">
-							<posy>-35</posy>
-							<posx>-50</posx>
+							<top>-35</top>
+							<left>-50</left>
 						<control type="label">
-							<posx>178</posx>
-							<posy>84</posy>
+							<left>178</left>
+							<top>84</top>
 							<height>40</height>
 							<width>165</width>
 							<font>Font10</font>
@@ -1372,16 +858,16 @@
 							<wrapmultiline>true</wrapmultiline>
 						</control>
 					<control type="grouplist">
-						<posx>160</posx>
-						<posy>114</posy>
+						<left>160</left>
+						<top>114</top>
 						<height>40</height>
 						<width>208</width>
 						<itemgap>0</itemgap>
 						<usecontrolcoords>true</usecontrolcoords>
 						<orientation>horizontal</orientation>
 						<control type="image">
-							<posx>0</posx>
-							<posy>8</posy>
+							<left>0</left>
+							<top>8</top>
 							<width>12</width>
 							<height>24</height>
 							<texture>weather/temp-high-small.png</texture>
@@ -1389,8 +875,8 @@
 					</control>
 					<control type="label">
 						<description>high temp</description>
-						<posx>4</posx>
-						<posy>0</posy>
+						<left>4</left>
+						<top>0</top>
 						<height>40</height>
 						<width min="0" max="80">auto</width>
 						<font>Font10</font>
@@ -1401,8 +887,8 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="image">
-						<posx>15</posx>
-						<posy>8</posy>
+						<left>15</left>
+						<top>8</top>
 						<width>12</width>
 						<height>24</height>
 						<texture>weather/temp-low-small.png</texture>
@@ -1410,8 +896,8 @@
 					</control>
 					<control type="label">
 						<description>low temp</description>
-						<posx>4</posx>
-						<posy>0</posy>
+						<left>4</left>
+						<top>0</top>
 						<height>40</height>
 						<width min="0" max="80">auto</width>
 						<font>Font10</font>
@@ -1425,18 +911,18 @@
 			</control>
 			</control>
 			<control type="group">
-				<posx>495</posx>
+				<left>495</left>
 				<control type="image">
-				<posx>-260</posx>
-				<posy>-5</posy>
+				<left>-260</left>
+				<top>-5</top>
 				<width>250</width>
 				<height>130</height>
 				<texture border="35">ContentPanel.png</texture>
 				<colordiffuse>88eeeeee</colordiffuse>
 			</control>
 			<control type="image">
-				<posx>-265</posx>
-				<posy>-10</posy>
+				<left>-265</left>
+				<top>-10</top>
 				<width>120</width>
 				<height>120</height>
 				<texture>$INFO[Window(Weather).Property(Day2.FanartCode),weather/medium/,.png]</texture>
@@ -1444,8 +930,8 @@
 				<colordiffuse>white</colordiffuse>
 			</control>
 			<control type="label">
-				<posx>-170</posx>
-				<posy>15</posy>
+				<left>-170</left>
+				<top>15</top>
 				<label>$INFO[Window(Weather).Property(Day2.Title)]</label>
 				<align>center</align>
 				<font>Font13</font>
@@ -1455,11 +941,11 @@
 				<scroll>false</scroll>
 			</control>
 			<control type="group">
-				<posy>-16</posy>
-				<posx>-320</posx>
+				<top>-16</top>
+				<left>-320</left>
 				<control type="label">
-				<posx>178</posx>
-				<posy>64</posy>
+				<left>178</left>
+				<top>64</top>
 				<height>40</height>
 				<width>165</width>
 				<font>Font10</font>
@@ -1472,16 +958,16 @@
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="grouplist">
-				<posx>178</posx>
-				<posy>95</posy>
+				<left>178</left>
+				<top>95</top>
 				<height>40</height>
 				<width>208</width>
 				<itemgap>0</itemgap>
 				<usecontrolcoords>true</usecontrolcoords>
 				<orientation>horizontal</orientation>
 					<control type="image">
-						<posx>0</posx>
-						<posy>8</posy>
+						<left>0</left>
+						<top>8</top>
 						<width>12</width>
 						<height>24</height>
 						<texture>weather/temp-high-small.png</texture>
@@ -1489,8 +975,8 @@
 					</control>
 					<control type="label">
 						<description>high temp</description>
-						<posx>4</posx>
-						<posy>0</posy>
+						<left>4</left>
+						<top>0</top>
 						<height>40</height>
 						<width min="0" max="80">auto</width>
 						<font>Font10</font>
@@ -1501,8 +987,8 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="image">
-						<posx>15</posx>
-						<posy>8</posy>
+						<left>15</left>
+						<top>8</top>
 						<width>12</width>
 						<height>24</height>
 						<texture>weather/temp-low-small.png</texture>
@@ -1510,8 +996,8 @@
 					</control>
 					<control type="label">
 						<description>low temp</description>
-						<posx>4</posx>
-						<posy>0</posy>
+						<left>4</left>
+						<top>0</top>
 						<height>40</height>
 						<width min="0" max="80">auto</width>
 						<font>Font10</font>
@@ -1525,18 +1011,18 @@
 			</control>
 			</control>
 			<control type="group">
-				<posx>485</posx>
+				<left>485</left>
 				<control type="image">
-				<posx>-5</posx>
-				<posy>-5</posy>
+				<left>-5</left>
+				<top>-5</top>
 				<width>245</width>
 				<height>130</height>
 				<texture border="35">ContentPanel.png</texture>
 				<colordiffuse>88eeeeee</colordiffuse>
 			</control>
 			<control type="image">
-				<posx>-10</posx>
-				<posy>-10</posy>
+				<left>-10</left>
+				<top>-10</top>
 				<width>120</width>
 				<height>120</height>
 				<texture>$INFO[Window(Weather).Property(Day3.FanartCode),weather/medium/,.png]</texture>
@@ -1544,8 +1030,8 @@
 				<colordiffuse>white</colordiffuse>
 			</control>
 			<control type="label">
-				<posx>80</posx>
-				<posy>15</posy>
+				<left>80</left>
+				<top>15</top>
 				<label>$INFO[Window(Weather).Property(Day3.Title)]</label>
 				<align>center</align>
 				<font>Font13</font>
@@ -1555,11 +1041,11 @@
 				<scroll>false</scroll>
 			</control>
 			<control type="group">
-				<posy>-35</posy>
-				<posx>-70</posx>
+				<top>-35</top>
+				<left>-70</left>
 				<control type="label">
-				<posx>178</posx>
-				<posy>85</posy>
+				<left>178</left>
+				<top>85</top>
 				<height>40</height>
 				<width>165</width>
 				<font>Font10</font>
@@ -1572,16 +1058,16 @@
 				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="grouplist">
-				<posx>178</posx>
-				<posy>114</posy>
+				<left>178</left>
+				<top>114</top>
 				<height>40</height>
 				<width>208</width>
 				<itemgap>0</itemgap>
 				<usecontrolcoords>true</usecontrolcoords>
 				<orientation>horizontal</orientation>
 				<control type="image">
-					<posx>0</posx>
-					<posy>8</posy>
+					<left>0</left>
+					<top>8</top>
 					<width>12</width>
 					<height>24</height>
 					<texture>weather/temp-high-small.png</texture>
@@ -1589,8 +1075,8 @@
 				</control>
 			<control type="label">
 				<description>high temp</description>
-				<posx>4</posx>
-				<posy>0</posy>
+				<left>4</left>
+				<top>0</top>
 				<height>40</height>
 				<width min="0" max="80">auto</width>
 				<font>Font10</font>
@@ -1601,8 +1087,8 @@
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="image">
-				<posx>15</posx>
-				<posy>8</posy>
+				<left>15</left>
+				<top>8</top>
 				<width>12</width>
 				<height>24</height>
 				<texture>weather/temp-low-small.png</texture>
@@ -1610,8 +1096,8 @@
 			</control>
 			<control type="label">
 				<description>low temp</description>
-				<posx>4</posx>
-				<posy>0</posy>
+				<left>4</left>
+				<top>0</top>
 				<height>40</height>
 				<width min="0" max="80">auto</width>
 				<font>Font10</font>
@@ -1626,8 +1112,8 @@
 			</control>
 			</control>
 			<control type="multiimage" id="19005">
-			<posx>10</posx>
-			<posy>10</posy>
+			<left>10</left>
+			<top>10</top>
 			<width>537</width>
 			<height>254</height>
 			<timeperimage>10000</timeperimage>
@@ -1642,11 +1128,11 @@
 			</control>
 			
 			<control type="group">
-			<posx>200</posx>
-			<posy>130</posy>
+			<left>200</left>
+			<top>130</top>
 				<control type="image">
-					<posx>65</posx>
-					<posy>-180</posy>
+					<left>65</left>
+					<top>-180</top>
 					<width>180</width>
 					<height>180</height>
 					<texture>$INFO[Window(Weather).Property(Current.FanartCode),weather/medium/,.png]</texture>
@@ -1654,8 +1140,8 @@
 				</control>
 				<control type="label">
 					<description>current temp value</description>
-					<posx>25</posx>
-					<posy>-20</posy>
+					<left>25</left>
+					<top>-20</top>
 					<width>450</width>
 					<height>30</height>
 					<font>WeatherTemp</font>
@@ -1665,8 +1151,8 @@
 				</control>
 				<control type="label">
 					<description>current conditionslabel</description>
-					<posx>35</posx>
-					<posy>99</posy>
+					<left>35</left>
+					<top>99</top>
 					<width>450</width>
 					<height>30</height>
 					<font>Font13</font>
@@ -1674,12 +1160,12 @@
 					<textcolor>white</textcolor>
 				</control>
 			<control type="group">
-				<posx>300</posx>
-				<posy>-5</posy>
+				<left>300</left>
+				<top>-5</top>
 				<control type="label">
 					<description>current feels like label</description>
-					<posx>0</posx>
-					<posy>20</posy>
+					<left>0</left>
+					<top>20</top>
 					<width>450</width>
 					<height>30</height>
 					<align>right</align>
@@ -1689,8 +1175,8 @@
 				</control>
 					<control type="label">
 						<description>current feels like value</description>
-						<posx>0</posx>
-						<posy>50</posy>
+						<left>0</left>
+						<top>50</top>
 						<width>450</width>
 						<height>30</height>
 						<align>right</align>
@@ -1700,8 +1186,8 @@
 					</control>
 					<control type="label">
 						<description>current humidity label</description>
-						<posx>0</posx>
-						<posy>80</posy>
+						<left>0</left>
+						<top>80</top>
 						<width>450</width>
 						<height>30</height>
 						<align>right</align>
@@ -1711,8 +1197,8 @@
 					</control>
 					<control type="label">
 						<description>current humidity value</description>
-						<posx>0</posx>
-						<posy>110</posy>
+						<left>0</left>
+						<top>110</top>
 						<width>450</width>
 						<height>30</height>
 						<align>right</align>
@@ -1723,8 +1209,8 @@
 				</control>
 				</control>						
 			<control type="grouplist">
-					<posx>180</posx>
-					<posy>280</posy>
+					<left>180</left>
+					<top>280</top>
 					<orientation>vertical</orientation>
 					<itemgap>20</itemgap>
 					<align>left</align>

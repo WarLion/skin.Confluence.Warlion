@@ -64,8 +64,8 @@
 					<ondown>84</ondown>
 					<onleft>84</onleft>
 					<onright>84</onright>
-					<posx>0</posx>
-					<posy>0</posy>
+					<left>0</left>
+					<top>0</top>
 					<width>400</width>
 					<height>300</height>
 					<viewtype>list</viewtype>
@@ -75,15 +75,15 @@
 					<itemlayout width="90" height="95">
 						<control type="group">
 							<control type="image">
-								<posx>10</posx>
-								<posy>5</posy>
+								<left>10</left>
+								<top>5</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>DialogBack.png</texture>
 							</control>						
 							<control type="image">
-								<posx>10</posx>
-								<posy>10</posy>
+								<left>10</left>
+								<top>10</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>$INFO[ListItem.Property(poster)]</texture>
@@ -91,8 +91,8 @@
 								<colordiffuse>44c6c6c6</colordiffuse>
 							</control>
 							<control type="label">
-								<posx>55</posx>
-								<posy>70</posy>
+								<left>55</left>
+								<top>70</top>
 								<label>$INFO[ListItem.Label]</label>
 								<align>center</align>
 								<font>Font8</font>
@@ -105,15 +105,15 @@
 					<itemlayout width="90">
 						<control type="group">
 							<control type="image">
-								<posx>10</posx>
-								<posy>95</posy>
+								<left>10</left>
+								<top>95</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>DialogBack.png</texture>
 							</control>						
 							<control type="image">
-								<posx>10</posx>
-								<posy>100</posy>
+								<left>10</left>
+								<top>100</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>$INFO[ListItem.Property(poster)]</texture>
@@ -121,8 +121,8 @@
 								<colordiffuse>44c6c6c6</colordiffuse>
 							</control>
 							<control type="label">
-								<posx>55</posx>
-								<posy>160</posy>
+								<left>55</left>
+								<top>160</top>
 								<label>$INFO[ListItem.Label]</label>
 								<align>center</align>
 								<font>Font8</font>
@@ -135,15 +135,15 @@
 					<focusedlayout width="90" height="95">
 <control type="group">
 							<control type="image">
-								<posx>10</posx>
-								<posy>5</posy>
+								<left>10</left>
+								<top>5</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>DialogBack.png</texture>
 							</control>								
 							<control type="image">
-								<posx>10</posx>
-								<posy>10</posy>
+								<left>10</left>
+								<top>10</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>$INFO[ListItem.Property(poster)]</texture>
@@ -151,8 +151,8 @@
 								<visible>Control.HasFocus(84)</visible>
 							</control>
 							<control type="image">
-								<posx>10</posx>
-								<posy>10</posy>
+								<left>10</left>
+								<top>10</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>$INFO[ListItem.Property(poster)]</texture>
@@ -161,8 +161,8 @@
 								<visible>!Control.HasFocus(84)</visible>
 							</control>							
 							<control type="label">
-								<posx>55</posx>
-								<posy>70</posy>
+								<left>55</left>
+								<top>70</top>
 								<label>$INFO[ListItem.Label]</label>
 								<align>center</align>
 								<font>Font8</font>
@@ -171,8 +171,8 @@
 								<visible>Control.HasFocus(84)</visible>
 							</control>
 							<control type="label">
-								<posx>55</posx>
-								<posy>70</posy>
+								<left>55</left>
+								<top>70</top>
 								<label>$INFO[ListItem.Label]</label>
 								<align>center</align>
 								<font>Font8</font>
@@ -186,15 +186,15 @@
 <focusedlayout width="90">
 <control type="group">
 							<control type="image">
-								<posx>10</posx>
-								<posy>95</posy>
+								<left>10</left>
+								<top>95</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>DialogBack.png</texture>
 							</control>								
 							<control type="image">
-								<posx>10</posx>
-								<posy>100</posy>
+								<left>10</left>
+								<top>100</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>$INFO[ListItem.Property(poster)]</texture>
@@ -202,8 +202,8 @@
 								<visible>Control.HasFocus(84)</visible>
 							</control>
 							<control type="image">
-								<posx>10</posx>
-								<posy>100</posy>
+								<left>10</left>
+								<top>100</top>
 								<width>90</width>
 								<height>90</height>
 								<texture>$INFO[ListItem.Property(poster)]</texture>
@@ -212,8 +212,8 @@
 								<visible>!Control.HasFocus(84)</visible>
 							</control>							
 							<control type="label">
-								<posx>55</posx>
-								<posy>160</posy>
+								<left>55</left>
+								<top>160</top>
 								<label>$INFO[ListItem.Label]</label>
 								<align>center</align>
 								<font>Font8</font>
@@ -222,8 +222,8 @@
 								<visible>Control.HasFocus(84)</visible>
 							</control>
 							<control type="label">
-								<posx>55</posx>
-								<posy>160</posy>
+								<left>55</left>
+								<top>160</top>
 								<label>$INFO[ListItem.Label]</label>
 								<align>center</align>
 								<font>Font8</font>

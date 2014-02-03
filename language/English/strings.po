@@ -1,23 +1,28 @@
 # XBMC Media Center language file
-# Addon Name: Confluence Modified
-# Addon id: skin.confluence.modified
-# Addon version: 1.0.1
+# Addon Name: Confluence
+# Addon id: skin.confluence
 # Addon Provider: Jezz_X, Team XBMC
 msgid ""
 msgstr ""
-"Project-Id-Version: XBMC Main Translation Project (Frodo)\n"
+"Project-Id-Version: XBMC Main\n"
 "Report-Msgid-Bugs-To: http://trac.xbmc.org/\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: XBMC Translation Team\n"
-"Language-Team: English (http://www.transifex.com/projects/p/XBMC-Main-Frodo/language/en/)\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-main/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#empty strings from id 31000 to 31002
+#Misc labels
+
+msgctxt "#31000"
+msgid "Change Your"
+msgstr ""
+
+#empty strings from id 31001 to 31002
 
 msgctxt "#31003"
 msgid "Power Options"
@@ -35,12 +40,10 @@ msgctxt "#31006"
 msgid "View Options"
 msgstr ""
 
-msgctxt "#31007"
-msgid "Settings Options"
-msgstr ""
+#empty string with id 31007
 
 msgctxt "#31008"
-msgid "Fullscreen"
+msgid "Full screen"
 msgstr ""
 
 msgctxt "#31009"
@@ -98,11 +101,12 @@ msgid "Info"
 msgstr ""
 
 #empty strings from id 31034 to 31038
-#Extra labels
 
 msgctxt "#31039"
 msgid "Actions"
 msgstr ""
+
+#Extra labels
 
 msgctxt "#31040"
 msgid "Now Playing"
@@ -130,10 +134,10 @@ msgctxt "#31046"
 msgid "SEEKING"
 msgstr ""
 
-#empty string 31047
+#empty string with id 31047
 
 msgctxt "#31048"
-msgid "Visualization Presets"
+msgid "Visualisation Presets"
 msgstr ""
 
 msgctxt "#31049"
@@ -195,7 +199,7 @@ msgid "Show \"Paused\" in picture slide show"
 msgstr ""
 
 msgctxt "#31104"
-msgid "Play trailers in a window [COLOR=grey3](Video Information Dialog Only)[/COLOR]"
+msgid "Play Trailers in a window [COLOR=grey3](Video Information Dialogue Only)[/COLOR]"
 msgstr ""
 
 #empty string with id 31105
@@ -205,23 +209,41 @@ msgid "Miscellaneous options"
 msgstr ""
 
 msgctxt "#31107"
-msgid "Hide media flags based on a filename [COLOR=grey3](Blu-ray, HD-DVD)[/COLOR]"
+msgid "Hide Flagging read from video filenames [COLOR=grey3](Blu-ray, HD-DVD)[/COLOR]"
 msgstr ""
 
 msgctxt "#31108"
 msgid "Hide Main Menu Buttons"
 msgstr ""
 
-#empty strings from id 31109 to 31111
+msgctxt "#31109"
+msgid "Enable Custom Background"
+msgstr ""
+
+msgctxt "#31110"
+msgid "Background path:"
+msgstr ""
+
+msgctxt "#31111"
+msgid "Hide"
+msgstr ""
 
 msgctxt "#31112"
 msgid "Options"
 msgstr ""
 
-#empty strings from id 31113 to 31117
+#empty strings from id 31113 to 31115
+
+msgctxt "#31116"
+msgid "Show Recently added Albums"
+msgstr ""
+
+msgctxt "#31117"
+msgid "Show Recently added Videos"
+msgstr ""
 
 msgctxt "#31118"
-msgid "Home Page Program Add-ons"
+msgid "Home Page Programs Sub-menu"
 msgstr ""
 
 msgctxt "#31119"
@@ -235,11 +257,11 @@ msgid "Show Background \"Now Playing\" Video"
 msgstr ""
 
 msgctxt "#31125"
-msgid "Show Background \"Now Playing\" Visualization"
+msgid "Show Background \"Now Playing\" Visualisation"
 msgstr ""
 
 msgctxt "#31126"
-msgid "Play TV theme songs"
+msgid "Play TV theme songs in video library (TvTunes add-on)"
 msgstr ""
 
 msgctxt "#31127"
@@ -251,7 +273,7 @@ msgid "Lyrics"
 msgstr ""
 
 msgctxt "#31129"
-msgid "Hide Fanart in full screen visualization"
+msgid "Hide Fanart in full screen visualisation"
 msgstr ""
 
 #empty strings from id 31130 to 31131
@@ -260,20 +282,18 @@ msgctxt "#31132"
 msgid "Lyrics Add-on"
 msgstr ""
 
-msgctxt "#31133"
-msgid "Subtitle Add-on"
-msgstr ""
+#empty string with id 31133
 
 msgctxt "#31134"
-msgid "Home Page Video Add-ons"
+msgid "Home Page Videos Sub-menu"
 msgstr ""
 
 msgctxt "#31135"
-msgid "Home Page Music Add-ons"
+msgid "Home Page Music Sub-menu"
 msgstr ""
 
 msgctxt "#31136"
-msgid "Home Page Picture Add-ons"
+msgid "Home Page Pictures Sub-menu"
 msgstr ""
 
 #empty strings from id 31137 to 31139
@@ -286,7 +306,11 @@ msgctxt "#31141"
 msgid "Video OSD"
 msgstr ""
 
-#empty strings from id 31142 to 31199
+msgctxt "#31142"
+msgid "Settings level"
+msgstr ""
+
+#empty strings from id 31143 to 31199
 #Script labels
 
 msgctxt "#31200"
@@ -514,7 +538,7 @@ msgid "[B]CONFIGURE ADD-ONS[/B][CR][CR]Manage your installed Add-ons · Browse f
 msgstr ""
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE TV SETTINGS[/B][CR][CR]Change fullscreen info · Manage EPG data settings"
+msgid "[B]CONFIGURE TV SETTINGS[/B][CR][CR]Change full screen info · Manage EPG data settings"
 msgstr ""
 
 msgctxt "#31410"
@@ -526,17 +550,32 @@ msgid "First run help...."
 msgstr ""
 
 msgctxt "#31412"
-msgid "This tab signifies that there is a menu off to the side of this window that contains extra options for this section.  To access the menu, navigate to the left with your remote control or keyboard or place your mouse pointer over the tab. [CR][CR]Click \"Ok\" to close this dialog. It will not appear again."
+msgid "This tab signifies that there is a menu off to the side of this window that contains extra options for this section.  To access the menu, navigate to the left with your remote control or keyboard or place your mouse pointer over the tab. [CR][CR]Click \"Ok\" to close this dialogue. It will not appear again."
 msgstr ""
 
-#empty strings from id 31413 to 31420
+msgctxt "#31413"
+msgid "Local subtitle available"
+msgstr ""
+
+#empty strings from id 31414 to 31419
+
+msgctxt "#31420"
+msgid "Login"
+msgstr ""
 
 msgctxt "#31421"
 msgid "Select your XBMC user Profile[CR]to login and continue"
 msgstr ""
 
-#empty strings from id 31422 to 31499
-#PVR labels
+msgctxt "#31422"
+msgid "Show or hide the login screen at startup."
+msgstr ""
+
+msgctxt "#31423"
+msgid "Select the profile that will be used at startup when the login screen is disabled."
+msgstr ""
+
+#empty strings from id 31424 to 31500
 
 msgctxt "#31501"
 msgid "Scheduled Time"
@@ -576,22 +615,7 @@ msgctxt "#31511"
 msgid "Channel Options"
 msgstr ""
 
-#empty strings from id 31512 to 31599
-
-msgctxt "#31600"
-msgid "Go fullscreen when music playback starts"
-msgstr ""
-
-msgctxt "#31601"
-msgid "Reminder"
-msgstr ""
-
-msgctxt "#31602"
-msgid "Remember to configure the wanted artwork types in the Artwork Downloader settings first.[CR][CR]Supported artwork types are:[CR][CR]Movies: logo, extrafanart[CR]TV Shows: logo, clearart, extrafanart"
-msgstr ""
-
-#empty strings from id 31603 to 31900
-
+#empty strings from id 31512 to 31900
 #Weather plugin
 
 msgctxt "#31901"
@@ -610,7 +634,15 @@ msgctxt "#31904"
 msgid "10 Day Forecast"
 msgstr ""
 
-#empty strings from id 31905 to 31908
+msgctxt "#31905"
+msgid "Forecast"
+msgstr ""
+
+#empty strings from id 31906 to 31907
+
+msgctxt "#31908"
+msgid "Chance of Precipitation"
+msgstr ""
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
@@ -623,343 +655,45 @@ msgstr ""
 #empty strings from id 31911 to 31949
 
 msgctxt "#31950"
-msgid "WEATHER"
+msgid "Weather"
 msgstr ""
 
 msgctxt "#31951"
-msgid "PICTURES"
+msgid "Pictures"
 msgstr ""
 
 msgctxt "#31952"
-msgid "LIVE TV"
+msgid "Live TV"
 msgstr ""
 
 msgctxt "#31953"
-msgid "VIDEOS"
+msgid "Videos"
 msgstr ""
 
 msgctxt "#31954"
-msgid "MOVIES"
+msgid "Movies"
 msgstr ""
 
 msgctxt "#31955"
-msgid "TV SHOWS"
+msgid "TV Shows"
 msgstr ""
 
 msgctxt "#31956"
-msgid "MUSIC"
+msgid "Music"
 msgstr ""
 
 msgctxt "#31957"
-msgid "ADD-ONS"
+msgid "Programs"
 msgstr ""
 
 msgctxt "#31958"
-msgid "PLAY DISC"
+msgid "Play Disc"
 msgstr ""
 
 msgctxt "#31959"
-msgid "SYSTEM"
+msgid "System"
 msgstr ""
 
 msgctxt "#31960"
-msgid "MUSIC VIDEOS"
-msgstr ""
-
-msgctxt "#31961"
-msgid "FAVOURITES"
-msgstr ""
-
-msgctxt "#31962"
-msgid "SEARCH"
-msgstr ""
-
-msgctxt "#31963"
-msgid "SHUTDOWN"
-msgstr ""
-
-msgctxt "#31964"
-msgid "ADD-ONS"
-msgstr ""
-
-msgctxt "#31965"
-msgid "Add-on Manager"
-msgstr ""
-
-msgctxt "#31966"
-msgid "Picture"
-msgstr ""
-
-msgctxt "#31967"
-msgid "Program"
-msgstr ""
-
-msgctxt "#31968"
-msgid "Manage"
-msgstr ""
-
-msgctxt "#31969"
-msgid "Airs"
-msgstr ""
-
-msgctxt "#31970"
-msgid "Show upcoming episode information"
-msgstr ""
-
-msgctxt "#31971"
-msgid "Add-on settings"
-msgstr ""
-
-msgctxt "#90000"
-msgid "Download art"
-msgstr ""
-
-msgctxt "#90001"
-msgid "Show media widgets"
-msgstr ""
-
-msgctxt "#90002"
-msgid "Cancel timer"
-msgstr ""
-
-msgctxt "#90003"
-msgid "Custom main menu buttons"
-msgstr ""
-
-msgctxt "#90004"
-msgid "Enable more artwork types"
-msgstr ""
-
-msgctxt "#90005"
-msgid "Clearart, clearlogo"
-msgstr ""
-
-msgctxt "#90006"
-msgid "Videos opens in Files mode"
-msgstr ""
-
-msgctxt "#90007"
-msgid "Type"
-msgstr ""
-
-msgctxt "#90008"
-msgid "Item"
-msgstr ""
-
-msgctxt "#90009"
-msgid "Recent"
-msgstr ""
-
-msgctxt "#90010"
-msgid "Movies button opens..."
-msgstr ""
-
-msgctxt "#90011"
-msgid "Name"
-msgstr ""
-
-msgctxt "#90012"
-msgid "TV Shows button opens..."
-msgstr ""
-
-msgctxt "#90013"
-msgid "Recommended"
-msgstr ""
-
-msgctxt "#90014"
-msgid "Music button opens..."
-msgstr ""
-
-msgctxt "#90015"
-msgid "Home Window"
-msgstr ""
-
-msgctxt "#90016"
-msgid "Buttons"
-msgstr ""
-
-msgctxt "#90017"
-msgid "Main menu button press actions"
-msgstr ""
-
-msgctxt "#90018"
-msgid "Enabled submenu buttons"
-msgstr ""
-
-msgctxt "#90019"
-msgid "PVR"
-msgstr ""
-
-msgctxt "#90020"
-msgid "Custom menu 1"
-msgstr ""
-
-msgctxt "#90021"
-msgid "Custom menu 2"
-msgstr ""
-
-msgctxt "#90022"
-msgid "Custom menu 3"
-msgstr ""
-
-msgctxt "#90023"
-msgid "Submenu"
-msgstr ""
-
-#empty string id 90024 
-
-msgctxt "#90025"
-msgid "Main Menu"
-msgstr ""
-
-msgctxt "#90026"
-msgid "Single image"
-msgstr ""
-
-msgctxt "#90027"
-msgid "Customiser"
-msgstr ""
-
-msgctxt "#90028"
-msgid "Media type:"
-msgstr ""
-
-msgctxt "#90029"
-msgid "Choose backgrounds for different media types"
-msgstr ""
-
-msgctxt "#90030"
-msgid "Weather background shows current weather condition"
-msgstr ""
-
-msgctxt "#90031"
-msgid "Weather background location:"
-msgstr ""
-
-msgctxt "#90032"
-msgid "Download artwork configured in the add-on settings"
-msgstr ""
-
-msgctxt "#90033"
-msgid "Multiple images"
-msgstr ""
-
-msgctxt "#90034"
-msgid "Default button at OSD"
-msgstr ""
-
-msgctxt "#90035"
-msgid "Hide library statistics [COLOR=grey3](item & page count, total duration..)[/COLOR]"
-msgstr ""
-
-msgctxt "#90036"
-msgid "Home Page Live TV Add-ons"
-msgstr ""
-
-msgctxt "#90037"
-msgid "Passive scrollbars"
-msgstr ""
-
-msgctxt "#90038"
-msgid "Don't show submenus automatically"
-msgstr ""
-
-msgctxt "#90039"
-msgid "Don't show add-ons automatically"
-msgstr ""
-
-msgctxt "#90040"
-msgid "Home menu color"
-msgstr ""
-
-msgctxt "#90041"
-msgid "Change main menu font color"
-msgstr ""
-
-msgctxt "#90042"
-msgid "OpenELEC"
-msgstr ""
-
-msgctxt "#90043"
-msgid "Hide audio and subtitle language media flags"
-msgstr ""
-
-msgctxt "#90044"
-msgid "Show Artist Slideshow"
-msgstr ""
-
-msgctxt "#90045"
-msgid "Coverflow"
-msgstr ""
-
-msgctxt "#90046"
-msgid "Extrafanart"
-msgstr ""
-
-msgctxt "#90047"
-msgid "Widget settings"
-msgstr ""
-
-#empty string id 90048 
-
-#empty string id 90049 
-
-msgctxt "#90050"
-msgid "Update movie artwork after library update"
-msgstr ""
-
-msgctxt "#90051"
-msgid "Vertical home screen"
-msgstr ""
-
-msgctxt "#90052"
-msgid "Show movie widget"
-msgstr ""
-
-msgctxt "#90053"
-msgid "Show episode widget"
-msgstr ""
-
-msgctxt "#90054"
-msgid "Show album widget"
-msgstr ""
-
-msgctxt "#90055"
-msgid "Show music video widget"
-msgstr ""
-
-msgctxt "#90056"
-msgid "Show custom widget"
-msgstr ""
-
-msgctxt "#90057"
-msgid "Shutdown menu"
-msgstr ""
-
-msgctxt "#90058"
-msgid "Enabled shutdown menu options"
-msgstr ""
-
-msgctxt "#90059"
-msgid "Show favourite widget"
-msgstr ""
-
-msgctxt "#90060"
-msgid "Show add-on widget"
-msgstr ""
-
-msgctxt "#90061"
-msgid "Cinema"
-msgstr ""
-
-msgctxt "#90062"
-msgid "Live TV Add-ons"
-msgstr ""
-
-msgctxt "#90063"
-msgid "Show library details"
-msgstr ""
-
-msgctxt "#90064"
-msgid "Classic subtitle button"
+msgid "Next Aired"
 msgstr ""
